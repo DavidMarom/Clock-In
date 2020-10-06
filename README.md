@@ -1,2 +1,2 @@
 # hi Joe
-A Modern employee management system
+A modern employee management system
