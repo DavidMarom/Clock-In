@@ -5,20 +5,20 @@ An open source project
 
 ## What we need:
 ### Team communication:
-Slack
-To-Do board
+- Slack
+- To-Do board
 
 ### Design
-Page design
+- Page design
 
 ### Code
-JSON structure
+- JSON structure
 
 # Features:
 ## Employee:
-Login
-puch-in puch-out
+- Login
+- puch-in puch-out
 
 ## Admin:
-View employees list
-View employee page (summary, working hours etc..)
+- View employees list
+- View employee page (summary, working hours etc..)
