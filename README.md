@@ -1,7 +1,7 @@
 # Hi Joe
-A modern employee management system
-
-An open source project
+- A modern employee management system
+- An open source project
+- Inpired by Hi bob: https://www.hibob.com/
 
 ## What we need:
 ### Team communication:
