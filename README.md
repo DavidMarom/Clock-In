@@ -17,7 +17,8 @@ An open source project
 # Features:
 ## Employee:
 - Login
-- puch-in puch-out
+- Puch-in puch-out
+- Coffe corner
 
 ## Admin:
 - View employees list
