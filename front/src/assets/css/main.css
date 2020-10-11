@@ -1,0 +1,213 @@
+/*
+David's CSS library
+Super ultra-mega responsive css classes that will make you shit bricks
+davidmarom.pro@gmail.com
+*/
+
+/* CONTAINER *****************/
+
+@import 'nav-bar.css';
+
+.outter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.inner-container {
+    width: 1400px;
+}
+
+/* LAYOUT ********************/
+
+.ra {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.rb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.ca {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.col-just-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-content: space-between; */
+    /* align-items: center; */
+}
+
+/* HIGHT *********************/
+
+.h10 {
+    height: 10px;
+}
+
+.h100 {
+    height: 100px;
+}
+
+.h200 {
+    height: 200px;
+}
+
+.h330 {
+    height: 330px;
+}
+
+/* WIDTH *********************/
+
+.w100 {
+    width: 100px;
+}
+
+.w200 {
+    width: 200px;
+}
+
+.w400 {
+    width: 400px;
+}
+
+.w500 {
+    width: 500px;
+}
+
+.w100p {
+    width: 100%;
+}
+
+.w90p {
+    width: 90%;
+}
+
+.w30p {
+    width: 30%;
+}
+
+.w40p {
+    width: 40%;
+}
+
+.width-1000 {
+    width: 1000px;
+}
+
+.min-width-1000 {
+    min-width: 1000px;
+}
+
+/* BG ***********************************/
+
+.bg-01 {
+    background-color: aquamarine;
+}
+
+.bg-02 {
+    background-color: #012F34;
+}
+
+.bg-03 {
+    background-color: rgb(146, 127, 255);
+}
+
+.bg-04 {
+    background-color: rgb(0, 255, 34);
+}
+
+/* HEIGHT *****************************/
+
+.h200 {
+    height: 200px;
+}
+
+/* BTN *******************************/
+
+.btn {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    border-radius: 50px;
+    background-color: #00000000;
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* IMAGE *********************/
+
+.img-75 {
+    max-width: auto;
+    max-height: 75px;
+}
+
+/* FONT **********************/
+
+.font-white {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.font-pink {
+    color: #F67E7E;
+    font-size: 1rem;
+}
+
+.pad-left-100 {
+    padding-left: 100px;
+}
+
+.big-text {
+    color: #ffffff;
+    font-size: 3rem;
+}
+
+/* MARGIN  *************************/
+
+.mrg-v-100 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.mrg-r-20 {
+    margin-right: 20px;
+}
+
+/* SOME OTHER SHIT *********************/
+
+.oh {
+    overflow: hidden;
+}
+
+.marg-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CODE EXAMPLE:
+<div className="outter-container bg-01">
+<div className="inner-container bg-03">
+    <div className="row-space-around h200 font-white">
+        <div className="h100 bg-02">a a a adf sd f dsf fd gsfdsg  a</div>
+        <div className="h100 bg-02">a a adfgh dfg fgdhdfg fgdh a a</div>
+        <div className="w100 h100 bg-02">a a a a a</div>
+        <div className="col-just-around w100 h200 bg-02">
+            <div className="bg-04">sgds fdfs dsf </div>
+            <div className="bg-04 h10"></div>
+            <div className="bg-04 h10"></div>
+        </div>
+        <div className="w100 h100 bg-02"></div>
+    </div>
+</div>
+</div> */

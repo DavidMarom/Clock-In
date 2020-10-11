@@ -1,0 +1,9 @@
+.nav-bar {
+    height: 65px;
+    background-color: #ffffff;
+}
+
+.drop-shadow {
+    filter: drop-shadow(0px 0px 10px #f0f0f0);
+}
+
