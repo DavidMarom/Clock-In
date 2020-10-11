@@ -1,3 +1,6 @@
+![joe logo](https://res.cloudinary.com/dojmo7vcc/image/upload/v1602421381/joe/Joe-Logo_sl3lkh.jpg)
+
+
 # Hi Joe
 - A modern employee management system
 - An open source project
