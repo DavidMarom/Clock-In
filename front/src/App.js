@@ -9,7 +9,9 @@ import { withRouter } from 'react-router';
 import './App.css';
 
 import { NavBar } from "./cmps/NavBar.jsx";
-import { SideBar } from './cmps/SideBar2.jsx';
+import { SideBar } from './cmps/SideBar.jsx';
+
+import ui_img from './assets/img/ui.png';
 
 function _App() {
   return (
@@ -18,8 +20,10 @@ function _App() {
       <div className="outter-container">
         <div className="inner-container">
           <div className="ra">
-            <SideBar />
-            <div className="center-part">
+            <div className="w200">
+              <SideBar />
+            </div>
+            <div className="bg-01 center-part">
               <h1>Hi Joe</h1>
               <Switch>
                 <Route exact component={Home} path={'/'} />
@@ -30,6 +34,9 @@ function _App() {
           </div>
         </div>
       </div>
+
+    <img src={ui_img} />
+
     </div>
   );
 }

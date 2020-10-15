@@ -7,7 +7,11 @@ import { Provider } from 'react-redux';
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import { HashRouter as Router } from 'react-router-dom';
+
+import history from './history';
+
+import { Router } from 'react-router-dom';
+
 import "./assets/css/main.css";
 
 import reducerA from './store/reducers/reducer-a';
@@ -25,9 +29,8 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router history={history}>
       <Provider store={store}>
-
         <App />
       </Provider>
     </Router>

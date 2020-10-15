@@ -15,6 +15,8 @@ davidmarom.pro@gmail.com
 
 @import 'nav-bar.css';
 @import 'side-bar.css';
+@import '_base.scss';
+
 .outter-container {
     display: flex;
     flex-direction: row;
@@ -118,7 +120,7 @@ davidmarom.pro@gmail.com
 /* BG ***********************************/
 
 .bg-01 {
-    background-color: aquamarine;
+    background-color: #f7dad9;
 }
 
 .bg-02 {
@@ -201,6 +203,7 @@ davidmarom.pro@gmail.com
     margin-right: auto;
 }
 
+
 /* CODE EXAMPLE:
 <div className="outter-container bg-01">
 <div className="inner-container bg-03">
@@ -217,3 +220,7 @@ davidmarom.pro@gmail.com
     </div>
 </div>
 </div> */
+
+.center-part{
+    width: 100%;
+}
