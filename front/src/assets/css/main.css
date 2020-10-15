@@ -4,10 +4,17 @@ Super ultra-mega responsive css classes that will make you shit bricks
 davidmarom.pro@gmail.com
 */
 
+.pallete {
+    color: #968c83;
+    color: #d6d2c4;
+    color: #fff5ea;
+    color: #f7dad9;
+}
+
 /* CONTAINER *****************/
 
 @import 'nav-bar.css';
-
+@import 'side-bar.css';
 .outter-container {
     display: flex;
     flex-direction: row;
@@ -32,7 +39,6 @@ davidmarom.pro@gmail.com
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-
 }
 
 .ca {

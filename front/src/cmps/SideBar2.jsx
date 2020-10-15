@@ -5,7 +5,7 @@ export class SideBar extends Component {
     render() {
         return (
             <div>
-                <div className="ca">
+                <div className="ca side-bar">
                     <div>Sidebar</div>
                     <NavLink to="/page-01">Page-01</NavLink>
                     <NavLink to="/page-02">Page-02</NavLink>
