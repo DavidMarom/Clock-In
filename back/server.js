@@ -29,17 +29,17 @@ if (process.env.NODE_ENV === 'production') {
     app.use(cors(corsOptions));
 }
 
-// const authRoutes = require('./api/auth/auth.routes')
-// const userRoutes = require('./api/user/user.routes')
+const authRoutes = require('./api/auth/auth.routes')
+const userRoutes = require('./api/user/user.routes')
 // const reviewRoutes = require('./api/review/review.routes')
 // const activityRoutes = require('./api/activity/activity.routes')
 // const connectSockets = require('./api/socket/socket.routes')
 
 
 //routes
-// app.use('/api/auth', authRoutes)
+app.use('/api/auth', authRoutes)
 // app.use('/api/activity', activityRoutes)
-// app.use('/api/user', userRoutes)
+app.use('/api/user', userRoutes)
 
 
 // connectSockets(io)
@@ -51,5 +51,5 @@ app.get('/**', (req, res) => {
 const logger = require('./services/logger.service')
 const port = process.env.PORT || 3030;
 http.listen(port, () => {
-    logger.info('Server is running on port: ' + port)
+    console.log('Server is running on port: ' + port)
 });

@@ -1,4 +1,0 @@
-create:
-employee.controller.js
-employee.routes.js
-employee.services.js

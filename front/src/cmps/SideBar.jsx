@@ -3,14 +3,9 @@ import { NavLink } from "react-router-dom";
 import history from '../history';
 
 export class SideBar extends Component {
-    state = {
-        e: null
-    }
-
 
     clickHandler() {
-        history.push(`/`);
-        this.setState({ e: 'aaa' });
+        history.push(`/admin`);
     }
 
     render() {
@@ -19,7 +14,7 @@ export class SideBar extends Component {
                 <div className="nav-override-color">Sidebar</div>
                 <NavLink className="nav-override-color" to="/page-01">Page-01</NavLink>
                 <NavLink className="nav-override-color" to="/page-02">Page-02</NavLink>
-                <button onClick={() => this.clickHandler()}>Go Home!</button>
+                <button onClick={() => this.clickHandler()}>Admin</button>
             </div>
         )
     }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { onInc_a, onDec_a } from "../store/actions/action-a";
+
 
 function _AddButton_a(props) {
     return (
@@ -17,12 +19,9 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onInc_a: () => dispatch({ type: 'INC_A' }),
-        onDec_a: () => dispatch({ type: 'DEC_A' })
-
-    }
-}
+const mapDispatchToProps = {
+    onInc_a,
+    onDec_a
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(_AddButton_a);

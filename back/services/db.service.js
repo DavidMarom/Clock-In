@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
-// const uri = `mongodb+srv://xxx:xxxx@cluster0.iyehd.mongodb.net/?retryWrites=true&w=majority`
-const uri = `mongodb://localhost:27017`
-
+const userName_ = 'jH98aiurOd'
+const db_name_ = 'DzErQ2'
+const uri = 'mongodb+srv://joeAdmin:' + db_name_ + userName_ + '@cluster0.jtvmy.mongodb.net/?retryWrites=true&w=majority';
 
 const config = require('../config')
 
@@ -10,7 +10,7 @@ module.exports = {
 }
 
 // Database Name
-const dbName = 'hijoe_db';
+const dbName = 'joe_db';
 
 var dbConn = null;
 
@@ -22,7 +22,7 @@ async function getCollection(collectionName) {
 async function connect() {
     if (dbConn) return dbConn;
     try {
-        console.log(uri);
+        console.log('try');
         const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
         const db = client.db(dbName);
         dbConn = db;
