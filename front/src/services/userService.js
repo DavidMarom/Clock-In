@@ -34,17 +34,16 @@ export const guestUser = {
 
 async function login(userCred) {
     const user = await httpService.post('auth/login', userCred)
+    console.log('userService login: ',user);
     return _handleLogin(user)
 }
 
 async function signup(userCred) {
     const user = await httpService.post('auth/signup', userCred)
-    // const user = await httpService.post(`user`, userCred)
     return _handleLogin(user)
 }
 async function logout() {
     await httpService.post('auth/logout');
-    // await httpService.post('user')
     sessionStorage.clear();
 }
 function _handleLogin(user) {

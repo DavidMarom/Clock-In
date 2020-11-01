@@ -5,9 +5,10 @@ export function EmpDetailsStrip(props) {
     if (!aaa) { return <h1>loading</h1> }
 
     return (
-        <div>
-            <p>{aaa.name}</p>
+        <div className="rb w500 emp-strip">
+            <div className="cell-l"><p>{aaa.name}</p></div>
             <p>{aaa.role}</p>
+            <p>{aaa.email}</p>
         </div>
     )
 }

@@ -1,0 +1,65 @@
+.outter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.outter-container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    // background-image: url("../img/bg-boost-desktop.svg");
+    background-size: cover;
+    background-color: #3a3054;
+    height: 250px;
+}
+.outter-container3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    background-color: #232127;
+    height: 310px;
+}
+
+.inner-container {
+    width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.ra {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    align-items: start;
+}
+
+.rb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.ca {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-content: space-between; */
+    /* align-items: center; */
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}

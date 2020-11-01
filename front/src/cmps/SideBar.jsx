@@ -14,9 +14,9 @@ export class SideBar extends Component {
                 <div className="nav-override-color">Sidebar</div>
                 <NavLink className="nav-override-color" to="/page-01">Page-01</NavLink>
                 <NavLink className="nav-override-color" to="/page-02">Page-02</NavLink>
+                <NavLink className="nav-override-color" to="/profile">Profile</NavLink>
                 <button onClick={() => this.clickHandler()}>Admin</button>
             </div>
         )
     }
 }
-

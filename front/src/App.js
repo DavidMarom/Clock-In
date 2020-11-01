@@ -4,16 +4,16 @@ import { page01 } from './pages/page01.jsx';
 import { page02 } from './pages/page02.jsx';
 import { Home } from './pages/Home.jsx';
 import { Admin } from './pages/Admin.jsx';
+import  Login  from './pages/Login.jsx';
+import  editProfile  from "./pages/editProfile.jsx";
 
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import './App.css';
 
 import { NavBar } from "./cmps/NavBar.jsx";
 import { SideBar } from './cmps/SideBar.jsx';
 
 import ui_img from './assets/img/ui.png';
-// import Admin from './pages/Admin.jsx';
 
 function _App() {
   return (
@@ -31,6 +31,9 @@ function _App() {
                 <Route exact component={page01} path={'/page-01'} />
                 <Route exact component={page02} path={'/page-02'} />
                 <Route exact component={Admin} path={'/admin'} />
+                <Route exact component={Login} path={'/login'} />
+                <Route exact component={editProfile} path={'/profile'} />
+
               </Switch>
             </div>
           </div>

@@ -7,8 +7,7 @@ import history from './history';
 import { Router } from 'react-router-dom';
 import { store } from './store/store';
 
-import './index.css';
-import "./assets/css/main.css";
+import './assets/styles/global.scss'
 
 ReactDOM.render(
   <React.StrictMode>

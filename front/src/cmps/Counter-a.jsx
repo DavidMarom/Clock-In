@@ -7,6 +7,7 @@ class _Counter extends Component {
         return (
             <div>
                 <h3>{this.props.ctr_a}</h3>
+                <p>{JSON.stringify(this.props)}</p>
             </div>
         )
     }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 import { connect } from "react-redux";
-
+import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 
 import { loadUsers } from "../store/actions/userActions";
 
@@ -31,7 +30,7 @@ export class _Admin extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.userReducer.users
+        users: state.user.users
     };
 };
 

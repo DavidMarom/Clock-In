@@ -18,6 +18,7 @@ export function NavBar() {
                             <div className="ra">
                                 <NavLink to="/page-01">Page-01</NavLink>
                                 <NavLink to="/page-02">Page-02</NavLink>
+                                <NavLink to="/login">login</NavLink>
                             </div>
 
                         </div>
