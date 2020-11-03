@@ -34,7 +34,6 @@ export const guestUser = {
 
 async function login(userCred) {
     const user = await httpService.post('auth/login', userCred)
-    console.log('userService login: ',user);
     return _handleLogin(user)
 }
 
