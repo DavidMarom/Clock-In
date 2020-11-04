@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import frontlogo from '../assets/img/front-page-logo.jpg';
 
 import {
   loadUsers,
@@ -57,7 +58,7 @@ class Test extends Component {
   doSignup = async ev => {
     ev.preventDefault();
     const { email, password } = this.state.signupCred;
-    if (!email || !password ) {
+    if (!email || !password) {
       return this.setState({ msg: 'All inputs are required!' });
     }
     const signupCreds = { email, password };
@@ -68,9 +69,12 @@ class Test extends Component {
   removeUser = userId => {
     this.props.removeUser(userId);
   };
+
   render() {
     let signupSection = (
+
       <form onSubmit={this.doSignup}>
+        <p>Dont have a user? Signup now!</p>
         <input
           type="text"
           name="email"
@@ -86,8 +90,7 @@ class Test extends Component {
           onChange={this.signupHandleChange}
           placeholder="Password"
         />
-        <br />
-        
+
         <br />
         <button>Signup</button>
       </form>
@@ -116,40 +119,41 @@ class Test extends Component {
 
     const { loggedInUser } = this.props;
     return (
-      <div className="test">
-        <h1>
-          Login
-        </h1>
+      <div className="ca">
+        <img className=" img-100p" src={frontlogo} alt="" />
+
+        {/* <h1>Login</h1> */}
         <h2>{this.state.msg}</h2>
+
         {loggedInUser && (
           <div>
             <h2>Welcome: {loggedInUser.email} </h2>
             <button onClick={this.props.logout}>Logout</button>
           </div>
         )}
-        {!loggedInUser && loginSection}
-        {!loggedInUser && signupSection}
-        
 
-        <hr />
+        <div className="ca h400">
+
+          {!loggedInUser && loginSection}
+          {!loggedInUser && signupSection}
+        </div>
+
+
+        {/* <hr />
         <button onClick={this.props.loadUsers}>Get All Users</button>
-        {this.props.isLoading && 'Loading...' }
-        {this.props.users && <ul>
+        {this.props.isLoading && 'Loading...'} */}
+        {/* {this.props.users && <ul> */}
 
-          {this.props.users.map(user => (
+        {/* {this.props.users.map(user => (
             <li key={user._id}>
               <pre>{JSON.stringify(user, null, 2)}</pre>
-              <button
-                onClick={() => {
-                  this.removeUser(user._id);
-                }}
-              >
+              <button onClick={() => { this.removeUser(user._id); }}>
                 Remove {user.email}
               </button>
             </li>
-          ))}
-        </ul>}
-        <p>{JSON.stringify(this.props.loggedInUser)}</p>
+          ))} */}
+        {/* </ul>} */}
+        {/* <p>{JSON.stringify(this.props.loggedInUser)}</p> */}
 
       </div>
     );

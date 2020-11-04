@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from "react-router-dom";
+import { connect } from 'react-redux';
+
+import { logout } from '../store/actions/userActions';
+
+
 
 const logo = require('../assets/img/joe-logo.jpg')
 
-export function NavBar() {
+function _NavBar(props) {
     return (
         <div>
             <div className="outter-container nav-bar drop-shadow">
@@ -19,6 +24,7 @@ export function NavBar() {
                                 <NavLink to="/page-01">Page-01</NavLink>
                                 <NavLink to="/page-02">Page-02</NavLink>
                                 <NavLink to="/login">login</NavLink>
+                                <button onClick={props.logout}>Logout</button>
                             </div>
 
                         </div>
@@ -32,3 +38,14 @@ export function NavBar() {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+      loggedInUser: state.user.loggedInUser,
+    };
+  };
+  const mapDispatchToProps = {
+    logout
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(_NavBar);

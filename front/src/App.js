@@ -12,44 +12,50 @@ import editProfile from "./pages/editProfile.jsx";
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import { NavBar } from "./cmps/NavBar.jsx";
+import NavBar from "./cmps/NavBar.jsx";
 import { SideBar } from './cmps/SideBar.jsx';
 
 import ui_img from './assets/img/ui.png';
 
 function _App(props) {
-  if (props.loggedInUser){
-  return (
-    <div className="App">
-      <NavBar />
-      <div className="outter-container">
-        <div className="inner-container">
-          <div className="ra">
+  if (props.loggedInUser) {
+    return (
+      <div className="App">
+        <NavBar />
+        <div className="outter-container">
+          <div className="inner-container">
+            <div className="ra">
 
-            <div className="w200">
-              {props.loggedInUser.name}
-              <SideBar />
-            </div>
-            <div className="bg-01 center-part">
-              <Switch>
-                <Route exact component={Home} path={'/'} />
-                <Route exact component={page01} path={'/page-01'} />
-                <Route exact component={page02} path={'/page-02'} />
-                <Route exact component={Admin} path={'/admin'} />
-                <Route exact component={Login} path={'/login'} />
-                <Route exact component={editProfile} path={'/profile'} />
-              </Switch>
+              <div className="w200">
+                <SideBar />
+              </div>
+              <div className="bg-01 center-part">
+                <Switch>
+                  <Route exact component={Home} path={'/'} />
+                  <Route exact component={page01} path={'/page-01'} />
+                  <Route exact component={page02} path={'/page-02'} />
+                  <Route exact component={Admin} path={'/admin'} />
+                  <Route exact component={Login} path={'/login'} />
+                  <Route exact component={editProfile} path={'/profile'} />
+                </Switch>
+              </div>
             </div>
           </div>
-        </div>
+        </div >
+
+        {/* <img src={ui_img} alt="" /> */}
+
       </div >
-
-      {/* <img src={ui_img} alt="" /> */}
-
-    </div >
-  );}
-  else{
-    return <Login />
+    );
+  }
+  else {
+    return (
+      <div className="outter-container">
+        <div className="inner-container">
+          <Login />
+        </div>
+      </div>
+    )
   }
 }
 

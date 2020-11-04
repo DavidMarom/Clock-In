@@ -8,7 +8,7 @@
 }
 
 html {
-    font-family: redhat;
+    font-family: varela;
     // line-height: 1.6;
     // color: $clr2;
 }
@@ -18,7 +18,12 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: redhat;
     // margin: 0 0 0.6em;
     // line-height: 1;
@@ -37,9 +42,6 @@ p {
     max-width: 40ch;
 }
 
-
-
-
 /* HIGHT *********************/
 
 .h10 {
@@ -52,6 +54,9 @@ p {
 
 .h200 {
     height: 200px;
+}
+.h400 {
+    height: 400px;
 }
 
 .h330 {
@@ -106,13 +111,16 @@ p {
     height: 200px;
 }
 
-
-
 /* IMAGE *********************/
 
 .img-75 {
     max-width: auto;
     max-height: 75px;
+}
+
+.img-100p {
+    width: 352px;
+    height: 321px;
 }
 
 /* FONT **********************/
@@ -123,7 +131,7 @@ p {
 }
 
 .font-pink {
-    color: #F67E7E;
+    color: #f67e7e;
     font-size: 1rem;
 }
 
@@ -181,16 +189,14 @@ p {
 }
 
 .nav-override-color {
-    color: #00ff9d !important;
+    color: #000000 !important;
     text-decoration: none;
-
 }
 
 .cell-l {
-    
 }
 
-.emp-strip{
+.emp-strip {
     margin-bottom: 1px;
     background-color: #aaaaaa;
     height: 30px;
