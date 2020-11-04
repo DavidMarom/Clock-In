@@ -36,7 +36,6 @@ export function removeUser(userId) {
   };
 }
 
-
 export function signup(userCreds) {
   return async dispatch => {
     const user = await userService.signup(userCreds);
@@ -56,15 +55,12 @@ export function logout() {
   };
 }
 
-
-
 export function login(userCreds) {
   return async dispatch => {
     const user = await userService.login(userCreds);
     dispatch({ type: 'SET_USER', user });
   };
 }
-
 
 export function getUserById(userId) {
   return async dispatch => {

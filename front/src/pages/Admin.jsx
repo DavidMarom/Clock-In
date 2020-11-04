@@ -39,7 +39,4 @@ const mapDispatchToProps = {
 };
 
 
-export const Admin = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(_Admin);
+export const Admin = connect(mapStateToProps, mapDispatchToProps)(_Admin);
