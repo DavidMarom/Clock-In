@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { loadUsers } from "./store/actions/userActions";
 
@@ -7,6 +7,7 @@ import { page02 } from './pages/page02.jsx';
 import { Home } from './pages/Home.jsx';
 import { Admin } from './pages/Admin.jsx';
 import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
 import editProfile from "./pages/editProfile.jsx";
 
 import { Switch, Route } from 'react-router-dom';
@@ -15,9 +16,11 @@ import { withRouter } from 'react-router';
 import NavBar from "./cmps/NavBar.jsx";
 import { SideBar } from './cmps/SideBar.jsx';
 
-import ui_img from './assets/img/ui.png';
 
 function _App(props) {
+  const [loginOrSignup, setLoginOrSignup] = useState(true);
+
+
   if (props.loggedInUser) {
     return (
       <div className="App">
@@ -43,7 +46,6 @@ function _App(props) {
           </div>
         </div >
 
-        {/* <img src={ui_img} alt="" /> */}
 
       </div >
     );
@@ -52,7 +54,13 @@ function _App(props) {
     return (
       <div className="outter-container">
         <div className="inner-container">
-          <Login />
+          {loginOrSignup ? <Login /> : <Signup />}
+          <div className="lnk-btn" onClick={() => { setLoginOrSignup(!loginOrSignup) }}>
+            <div className="ra w300 ">
+
+              {loginOrSignup ? <p>Dont have an account? Signup now!</p> : <p>Back to login page</p>}
+            </div>
+          </div>
         </div>
       </div>
     )

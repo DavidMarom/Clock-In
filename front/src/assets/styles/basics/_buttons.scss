@@ -21,3 +21,11 @@
     font-family: 'Red Hat Text', sans-serif;
     width: fit-content;
 }
+
+.lnk-btn{
+    cursor: pointer;
+}
+
+.lnk-btn:hover{
+    text-decoration: underline;
+}

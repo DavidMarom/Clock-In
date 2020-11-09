@@ -18,7 +18,7 @@ async function login(email, password) {
 }
 
 async function signup(email, password) {
-    logger.debug(`auth.service - signup with email: ${email}`)
+    // logger.debug(`auth.service - signup with email: ${email}`)
     if (!email || !password) return Promise.reject('email and password are required!')
 
     const hash = await bcrypt.hash(password, saltRounds)

@@ -13,10 +13,7 @@ import {
 class Test extends Component {
   state = {
     msg: '',
-    loginCred: {
-      email: '',
-      password: ''
-    },
+    
     signupCred: {
       email: '',
       password: '',
@@ -24,15 +21,6 @@ class Test extends Component {
     }
   };
 
-  loginHandleChange = ev => {
-    const { name, value } = ev.target;
-    this.setState(prevState => ({
-      loginCred: {
-        ...prevState.loginCred,
-        [name]: value
-      }
-    }));
-  };
 
   signupHandleChange = ev => {
     const { name, value } = ev.target;
@@ -44,16 +32,6 @@ class Test extends Component {
     }));
   };
 
-  doLogin = async ev => {
-    ev.preventDefault();
-    const { email, password } = this.state.loginCred;
-    if (!email || !password) {
-      return this.setState({ msg: 'Please enter user/password' });
-    }
-    const userCreds = { email, password };
-    this.props.login(userCreds);
-    this.setState({ loginCred: { email: '', password: '' } });
-  };
 
   doSignup = async ev => {
     ev.preventDefault();
@@ -66,40 +44,39 @@ class Test extends Component {
     this.setState({ signupCred: { email: '', password: '' } });
   };
 
-  removeUser = userId => {
-    this.props.removeUser(userId);
-  };
 
   render() {
-    
-    let loginSection = (
-      <form onSubmit={this.doLogin}>
+    let signupSection = (
+
+      <form onSubmit={this.doSignup}>
         <input
           type="text"
           name="email"
-          value={this.state.loginCred.email}
-          onChange={this.loginHandleChange}
+          value={this.state.signupCred.email}
+          onChange={this.signupHandleChange}
           placeholder="Email"
         />
         <br />
         <input
-          type="password"
           name="password"
-          value={this.state.loginCred.password}
-          onChange={this.loginHandleChange}
+          type="password"
+          value={this.state.signupCred.password}
+          onChange={this.signupHandleChange}
           placeholder="Password"
         />
+
         <br />
-        <button>Login</button>
+        <button>Signup</button>
       </form>
     );
+    
 
     const { loggedInUser } = this.props;
     return (
       <div className="ca">
         <img className=" img-100p" src={frontlogo} alt="" />
 
-        <h1>Login</h1>
+        <h1>Signup</h1>
         <h2>{this.state.msg}</h2>
 
         {loggedInUser && (
@@ -111,7 +88,7 @@ class Test extends Component {
 
         <div className="ca h100">
 
-          {!loggedInUser && loginSection}
+          {!loggedInUser && signupSection}
         </div>
 
 
