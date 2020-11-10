@@ -1,31 +1,30 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from "react-redux";
 import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 
 import { loadUsers } from "../store/actions/userActions";
 
-export class _Admin extends Component {
-    state = {
-        users: null
-    }
+const _Admin = (props) => {
+    useEffect(() => { props.loadUsers() });
 
-    componentDidMount() {
-        this.props.loadUsers();
-    }
+    const { users } = props;
+    if (!users) { return <h1>loading</h1> }
+    else {
+        return (
+            <div>
+                <h1>Employee List</h1>
+                <div className="table-head">
 
-    render() {
-        const { users } = this.props;
-        if (!users) { return <h1>loading</h1> }
-        else {
-            return (
-                <div>
-                    <h1>Employee List</h1>
-                    {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
-
+                    <p>Name</p>
+                    <p>Role</p>
+                    <p>email</p>
                 </div>
-            )
-        }
+                {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
+
+            </div>
+        )
     }
+
 }
 
 const mapStateToProps = (state) => {

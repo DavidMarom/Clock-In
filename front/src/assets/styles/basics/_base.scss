@@ -24,13 +24,14 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: redhat;
+    font-family: varela;
     // margin: 0 0 0.6em;
     // line-height: 1;
 }
 
 h1 {
     font-size: rem(48px);
+    color: $text-dark;
 }
 
 // img {
@@ -171,9 +172,6 @@ p {
     padding: 30px;
 }
 
-.center-part {
-    width: 100%;
-}
 
 .inactive {
     color: #008cff !important;

@@ -32,7 +32,7 @@ function _App(props) {
               <div className="w200">
                 <SideBar />
               </div>
-              <div className="bg-01 center-part">
+              <div className="main-container center-part">
                 <Switch>
                   <Route exact component={Home} path={'/'} />
                   <Route exact component={page01} path={'/page-01'} />
@@ -81,6 +81,6 @@ const mapDispatchToProps = {
 };
 
 
-export default _App = connect(mapStateToProps, mapDispatchToProps)(withRouter(_App));
+export const App = connect(mapStateToProps, mapDispatchToProps)(withRouter(_App));
 
 // export default withRouter(_App);

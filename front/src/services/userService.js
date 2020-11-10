@@ -23,13 +23,7 @@ export const guestUser = {
     imgUrl: [
         'https://res.cloudinary.com/dygtul5wx/image/upload/v1600549811/sprint%204/users/guest-user_z4inbq.jpg'
     ],
-    prefs: [
-        'diet',
-        'nutrition',
-        'cardio',
-        'sport',
-        'well-being'
-    ]
+    status: "active"
 }
 
 async function login(userCred) {

@@ -3,7 +3,7 @@ const ex = require('./pass');
 
 const uri = 'mongodb+srv://joeAdmin:' + ex.db_pass + '@cluster0.jtvmy.mongodb.net/?retryWrites=true&w=majority';
 
-const config = require('../config')
+// const config = require('../config')
 
 module.exports = {
     getCollection

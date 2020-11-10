@@ -1,10 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
-
 import { logout } from '../store/actions/userActions';
-
-
 
 const logo = require('../assets/img/joe-logo.jpg')
 
@@ -21,16 +18,14 @@ function _NavBar(props) {
 
                         <div className="ca">
                             <div className="ra">
-                                <NavLink to="/page-01">Page-01</NavLink>
-                                <NavLink to="/page-02">Page-02</NavLink>
-                                <NavLink to="/login">login</NavLink>
+                                {/* <NavLink to="/page-01">Page-01</NavLink>
+                                <NavLink to="/page-02">Page-02</NavLink> */}
+                                {/* <NavLink to="/login">login</NavLink> */}
                                 <button onClick={props.logout}>Logout</button>
                             </div>
 
                         </div>
                     </div>
-
-
 
 
                 </div>
