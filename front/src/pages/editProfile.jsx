@@ -1,17 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { loadUsers, login, logout, signup, updateUser, getUserById } from '../store/actions/userActions';
 
-import {
-    loadUsers,
-    removeUser,
-    login,
-    logout,
-    signup,
-    updateUser,
-    getUserById
-} from '../store/actions/userActions';
-
-const _profile = React.memo(props =>{
+const _profile = React.memo(props => {
     const [loggedName, setLoggedName] = useState('');
 
     useEffect(() => {
@@ -32,15 +23,9 @@ const _profile = React.memo(props =>{
         props.updateUser(newUser);
     };
 
-    let signupSection = (
+    let form = (
         <form onSubmit={doUpdate}>
-            <input
-                name="name"
-                type="text"
-                value={loggedName}
-                onChange={nameHandleChange}
-                placeholder="Name"
-            />
+            <input name="name" type="text" value={loggedName} onChange={nameHandleChange} placeholder="Name" />
             <br />
             <button>Save</button>
         </form>
@@ -54,7 +39,7 @@ const _profile = React.memo(props =>{
                     <h2>Signed in as: {loggedInUser.email} </h2>
                 </div>
             )}
-            {signupSection}
+            {form}
         </div>
     )
 });
@@ -68,108 +53,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    login,
-    logout,
-    signup,
-    removeUser,
-    loadUsers,
-    updateUser,
-    getUserById
+    login, logout, signup, loadUsers, updateUser, getUserById
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(_profile);
-
-
-
-
-
-
-// ************
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { userService } from '../services/userService';
-
-// import {
-//     loadUsers,
-//     removeUser,
-//     login,
-//     logout,
-//     signup,
-//     updateUser,
-//     getUserById
-// } from '../store/actions/userActions';
-
-// class _profile extends Component {
-//     state = {
-//         loggedName: ''
-
-//     }
-
-//     componentDidMount() {
-//         if (this.props.loggedInUser) {
-//             this.setState({ loggedName: this.props.loggedInUser.name })
-//         }
-//     }
-
-//     nameHandleChange = ev => {
-//         const { value } = ev.target;
-//         this.setState(
-//             { loggedName: value }
-//         )
-//     };
-
-//     doUpdate = async ev => {
-//         ev.preventDefault();
-//         var newUser = this.props.loggedInUser;
-//         newUser.name = this.state.loggedName;
-//         this.props.updateUser(newUser);
-//     };
-
-//     render() {
-//         let signupSection = (
-//             <form onSubmit={this.doUpdate}>
-//                 <input
-//                     name="name"
-//                     type="text"
-//                     value={this.state.loggedName}
-//                     onChange={this.nameHandleChange}
-//                     placeholder="Name"
-//                 />
-//                 <br />
-//                 <button>Save</button>
-//             </form>
-//         )
-
-//         const { loggedInUser } = this.props;
-//         return (
-//             <div>
-//                 {loggedInUser && (
-//                     <div>
-//                         <h2>Signed in as: {loggedInUser.email} </h2>
-//                     </div>
-//                 )}
-//                 {signupSection}
-//             </div>
-//         )
-//     }
-// }
-
-// const mapStateToProps = state => {
-//     return {
-//         users: state.user.users,
-//         loggedInUser: state.user.loggedInUser,
-//         isLoading: state.system.isLoading
-//     };
-// };
-// const mapDispatchToProps = {
-//     login,
-//     logout,
-//     signup,
-//     removeUser,
-//     loadUsers,
-//     updateUser,
-//     getUserById
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(_profile);
-

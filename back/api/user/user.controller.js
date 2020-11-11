@@ -7,7 +7,12 @@ async function getUser(req, res) {
 }
 
 async function getUsers(req, res) {
-    const users = await userService.query(req.query)
+    const users = await userService.query(req.params.filter)
+    // logger.debug(users);
+    res.send(users)
+}
+async function getAllUsers(req, res) {
+    const users = await userService.query2()
     // logger.debug(users);
     res.send(users)
 }
@@ -25,6 +30,7 @@ async function updateUser(req, res) {
 
 module.exports = {
     getUser,
+    getAllUsers,
     getUsers,
     deleteUser,
     updateUser

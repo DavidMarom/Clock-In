@@ -1,7 +1,8 @@
 import httpService from './httpService'
 
-function getUsers() {
-    return httpService.get('user')
+function getUsers(filter) {
+    console.log('03 user services:', filter);
+    return httpService.get(`user/${filter}`)
 }
 
 function getById(userId) {

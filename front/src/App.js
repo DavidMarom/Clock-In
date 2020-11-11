@@ -6,8 +6,8 @@ import { page01 } from './pages/page01.jsx';
 import { page02 } from './pages/page02.jsx';
 import { Home } from './pages/Home.jsx';
 import { Admin } from './pages/Admin.jsx';
-import Login from './pages/Login.jsx';
-import Signup from './pages/Signup.jsx';
+import { Login } from './pages/Login.jsx';
+import { Signup } from './pages/Signup.jsx';
 import editProfile from "./pages/editProfile.jsx";
 
 import { Switch, Route } from 'react-router-dom';

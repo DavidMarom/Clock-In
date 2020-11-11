@@ -1,100 +1,56 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import frontlogo from '../assets/img/front-page-logo.jpg';
 
-import {
-  loadUsers,
-  removeUser,
-  login,
-  logout,
-  signup
-} from '../store/actions/userActions';
+import { loadUsers, removeUser, login, logout, signup } from '../store/actions/userActions';
 
-class Test extends Component {
-  state = {
-    msg: '',
-    
-    signupCred: {
-      email: '',
-      password: '',
-      username: ''
-    }
-  };
+const _Signup = (props) => {
+  const [msg, setMsg] = useState('');
+  const [signupCred, setSignupCred] = useState({ email: '', password: '' });
 
-
-  signupHandleChange = ev => {
+  const signupHandleChange = ev => {
     const { name, value } = ev.target;
-    this.setState(prevState => ({
-      signupCred: {
-        ...prevState.signupCred,
-        [name]: value
-      }
-    }));
+    setSignupCred({ ...signupCred, [name]: value })
   };
 
-
-  doSignup = async ev => {
+  const doSignup = async ev => {
     ev.preventDefault();
-    const { email, password } = this.state.signupCred;
+    const { email, password } = signupCred;
     if (!email || !password) {
-      return this.setState({ msg: 'All inputs are required!' });
+      return setMsg('All inputs are required!');
     }
     const signupCreds = { email, password };
-    this.props.signup(signupCreds);
-    this.setState({ signupCred: { email: '', password: '' } });
+    props.signup(signupCreds);
+    setSignupCred({ email: '', password: '' });
   };
 
+  let signupSection = (
+    <form onSubmit={doSignup}>
+      <input type="text" name="email" value={signupCred.email} onChange={signupHandleChange} placeholder="Email" />
+      <br />
+      <input name="password" type="password" value={signupCred.password} onChange={signupHandleChange} placeholder="Password" />
+      <br />
+      <button>Signup</button>
+    </form>
+  );
 
-  render() {
-    let signupSection = (
-
-      <form onSubmit={this.doSignup}>
-        <input
-          type="text"
-          name="email"
-          value={this.state.signupCred.email}
-          onChange={this.signupHandleChange}
-          placeholder="Email"
-        />
-        <br />
-        <input
-          name="password"
-          type="password"
-          value={this.state.signupCred.password}
-          onChange={this.signupHandleChange}
-          placeholder="Password"
-        />
-
-        <br />
-        <button>Signup</button>
-      </form>
-    );
-    
-
-    const { loggedInUser } = this.props;
-    return (
-      <div className="ca">
-        <img className=" img-100p" src={frontlogo} alt="" />
-
-        <h1>Signup</h1>
-        <h2>{this.state.msg}</h2>
-
-        {loggedInUser && (
-          <div>
-            <h2>Welcome: {loggedInUser.email} </h2>
-            <button onClick={this.props.logout}>Logout</button>
-          </div>
-        )}
-
-        <div className="ca h100">
-
-          {!loggedInUser && signupSection}
+  const { loggedInUser } = props;
+  return (
+    <div className="ca">
+      <img className=" img-100p" src={frontlogo} alt="" />
+      <h1>Signup</h1>
+      <h2>{msg}</h2>
+      {loggedInUser && (
+        <div>
+          <h2>Welcome: {loggedInUser.email} </h2>
+          <button onClick={props.logout}>Logout</button>
         </div>
-
-
+      )}
+      <div className="ca h100">
+        {!loggedInUser && signupSection}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const mapStateToProps = state => {
@@ -112,4 +68,4 @@ const mapDispatchToProps = {
   loadUsers
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup);

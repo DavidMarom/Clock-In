@@ -5,6 +5,7 @@ const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
+    query2,
     getById,
     getByEmail,
     remove,
@@ -12,15 +13,34 @@ module.exports = {
     add
 }
 
-async function query(filterBy = {}) {
-    const criteria = _buildCriteria(filterBy)
-    const collection = await dbService.getCollection('user')
+async function query(filterBy) {
+    console.log('backed query:', filterBy);
+    let criteria = {};
+    if (filterBy != 'undefined' || filterBy != '') { criteria = { name: new RegExp(".*" + filterBy + ".*", 'i') } }
+    else { criteria = '' }
+    const collection = await dbService.getCollection('user');
     try {
-        const users = await collection.find(criteria).toArray();
-            
-        // users.forEach(user => delete user.password);
-        return users
-    } catch (err) {
+        console.log('**********', filterBy);
+        if (filterBy != undefined || filterBy != '') { var users = await collection.find(criteria).toArray(); }
+        else { var users = await collection.find().toArray(); }
+        return users;
+    }
+
+    catch (err) {
+        console.log('ERROR: cannot find users')
+        throw err;
+    }
+}
+async function query2() {
+    console.log('query2');
+    
+    const collection = await dbService.getCollection('user');
+    try {
+        var users = await collection.find().toArray(); 
+        return users;
+    }
+
+    catch (err) {
         console.log('ERROR: cannot find users')
         throw err;
     }
@@ -45,9 +65,10 @@ async function getById(userId) {
         throw err;
     }
 }
+
 async function getByEmail(email) {
     const collection = await dbService.getCollection('user')
-    console.log('collection-',collection);
+    console.log('collection-', collection);
     try {
         const user = await collection.findOne({ email })
         return user
@@ -72,7 +93,7 @@ async function update(user) {
     user._id = ObjectId(user._id);
 
     try {
-        await collection.replaceOne({ "_id": user._id }, user )
+        await collection.replaceOne({ "_id": user._id }, user)
         return user
     } catch (err) {
         console.log(`ERROR: cannot update user ${user._id}`)
@@ -93,12 +114,12 @@ async function add(user) {
 
 function _buildCriteria(filterBy) {
     const criteria = {};
-    // if (filterBy.txt) {
-    //     criteria.fullName = filterBy.txt
-    // }
-    // if (filterBy.minBalance) {
-    //     criteria.balance = { $gte: +filterBy.minBalance }
-    // }
+    if (filterBy.txt) {
+        criteria.name = filterBy.txt
+    }
+    if (filterBy.minBalance) {
+        criteria.balance = { $gte: +filterBy.minBalance }
+    }
     return criteria;
 }
 

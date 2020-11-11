@@ -1,11 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 
 import { loadUsers } from "../store/actions/userActions";
 
 const _Admin = (props) => {
-    useEffect(() => { props.loadUsers() });
+
+    const [search, setSearch] = useState('');
+
+    const searchChange = ev => {
+        setSearch(ev.target.value);
+    }
+
+    const doSearch = (ev) => {
+        ev.preventDefault();
+        console.log('01 doSearch: ', search);
+
+        props.loadUsers(search);
+    }
+
+
+    useEffect(() => { props.loadUsers('') }, []);
 
     const { users } = props;
     if (!users) { return <h1>loading</h1> }
@@ -13,6 +28,12 @@ const _Admin = (props) => {
         return (
             <div>
                 <h1>Employee List</h1>
+
+                <form onSubmit={doSearch}>
+                    <input type="text" name="search" onChange={searchChange} placeholder="Search" ></input>
+                    <button>Search</button>
+                </form>
+
                 <div className="table-head">
 
                     <p>Name</p>
@@ -24,7 +45,6 @@ const _Admin = (props) => {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {
@@ -36,6 +56,5 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     loadUsers
 };
-
 
 export const Admin = connect(mapStateToProps, mapDispatchToProps)(_Admin);

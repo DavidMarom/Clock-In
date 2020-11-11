@@ -8,17 +8,15 @@ export function updateUser(user) {
   };
 }
 
-export function loadUsers() {
+export function loadUsers(filter) {
   return async dispatch => {
     try {
-      // example for loading
       dispatch(loading());
-      const users = await userService.getUsers();
+      const users = await userService.getUsers(filter);
       dispatch({ type: 'SET_USERS', users });
     } catch (err) {
       console.log('UserActions: err in loadUsers', err);
-      // example for rerouting - after changing the store
-      // history.push('/some/path');
+      
     } finally {
       dispatch(doneLoading());
     }
@@ -46,7 +44,6 @@ export function signup(userCreds) {
 export function logout() {
   return async dispatch => {
     try {
-
       await userService.logout();
       dispatch({ type: 'SET_USER', user: null });
     } catch (err) {
