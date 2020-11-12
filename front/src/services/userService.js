@@ -1,8 +1,11 @@
 import httpService from './httpService'
 
-function getUsers(filter) {
-    console.log('03 user services:', filter);
-    return httpService.get(`user/${filter}`)
+function count(){
+    return httpService.get(`user/count`);
+}
+
+function getUsers(filter,currPage) {
+    return httpService.get(`user/${filter}?page=${currPage}`);
 }
 
 function getById(userId) {
@@ -57,5 +60,6 @@ export const userService = {
     getById,
     remove,
     update,
-    findIdxToMark
+    findIdxToMark,
+    count
 };

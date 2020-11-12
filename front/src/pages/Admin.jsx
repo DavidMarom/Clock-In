@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 
-import { loadUsers } from "../store/actions/userActions";
-
+import { loadUsers, countUsers } from "../store/actions/userActions";
+var test = 0;
 const _Admin = (props) => {
-
+    const [currPage, setCurrPage] = useState(1);
     const [search, setSearch] = useState('');
+    var totalPages;
+    totalPages = Math.ceil(props.userCount / 2)
+    test++;
 
     const searchChange = ev => {
         setSearch(ev.target.value);
@@ -19,8 +22,15 @@ const _Admin = (props) => {
         props.loadUsers(search);
     }
 
+    useEffect(() => {
+        props.loadUsers('', currPage);
+    }, [currPage]);
 
-    useEffect(() => { props.loadUsers('') }, []);
+
+    useEffect(() => {
+        props.loadUsers('', currPage);
+        props.countUsers();
+    }, []);
 
     const { users } = props;
     if (!users) { return <h1>loading</h1> }
@@ -40,8 +50,21 @@ const _Admin = (props) => {
                     <p>Role</p>
                     <p>email</p>
                 </div>
-                {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
 
+                <button onClick={() => {
+                    ((currPage <= totalPages-1) && setCurrPage(currPage + 1) )
+                }}>Next</button>
+                
+                <button onClick={() => {
+                    ((currPage > 1) && setCurrPage(currPage - 1) )
+                }}>Prev</button>
+
+                {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
+                {console.log('user count from server: ', props.userCount)}
+                {console.log('total pages calc: ', totalPages)}
+                {console.log('CurrPage: ', currPage)}
+
+                {console.log('test', test)}
             </div>
         )
     }
@@ -49,12 +72,14 @@ const _Admin = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.user.users
+        users: state.user.users,
+        userCount: state.user.userCount
     };
 };
 
 const mapDispatchToProps = {
-    loadUsers
+    loadUsers,
+    countUsers
 };
 
 export const Admin = connect(mapStateToProps, mapDispatchToProps)(_Admin);

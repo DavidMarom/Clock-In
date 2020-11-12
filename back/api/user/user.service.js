@@ -10,7 +10,8 @@ module.exports = {
     getByEmail,
     remove,
     update,
-    add
+    add,
+    count
 }
 
 async function query(filterBy) {
@@ -20,7 +21,6 @@ async function query(filterBy) {
     else { criteria = '' }
     const collection = await dbService.getCollection('user');
     try {
-        console.log('**********', filterBy);
         if (filterBy != undefined || filterBy != '') { var users = await collection.find(criteria).toArray(); }
         else { var users = await collection.find().toArray(); }
         return users;
@@ -31,17 +31,26 @@ async function query(filterBy) {
         throw err;
     }
 }
-async function query2() {
-    console.log('query2');
-    
+async function query2(queryPage, pageSize) {
     const collection = await dbService.getCollection('user');
     try {
-        var users = await collection.find().toArray(); 
+        var users = await collection.find().skip((queryPage - 1) * pageSize).limit(pageSize).toArray();
         return users;
     }
-
     catch (err) {
         console.log('ERROR: cannot find users')
+        throw err;
+    }
+}
+async function count() {
+    const collection = await dbService.getCollection('user');
+    console.log('user.service count, connecting to user collection');
+    try {
+        var number = await collection.aggregate([{$count: "total"}]).toArray();
+        return number;
+    }
+    catch (err) {
+        console.log('ERROR: cannot count users')
         throw err;
     }
 }

@@ -5,12 +5,14 @@ const initialState = {
     users: [],
     loggedInUser: localLoggedinUser ,
     cartItems: [],
-    singleUser: ''
+    singleUser: '',
+    userCount: null
 }
 
 export function userReducer(state = initialState, action = {}) {
     switch (action.type) {
-        
+        case 'COUNT_USERS':
+            return { ...state, userCount: action.number[0]['total'] };
         case 'SET_USER':
             return { ...state, loggedInUser: action.user };
         case 'GET_USER':

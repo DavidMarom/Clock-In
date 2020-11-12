@@ -8,12 +8,19 @@ async function getUser(req, res) {
 
 async function getUsers(req, res) {
     const users = await userService.query(req.params.filter)
-    // logger.debug(users);
     res.send(users)
 }
+
+async function countUsers(req, res) {
+    console.log('back controller - count');
+    const count = await userService.count()
+    res.send(count);
+}
+
 async function getAllUsers(req, res) {
-    const users = await userService.query2()
-    // logger.debug(users);
+    const queryPage = req.query.page;
+    const pageSize = 2;
+    const users = await userService.query2(queryPage, pageSize);
     res.send(users)
 }
 
@@ -33,5 +40,6 @@ module.exports = {
     getAllUsers,
     getUsers,
     deleteUser,
-    updateUser
+    updateUser,
+    countUsers
 }
