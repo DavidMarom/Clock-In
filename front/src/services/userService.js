@@ -16,7 +16,7 @@ function remove(userId) {
 }
 
 function update(user) {
-    return httpService.put(`user/${user._id}`, user)
+    return httpService.put(`user/update2`, user)
 }
 
 export const guestUser = {

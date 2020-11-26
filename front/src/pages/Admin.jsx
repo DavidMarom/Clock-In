@@ -8,7 +8,7 @@ const _Admin = (props) => {
     const [currPage, setCurrPage] = useState(1);
     const [search, setSearch] = useState('');
     var totalPages;
-    totalPages = Math.ceil(props.userCount / 2)
+    totalPages = Math.ceil(props.userCount / 4)
     test++;
 
     const searchChange = ev => {
@@ -50,14 +50,15 @@ const _Admin = (props) => {
                     <p>Role</p>
                     <p>email</p>
                 </div>
+                
+                <button onClick={() => {
+                    ((currPage > 1) && setCurrPage(currPage - 1) )
+                }}>Prev</button>
 
                 <button onClick={() => {
                     ((currPage <= totalPages-1) && setCurrPage(currPage + 1) )
                 }}>Next</button>
                 
-                <button onClick={() => {
-                    ((currPage > 1) && setCurrPage(currPage - 1) )
-                }}>Prev</button>
 
                 {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
                 {console.log('user count from server: ', props.userCount)}

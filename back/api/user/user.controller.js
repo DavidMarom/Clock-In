@@ -19,7 +19,7 @@ async function countUsers(req, res) {
 
 async function getAllUsers(req, res) {
     const queryPage = req.query.page;
-    const pageSize = 2;
+    const pageSize = 4;
     const users = await userService.query2(queryPage, pageSize);
     res.send(users)
 }
@@ -35,11 +35,18 @@ async function updateUser(req, res) {
     res.send(user)
 }
 
+async function updateUser2(req, res) {
+    const user = req.body;
+    await userService.update2(user)
+    res.send(user)
+}
+
 module.exports = {
     getUser,
     getAllUsers,
     getUsers,
     deleteUser,
     updateUser,
+    updateUser2,
     countUsers
 }
