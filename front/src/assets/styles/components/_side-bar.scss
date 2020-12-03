@@ -1,7 +1,11 @@
 .side-bar {
-    background-color: #968c83;
+    background-color: $bg-dark;
     /* width: 200px; */
-    color: #d6d2c4;
+    color: $text-light;
     height: 700px;
+
+    .title {
+        color : #f2b013;
+    }
 }
 
