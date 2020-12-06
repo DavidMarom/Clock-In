@@ -4,6 +4,7 @@ import { loadUsers } from "./store/actions/userActions";
 
 import { page01 } from './pages/page01.jsx';
 import { page02 } from './pages/page02.jsx';
+import { Punch } from './pages/Punch.jsx';
 import { Home } from './pages/Home.jsx';
 import { Admin } from './pages/Admin.jsx';
 import { Login } from './pages/Login.jsx';
@@ -37,6 +38,7 @@ function _App(props) {
                   <Route exact component={Home} path={'/'} />
                   <Route exact component={page01} path={'/page-01'} />
                   <Route exact component={page02} path={'/page-02'} />
+                  <Route exact component={Punch} path={'/punch'} />
                   <Route exact component={Admin} path={'/admin'} />
                   <Route exact component={Login} path={'/login'} />
                   <Route exact component={editProfile} path={'/profile'} />

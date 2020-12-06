@@ -13,7 +13,7 @@ export const SideBar = () => {
     return (
         <div className="ca side-bar">
             <p className="title">My Stuff</p>
-            <NavLink className="nav-override-color" to="/page-01">Page-01</NavLink>
+            <NavLink className="nav-override-color" to="/punch">Punch in/out</NavLink>
             <NavLink className="nav-override-color" to="/page-02">Page-02</NavLink>
             <NavLink className="nav-override-color" to="/profile">Profile</NavLink>
             {/* <button value='admin' onClick={clickHandler}>Admin</button> */}
