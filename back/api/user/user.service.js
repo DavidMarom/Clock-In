@@ -15,7 +15,6 @@ module.exports = {
 }
 
 async function query(filterBy) {
-    console.log('backed query:', filterBy);
     let criteria = {};
     if (filterBy != 'undefined' || filterBy != '') { criteria = { name: new RegExp(".*" + filterBy + ".*", 'i') } }
     else { criteria = '' }
@@ -65,7 +64,6 @@ async function getById(userId) {
     try {
         const user = await collection.findOne({ "_id": ObjectId(userId) })
         delete user.password
-        console.log('getById', user)
         user.givenReviews = await reviewService.query({ byUserId: ObjectId(user._id) })
         user.givenReviews = user.givenReviews.map(review => {
             delete review.byUser
@@ -82,7 +80,6 @@ async function getById(userId) {
 
 async function getByEmail(email) {
     const collection = await dbService.getCollection('user')
-    console.log('collection-', collection);
     try {
         const user = await collection.findOne({ email })
         return user
@@ -116,7 +113,6 @@ async function update(user) {
 }
 
 async function update2(user) {
-    console.log('update2');
     const collection = await dbService.getCollection('user')
     user._id = ObjectId(user._id);
 

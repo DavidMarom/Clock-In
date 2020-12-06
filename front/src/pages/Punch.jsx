@@ -1,6 +1,8 @@
 import React from 'react'
+import moment from 'moment'
 
 export const Punch = () => {
+    console.log(  moment().format('LT') );
 
     var dummy = {
         20: [
@@ -46,7 +48,6 @@ export const Punch = () => {
                 <p className="tc">17:24</p>
 
             </div>
-
         </div>
     )
 }

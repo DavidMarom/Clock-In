@@ -17,7 +17,6 @@ const _Admin = (props) => {
 
     const doSearch = (ev) => {
         ev.preventDefault();
-        console.log('01 doSearch: ', search);
 
         props.loadUsers(search);
     }
@@ -61,11 +60,7 @@ const _Admin = (props) => {
                 
 
                 {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
-                {console.log('user count from server: ', props.userCount)}
-                {console.log('total pages calc: ', totalPages)}
-                {console.log('CurrPage: ', currPage)}
-
-                {console.log('test', test)}
+                
             </div>
         )
     }
