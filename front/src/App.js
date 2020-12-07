@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { loadUsers } from "./store/actions/userActions";
-
-import { page01 } from './pages/page01.jsx';
-import { page02 } from './pages/page02.jsx';
-import { Punch } from './pages/Punch.jsx';
-import { Home } from './pages/Home.jsx';
-import { Admin } from './pages/Admin.jsx';
-import { Login } from './pages/Login.jsx';
-import { Signup } from './pages/Signup.jsx';
+import { page01 } from "./pages/page01.jsx";
+import { page02 } from "./pages/page02.jsx";
+import { Punch } from "./pages/Punch.jsx";
+import { Home } from "./pages/Home.jsx";
+import { Admin } from "./pages/Admin.jsx";
+import { Login } from "./pages/Login.jsx";
+import { Signup } from "./pages/Signup.jsx";
+import Reports from "./pages/Reports.jsx";
+import Announcments from "./pages/Announcments.jsx";
+import Messages from "./pages/Messages.jsx";
+import Documents from "./pages/Documents.jsx";
+import TimeOff from "./pages/TimeOff.jsx";
 import editProfile from "./pages/editProfile.jsx";
-
-import { Switch, Route } from 'react-router-dom';
-import { withRouter } from 'react-router';
-
+import { Switch, Route } from "react-router-dom";
+import { withRouter } from "react-router";
 import NavBar from "./cmps/NavBar.jsx";
-import { SideBar } from './cmps/SideBar.jsx';
-
+import { SideBar } from "./cmps/SideBar.jsx";
 
 function _App(props) {
   const [loginOrSignup, setLoginOrSignup] = useState(true);
-
 
   if (props.loggedInUser) {
     return (
@@ -29,60 +29,71 @@ function _App(props) {
         <div className="outter-container">
           <div className="inner-container">
             <div className="ra">
-
               <div className="w200">
                 <SideBar />
               </div>
               <div className="main-container center-part">
                 <Switch>
-                  <Route exact component={Home} path={'/'} />
-                  <Route exact component={page01} path={'/page-01'} />
-                  <Route exact component={page02} path={'/page-02'} />
-                  <Route exact component={Punch} path={'/punch'} />
-                  <Route exact component={Admin} path={'/admin'} />
-                  <Route exact component={Login} path={'/login'} />
-                  <Route exact component={editProfile} path={'/profile'} />
+                  <Route exact component={Home} path={"/"} />
+                  <Route exact component={Punch} path={"/punch"} />
+                  <Route exact component={Admin} path={"/employees"} />
+                  <Route exact component={Login} path={"/login"} />
+                  <Route exact component={editProfile} path={"/profile"} />
+                  <Route exact component={Reports} path={"/reports"} />
+                  <Route
+                    exact
+                    component={Announcments}
+                    path={"/announcments"}
+                  />
+                  <Route exact component={Messages} path={"/messages"} />
+                  <Route exact component={Documents} path={"/documents"} />
+                  <Route exact component={TimeOff} path={"/timeoff"} />
                 </Switch>
               </div>
             </div>
           </div>
-        </div >
-
-
-      </div >
+        </div>
+      </div>
     );
-  }
-  else {
+  } else {
     return (
       <div className="outter-container">
         <div className="inner-container">
           {loginOrSignup ? <Login /> : <Signup />}
-          <div className="lnk-btn" onClick={() => { setLoginOrSignup(!loginOrSignup) }}>
+          <div
+            className="lnk-btn"
+            onClick={() => {
+              setLoginOrSignup(!loginOrSignup);
+            }}
+          >
             <div className="ra w300 ">
-
-              {loginOrSignup ? <p>Dont have an account? Signup now!</p> : <p>Back to login page</p>}
+              {loginOrSignup ? (
+                <p>Dont have an account? Signup now!</p>
+              ) : (
+                <p>Back to login page</p>
+              )}
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     users: state.user.users,
-    loggedInUser: state.user.loggedInUser
-
+    loggedInUser: state.user.loggedInUser,
   };
 };
 
 const mapDispatchToProps = {
-  loadUsers
+  loadUsers,
 };
 
-
-export const App = connect(mapStateToProps, mapDispatchToProps)(withRouter(_App));
+export const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(_App));
 
 // export default withRouter(_App);
