@@ -4,7 +4,7 @@ import moment from 'moment'
 export const Punch = () => {
     console.log(moment().format('LT'));
 
-// dummy data:
+    // dummy data:
     var hours = {
         20: {
             12: {
@@ -14,10 +14,8 @@ export const Punch = () => {
         }
     }
 
-
     const currYear = 20;
     const currMonth = 12;
-
 
     return (
         <div>
@@ -32,13 +30,16 @@ export const Punch = () => {
 
             <div className="table2">
                 <p className="tc">01</p>
-                <p className="tc">{hours.[currYear].[currMonth][1][0]}</p>
-                <p className="tc">{hours.[currYear].[currMonth][1][1]}</p>
-                <p className="tc">{hours.[currYear].[currMonth][1][0] + (hours.[currYear].[currMonth][1][1] - hours.[currYear].[currMonth][1][0])}</p>
-
+                <p className="tc">{hours[currYear][currMonth][1][0]}</p>
+                <p className="tc">{hours[currYear].[currMonth][1][1]}</p>
+                <p className="tc">{(hours[currYear][currMonth][1][1] - hours[currYear][currMonth][1][0])}</p>
             </div>
-
-
+            {/* {for (var key in hours[currYear][currMonth]) {
+                if (hours.[currYear].[currMonth].hasOwnProperty(key)) {
+                console.log(key + " -> " + hours[currYear][currMonth][key]);
+            }
+        }
+    } */}
 
             <div className="table-head2">
                 <p className="tc"></p>
