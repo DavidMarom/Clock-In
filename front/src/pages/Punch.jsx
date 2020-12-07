@@ -2,20 +2,22 @@ import React from 'react'
 import moment from 'moment'
 
 export const Punch = () => {
-    console.log(  moment().format('LT') );
+    console.log(moment().format('LT'));
 
-    var dummy = {
-        20: [
-            {
-                12:[
-                    {
-                        1:[3,4],
-                        2:[2,5]
-                    }
-                ]
+// dummy data:
+    var hours = {
+        20: {
+            12: {
+                1: [1606813200, 1606845600], // 9:00 - 18:00
+                2: [1606899600, 1606932000]  // 9:00 - 18:00
             }
-        ]
+        }
     }
+
+
+    const currYear = 20;
+    const currMonth = 12;
+
 
     return (
         <div>
@@ -27,20 +29,17 @@ export const Punch = () => {
                 <p className="tch">Out</p>
                 <p className="tch">Total</p>
             </div>
+
             <div className="table2">
                 <p className="tc">01</p>
-                <p className="tc">09:18</p>
-                <p className="tc">18:04</p>
-                <p className="tc">8:47</p>
+                <p className="tc">{hours.[currYear].[currMonth][1][0]}</p>
+                <p className="tc">{hours.[currYear].[currMonth][1][1]}</p>
+                <p className="tc">{hours.[currYear].[currMonth][1][0] + (hours.[currYear].[currMonth][1][1] - hours.[currYear].[currMonth][1][0])}</p>
 
             </div>
-            <div className="table2">
-                <p className="tc">02</p>
-                <p className="tc">09:38</p>
-                <p className="tc">18:23</p>
-                <p className="tc">8:27</p>
 
-            </div>
+
+
             <div className="table-head2">
                 <p className="tc"></p>
                 <p className="tc"></p>
