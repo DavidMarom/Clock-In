@@ -48,7 +48,6 @@ async function query2(queryPage, pageSize) {
 }
 async function count() {
     const collection = await dbService.getCollection('user');
-    console.log('user.service count, connecting to user collection');
     try {
         var number = await collection.aggregate([{ $count: "total" }]).toArray();
         return number;

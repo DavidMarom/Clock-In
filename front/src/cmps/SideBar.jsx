@@ -11,7 +11,7 @@ export const SideBar = () => {
     // }
 
     return (
-        <div className="ca side-bar">
+        <div className="cal side-bar">
             <p className="title">My Stuff</p>
             <NavLink className="nav-override-color" to="/punch"><i className="fas fa-door-open"></i> Punch in/out</NavLink>
             <NavLink className="nav-override-color" to="/page-01"><i className="fas fa-envelope"></i> Messages</NavLink>
@@ -19,6 +19,8 @@ export const SideBar = () => {
             <NavLink className="nav-override-color" to="/page-02"><i className="fas fa-stopwatch"></i> Time off</NavLink>
             <NavLink className="nav-override-color" to="/profile"><i className="fas fa-user-circle"></i> Profile</NavLink>
             {/* <button value='admin' onClick={clickHandler}>Admin</button> */}
+            
+            <p className="title"></p>
             <p className="title">Admin</p>
             <NavLink className="nav-override-color" to="/admin"><i className="fas fa-users"></i> Employees</NavLink>
             <NavLink className="nav-override-color" to="/admin"><i className="fas fa-chart-pie"></i> Reports</NavLink>

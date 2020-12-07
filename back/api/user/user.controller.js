@@ -12,7 +12,6 @@ async function getUsers(req, res) {
 }
 
 async function countUsers(req, res) {
-    console.log('back controller - count');
     const count = await userService.count()
     res.send(count);
 }

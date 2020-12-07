@@ -13,6 +13,7 @@
     background-color: #3a3054;
     height: 250px;
 }
+
 .outter-container3 {
     display: flex;
     flex-direction: row;
@@ -49,6 +50,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.cal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    padding: 1rem;
 }
 
 .cb {
