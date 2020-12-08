@@ -2,14 +2,15 @@ import React from 'react'
 import moment from 'moment'
 
 export const Punch = () => {
-    console.log(moment().format('LT'));
+    console.log(moment.unix(32400).format('h:mm'));
+
 
     // dummy data:
     var hours = {
         20: {
             12: {
-                1: [1606813200, 1606845600], // 9:00 - 18:00
-                2: [1606899600, 1606932000]  // 9:00 - 18:00
+                1: [1606806000, 1606809600],
+                2: [1606806000, 1606806000]
             }
         }
     }
@@ -30,9 +31,9 @@ export const Punch = () => {
 
             <div className="table2">
                 <p className="tc">01</p>
-                <p className="tc">{hours[currYear][currMonth][1][0]}</p>
-                <p className="tc">{hours[currYear].[currMonth][1][1]}</p>
-                <p className="tc">{(hours[currYear][currMonth][1][1] - hours[currYear][currMonth][1][0])}</p>
+                <p className="tc">{moment.unix(hours[currYear][currMonth][1][0]).format('hh:mm')}</p>
+                <p className="tc">{moment.unix(hours[currYear][currMonth][1][1]).format('hh:mm')}</p>
+                <p className="tc">{moment.unix(hours[currYear][currMonth][1][1] - hours[currYear][currMonth][1][0] - 50400).format('hh:mm')}</p>
             </div>
             {/* {for (var key in hours[currYear][currMonth]) {
                 if (hours.[currYear].[currMonth].hasOwnProperty(key)) {

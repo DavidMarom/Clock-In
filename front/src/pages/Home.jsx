@@ -5,7 +5,11 @@ export function Home() {
 
     return (
         <div>
-            <p>Home</p>
+            <h1>Home</h1>
+
+            <p>Hi-Joe is an open source employee-management system</p>
+
+
         </div>
     )
 }
