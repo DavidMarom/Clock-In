@@ -2,7 +2,6 @@ import React from 'react'
 import moment from 'moment'
 
 export const Punch = () => {
-    console.log(moment.unix(32400).format('h:mm'));
 
 
     // dummy data:

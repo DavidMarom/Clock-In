@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import history from "../history";
+// import history from "../history";
 
 export const SideBar = () => {
   // const clickHandler = (ev) => {

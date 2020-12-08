@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { loadUsers } from "./store/actions/userActions";
-import { page01 } from "./pages/page01.jsx";
-import { page02 } from "./pages/page02.jsx";
+
 import { Punch } from "./pages/Punch.jsx";
 import { Home } from "./pages/Home.jsx";
 import { Admin } from "./pages/Admin.jsx";

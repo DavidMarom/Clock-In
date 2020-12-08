@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 
 import { loadUsers, countUsers } from "../store/actions/userActions";
-var test = 0;
+// var test = 0;
 const _Admin = (props) => {
     const [currPage, setCurrPage] = useState(1);
     const [search, setSearch] = useState('');
     var totalPages;
     totalPages = Math.ceil(props.userCount / 4)
-    test++;
+    // test++;
 
     const searchChange = ev => {
         setSearch(ev.target.value);

@@ -8,7 +8,6 @@ async function login(req, res) {
         const user = await authService.login(email, password)
         req.session.user = user;
         res.json(user)
-        console.log('login: ', user);
     } catch (err) {
         console.log('login error');
         res.status(401).send({ error: err })

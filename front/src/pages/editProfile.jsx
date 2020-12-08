@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { loadUsers, login, logout, signup, updateUser, getUserById } from '../store/actions/userActions';
 
 
-
-
-
 const _profile = React.memo(props => {
     const [loggedUserName, setLoggedUserName] = useState('');
     const [loggedUserRole, setLoggedUserRole] = useState('');

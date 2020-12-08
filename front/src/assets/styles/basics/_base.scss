@@ -108,7 +108,6 @@ p {
 
 /* HEIGHT *****************************/
 
-
 /* IMAGE *********************/
 
 .img-75 {
@@ -172,7 +171,6 @@ p {
     padding: 30px;
 }
 
-
 .inactive {
     color: #008cff !important;
     text-decoration: none;
@@ -195,4 +193,20 @@ p {
     margin-bottom: 1px;
     background-color: #aaaaaa;
     height: 30px;
+}
+
+.popup {
+    width: 700px;
+    height: 500px;
+    background-color: #cacaca;
+    position: absolute;
+    filter: drop-shadow(10px 10px 10px #dddddd);
+    padding: 1rem;
+    left: 150px;
+    top: -50px;
+
+}
+
+.relative{
+    position: relative;
 }
