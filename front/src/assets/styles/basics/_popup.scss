@@ -1,0 +1,21 @@
+.popup {
+  text-align: center;
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  left: 300px;
+  top: 100px;
+  background: #f8eded;
+  box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+  .play {
+    width: 140px;
+    height: 140px;
+    left: 681px;
+    top: 249px;
+  }
+  button {
+    bottom: 100px;
+  }
+}
