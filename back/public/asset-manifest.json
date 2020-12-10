@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.b3d0e155.chunk.css",
-    "main.js": "/static/js/main.fe2ef802.chunk.js",
-    "main.js.map": "/static/js/main.fe2ef802.chunk.js.map",
+    "main.css": "/static/css/main.98488db4.chunk.css",
+    "main.js": "/static/js/main.0bbec719.chunk.js",
+    "main.js.map": "/static/js/main.0bbec719.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5fe610d3.js",
     "runtime-main.js.map": "/static/js/runtime-main.5fe610d3.js.map",
-    "static/js/2.10d7dcb7.chunk.js": "/static/js/2.10d7dcb7.chunk.js",
-    "static/js/2.10d7dcb7.chunk.js.map": "/static/js/2.10d7dcb7.chunk.js.map",
+    "static/js/2.4060c46e.chunk.js": "/static/js/2.4060c46e.chunk.js",
+    "static/js/2.4060c46e.chunk.js.map": "/static/js/2.4060c46e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.1a19c8a1ff21a2586705b421c53931cf.js": "/precache-manifest.1a19c8a1ff21a2586705b421c53931cf.js",
+    "precache-manifest.7e97953c3d4a4ea916d2f9096475941b.js": "/precache-manifest.7e97953c3d4a4ea916d2f9096475941b.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.b3d0e155.chunk.css.map": "/static/css/main.b3d0e155.chunk.css.map",
-    "static/js/2.10d7dcb7.chunk.js.LICENSE.txt": "/static/js/2.10d7dcb7.chunk.js.LICENSE.txt",
+    "static/css/main.98488db4.chunk.css.map": "/static/css/main.98488db4.chunk.css.map",
+    "static/js/2.4060c46e.chunk.js.LICENSE.txt": "/static/js/2.4060c46e.chunk.js.LICENSE.txt",
     "static/media/global.scss": "/static/media/VarelaRound-Regular.159cb67f.ttf",
     "static/media/front-page-logo.jpg": "/static/media/front-page-logo.6cf0794c.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5fe610d3.js",
-    "static/js/2.10d7dcb7.chunk.js",
-    "static/css/main.b3d0e155.chunk.css",
-    "static/js/main.fe2ef802.chunk.js"
+    "static/js/2.4060c46e.chunk.js",
+    "static/css/main.98488db4.chunk.css",
+    "static/js/main.0bbec719.chunk.js"
   ]
 }

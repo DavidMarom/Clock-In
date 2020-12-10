@@ -13,7 +13,7 @@ export const SideBar = () => {
     <div className="cal side-bar">
       <p className="title">My Stuff</p>
       <NavLink className="nav-override-color" to="/punch">
-        <i className="fas fa-door-open"></i> Punch in/out
+        <i className="fas fa-door-open"></i> Clock in/out
       </NavLink>
       <NavLink className="nav-override-color" to="/messages">
         <i className="fas fa-envelope"></i> Messages
