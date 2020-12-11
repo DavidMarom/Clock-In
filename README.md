@@ -5,4 +5,5 @@
 # Hi Joe
 - A modern employee management system
 - An open source project for learning purposes - feel free to make mistakes! (we have backups)
-- Inpired by Hi bob: https://www.hibob.com/
+
+[Public website: https://clockin.website/](https://clockin.website/)
