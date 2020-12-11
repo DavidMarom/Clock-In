@@ -80,3 +80,23 @@
     background-color: $bg-light;
     min-height: 700px;
 }
+
+.footer {
+    margin-top: 50px;
+    background-color: #f7f7f7;
+    height: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid #dddddd;
+}
+
+.login-input {
+    padding: 7px;
+    background-color: #ffffff;
+    border: 0;
+    border-bottom: 2px solid #dba1d2;
+    // width: 40%;
+    margin-top: 10px;
+    // font-size: 14px;
+}

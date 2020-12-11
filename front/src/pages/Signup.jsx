@@ -26,11 +26,11 @@ const _Signup = (props) => {
 
   let signupSection = (
     <form onSubmit={doSignup}>
-      <input type="text" name="email" value={signupCred.email} onChange={signupHandleChange} placeholder="Email" />
+      <input className="login-input" type="text" name="email" value={signupCred.email} onChange={signupHandleChange} placeholder="Email" />
       <br />
-      <input name="password" type="password" value={signupCred.password} onChange={signupHandleChange} placeholder="Password" />
+      <input  className="login-input" name="password" type="password" value={signupCred.password} onChange={signupHandleChange} placeholder="Password" />
       <br />
-      <button>Signup</button>
+      <button className="login-btn">Signup</button>
     </form>
   );
 
@@ -46,7 +46,7 @@ const _Signup = (props) => {
           <button onClick={props.logout}>Logout</button>
         </div>
       )}
-      <div className="ca h100">
+      <div className="ca h200">
         {!loggedInUser && signupSection}
       </div>
     </div>

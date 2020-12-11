@@ -19,7 +19,7 @@ export const Punch = () => {
 
     return (
         <div>
-            <h1>Punch in/out</h1>
+            <h1>Clock in/out</h1>
 
             <div className="table-head2">
                 <p className="tch">Day</p>

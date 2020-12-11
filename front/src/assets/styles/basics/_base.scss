@@ -116,8 +116,8 @@ p {
 }
 
 .img-100p {
-  width: 352px;
-  height: 321px;
+  width: 534px;
+  height: 328px;
 }
 
 /* FONT **********************/
@@ -197,4 +197,18 @@ p {
 
 .relative {
   position: relative;
+}
+
+.login-btn {
+  font-family: 'Varela Round', sans-serif;
+  padding: 5px 30px 5px;
+  background-color: #ffffff;
+  color: #1d1d1d !important;
+  border-radius: 3em;
+  font-size: 16px;
+  border: 2px solid #8d8d8d;
+  margin-top: 10px;
+  margin-left:30px;
+  margin-right:auto;
+  margin-bottom: 120px;
 }

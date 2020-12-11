@@ -27,11 +27,11 @@ const _Login = (props) => {
 
   let loginSection = (
     <form onSubmit={doLogin}>
-      <input type="text" name="email" value={loginCred.email} onChange={loginHandleChange} placeholder="Email" />
+      <input className="login-input" type="text" name="email" value={loginCred.email} onChange={loginHandleChange} placeholder="Email" />
       <br />
-      <input type="password" name="password" value={loginCred.password} onChange={loginHandleChange} placeholder="Password" />
+      <input className="login-input" type="password" name="password" value={loginCred.password} onChange={loginHandleChange} placeholder="Password" />
       <br />
-      <button>Login</button>
+      <button className="login-btn">Login</button>
     </form>
   );
 
@@ -47,7 +47,7 @@ const _Login = (props) => {
           <button onClick={props.logout}>Logout</button>
         </div>
       )}
-      <div className="ca h100">
+      <div className="ca h200">
         {!loggedInUser && loginSection}
       </div>
     </div>

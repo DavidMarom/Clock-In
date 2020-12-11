@@ -34,7 +34,7 @@ function _App(props) {
               <div className="main-container center-part">
                 <Switch>
                   <Route exact component={Home} path={"/"} />
-                  <Route exact component={Punch} path={"/punch"} />
+                  <Route exact component={Punch} path={"/clockin"} />
                   <Route exact component={Admin} path={"/employees"} />
                   <Route exact component={Login} path={"/login"} />
                   <Route exact component={editProfile} path={"/profile"} />
