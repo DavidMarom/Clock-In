@@ -1,8 +1,8 @@
-![joe logo](https://res.cloudinary.com/dojmo7vcc/image/upload/v1602421381/joe/Joe-Logo_sl3lkh.jpg)
+![logo](https://res.cloudinary.com/dojmo7vcc/image/upload/v1607726258/clock/front-page-logo_bcsfkd.jpg)
 
-[█ Live version █](https://hi-joe.herokuapp.com/)
+[█ Live version █](http://clock-in-demo.herokuapp.com/)
 
-# Hi Joe
+# Clock-In
 - A modern employee management system
 - An open source project for learning purposes - feel free to make mistakes! (we have backups)
 
