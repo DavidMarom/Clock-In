@@ -8,7 +8,6 @@ export function countUsers(){
   };
 }
 
-
 export function updateUser(user) {
   return async dispatch => {
     const _user = await userService.update(user);

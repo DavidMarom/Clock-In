@@ -6,9 +6,9 @@ function _PopUpWelcome(props) {
     return (
         <div className="relative">
             <div className="popup">
-                <img className="pic" />
+                <img className="pic" alt="" />
                 <h2>Welcome Back {props.loggedInUser.name}</h2>
-                <img src={Playimg} className="play" />
+                <img src={Playimg} className="play" alt="" />
                 <h1>8:30</h1>
                 <p>Start your working day!</p>
 
