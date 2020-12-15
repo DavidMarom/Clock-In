@@ -4,11 +4,23 @@ import { loadUsers, login, logout, signup, updateUser, getUserById } from '../st
 import { connect } from 'react-redux';
 
 const _Punch = (props) => {
-    const currYear = 20;
-    const currMonth = 12;
+    var currentTime = new Date()
+    const currYear = currentTime.getFullYear();
+    const currMonth = currentTime.getMonth() + 1;
     let sum = 0;
+
     var { loggedInUser } = props;
-    const hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
+
+    // if the current month doesn't appear in the DB, create it in the local "loggedInUser" object. no need to update DB - it will be updated once clock-in is clicked
+    if (!loggedInUser.hours[currYear][currMonth]) {
+        console.log('no such month');
+        loggedInUser.hours[currYear] = { ...loggedInUser.hours[currYear], [currMonth]: {} }
+    }
+
+    let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
+
+    console.log(loggedInUser.hours);
+
 
     return (
         <div>
@@ -36,7 +48,7 @@ const _Punch = (props) => {
                     <p className="tch"></p>
                     <p className="tch"></p>
                     <p className="tch"></p>
-                    <p className="tch">{moment.unix(sum - 50400).format('hh:mm')}</p>
+                    <p className="tch">{moment.unix(sum - 50400 ).format('hh:mm')}</p>
                 </div>
 
             </div>
