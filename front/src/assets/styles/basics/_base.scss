@@ -16,6 +16,7 @@ html {
 body {
   font-size: rem(16px);
   margin: 0;
+  // background-color: #a0909e;
 }
 
 h1,
@@ -32,6 +33,18 @@ h6 {
 h1 {
   font-size: rem(48px);
   color: $text-dark;
+}
+
+h6 {
+  color: #383874;
+  // font-family: Fira Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height */
+
+  letter-spacing: 0.15px;
 }
 
 // img {
@@ -200,7 +213,7 @@ p {
 }
 
 .login-btn {
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
   padding: 5px 30px 5px;
   background-color: #ffffff;
   color: #1d1d1d !important;
@@ -208,7 +221,7 @@ p {
   font-size: 16px;
   border: 2px solid #8d8d8d;
   margin-top: 10px;
-  margin-left:30px;
-  margin-right:auto;
+  margin-left: 30px;
+  margin-right: auto;
   margin-bottom: 120px;
 }

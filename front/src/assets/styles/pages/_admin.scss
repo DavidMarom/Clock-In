@@ -13,6 +13,15 @@
     display: grid;
     grid-template-columns: 10% 28% 32% 30%;
     font-weight: bold;
+    background-color: #ffffff;
+}
+
+
+.table-wrapper{
+    border: 1px solid #E5E5F0;
+    border-radius: 32px;
+    background-color: #ffffff;
+    padding:32px;
 }
 
 .table2 {
@@ -33,6 +42,6 @@
     border-radius: 0px;
     margin-right: 0px;
     margin-bottom: 1px;
-    background-color: rgb(238, 238, 238);
+    background-color: #ffffff;
     border-bottom: 1px solid #e6e6e6;
 }

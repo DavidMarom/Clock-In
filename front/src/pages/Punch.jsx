@@ -10,6 +10,7 @@ const _Punch = (props) => {
     let sum = 0;
 
     var { loggedInUser } = props;
+    console.log(loggedInUser);
 
     // if the current month doesn't appear in the DB, create it in the local "loggedInUser" object. no need to update DB - it will be updated once clock-in is clicked
     if (!loggedInUser.hours[currYear][currMonth]) {
@@ -19,13 +20,12 @@ const _Punch = (props) => {
 
     let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
 
-    console.log(loggedInUser.hours);
 
 
     return (
         <div>
-            <h1>Clock in/out</h1>
-            <div>
+            <h6>Clock in/out</h6>
+            <div className="table-wrapper">
                 <div className="table-head2">
                     <p className="tch">Day</p>
                     <p className="tch">In</p>
@@ -48,7 +48,7 @@ const _Punch = (props) => {
                     <p className="tch"></p>
                     <p className="tch"></p>
                     <p className="tch"></p>
-                    <p className="tch">{moment.unix(sum - 50400 ).format('hh:mm')}</p>
+                    <p className="tch">{moment.unix(sum - 50400).format('hh:mm')}</p>
                 </div>
 
             </div>
