@@ -21,7 +21,7 @@ function _NavBar(props) {
                                 {/* <NavLink to="/page-01">Page-01</NavLink>
                                 <NavLink to="/page-02">Page-02</NavLink> */}
                                 {/* <NavLink to="/login">login</NavLink> */}
-                                <button onClick={props.logout}>Logout</button>
+                                <button className="logout-btn" onClick={props.logout}>Logout</button>
                             </div>
 
                         </div>
