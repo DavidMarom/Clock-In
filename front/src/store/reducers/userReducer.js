@@ -29,21 +29,7 @@ export function userReducer(state = initialState, action = {}) {
                 ...state,
                 users: state.users.map(user=>(action._user._id === user._id)?action._user : user )
             }
-        case 'ADD_TO_CART':
-            return {
-                ...state,
-                cartItems: [...state.cartItems, action.toy]
-            }
-        case 'SPEND_BALANCE':
-            return {
-                ...state,
-                loggedinUser: {
-                    ...state.loggedinUser,
-                    balance: state.loggedinUser.balance - action.spendAmount
-                }
-            }
-        case 'CLEAR_CART':
-            return { ...state, cartItems: [] }
+        
 
         default:
             return state

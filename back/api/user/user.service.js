@@ -125,8 +125,6 @@ async function update2(user) {
 }
 
 
-
-
 async function add(user) {
     const collection = await dbService.getCollection('user')
     try {
