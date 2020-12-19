@@ -28,7 +28,7 @@ function _App(props) {
         <div className="outter-container">
           <div className="inner-container">
             <div className="ra">
-              <div className="w200">
+              <div className="w256">
                 <SideBar />
               </div>
               <div className="main-container center-part">

@@ -8,7 +8,7 @@
 }
 
 html {
-  font-family: varela;
+  font-family: FiraSans;
   // line-height: 1.6;
   // color: $clr2;
 }
@@ -25,7 +25,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: varela;
+  font-family: FiraSans;
   // margin: 0 0 0.6em;
   // line-height: 1;
 }
@@ -37,7 +37,6 @@ h1 {
 
 h6 {
   color: #383874;
-  // font-family: Fira Sans;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -85,6 +84,9 @@ p {
 
 .w200 {
   width: 200px;
+}
+.w256 {
+  width: 256px;
 }
 
 .w400 {
@@ -213,7 +215,7 @@ p {
 }
 
 .login-btn {
-  font-family: "Varela Round", sans-serif;
+  font-family: "FiraSans", sans-serif;
   padding: 5px 30px 5px;
   background-color: #ffffff;
   color: #1d1d1d !important;
