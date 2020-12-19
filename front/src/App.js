@@ -31,7 +31,7 @@ function _App(props) {
               <div className="w256">
                 <SideBar />
               </div>
-              <div className="main-container center-part">
+              <div className="main-container">
                 <Switch>
                   <Route exact component={Home} path={"/"} />
                   <Route exact component={Punch} path={"/clockin"} />

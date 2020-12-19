@@ -7,10 +7,9 @@ export function Home() {
 
     return (
         <div className="relative">
-            <h1>Home</h1>
 
             {(pop ? <PopUpWelcome toggle={()=>setPop(!pop)}/> : null)}
-            <p>Hi-Joe is an open source employee-management system</p>
+            <p>Clock-In is an open source employee-management system</p>
 
 
         </div>

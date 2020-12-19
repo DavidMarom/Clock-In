@@ -8,23 +8,35 @@ const logo = require('../assets/img/joe-logo.jpg')
 function _NavBar(props) {
     return (
         <div>
-            <div className="outter-container nav-bar drop-shadow">
+            <div className="outter-container nav-bar">
                 <div className="inner-container">
 
-                    <div className="ra">
-                        <div className="rb">
-                            <NavLink to="/"><img src={logo} alt="Hey-Joe" /></NavLink>
-                        </div>
+                    <div className="rb bg-07">
 
-                        <div className="ca">
-                            <div className="ra">
-                                {/* <NavLink to="/page-01">Page-01</NavLink>
+                        <NavLink to="/">
+                            <div className="rb logo-cube"></div>
+                        </NavLink>
+
+                        <div className="rb pad-1rem">
+
+                            <div className="ca">
+                                <div className="ra">
+                                    <h2>Page Title</h2>
+                                </div>
+                            </div>
+
+                            <div className="ca">
+                                <div className="ra">
+                                    {/* <NavLink to="/page-01">Page-01</NavLink>
                                 <NavLink to="/page-02">Page-02</NavLink> */}
-                                {/* <NavLink to="/login">login</NavLink> */}
-                                <button className="logout-btn" onClick={props.logout}>Logout</button>
+                                    {/* <NavLink to="/login">login</NavLink> */}
+                                    <button className="logout-btn" onClick={props.logout}>Logout</button>
+                                </div>
+
                             </div>
 
                         </div>
+
                     </div>
 
 
@@ -36,11 +48,11 @@ function _NavBar(props) {
 
 const mapStateToProps = state => {
     return {
-      loggedInUser: state.user.loggedInUser,
+        loggedInUser: state.user.loggedInUser,
     };
-  };
-  const mapDispatchToProps = {
+};
+const mapDispatchToProps = {
     logout
-  };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(_NavBar);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(_NavBar);
