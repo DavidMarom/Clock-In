@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import frontlogo from '../assets/img/front-page-logo.jpg';
+import frontlogo from '../assets/img/front-page-logo.png';
 
 import { loadUsers, removeUser, login, logout, signup } from '../store/actions/userActions';
 
@@ -38,8 +38,8 @@ const _Login = (props) => {
   const { loggedInUser } = props;
   return (
     <div className="ca">
-      <img className=" img-100p" src={frontlogo} alt="" />
-      <h1>Login</h1>
+      <img className=" img-356p" src={frontlogo} alt="" />
+      {/* <h1>Login</h1> */}
       <h2>{msg}</h2>
       {loggedInUser && (
         <div>

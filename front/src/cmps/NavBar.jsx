@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 import { logout } from '../store/actions/userActions';
 
-const logo = require('../assets/img/joe-logo.jpg')
+const logo = require('../assets/img/logo.png')
 
 function _NavBar(props) {
 
@@ -17,7 +17,9 @@ function _NavBar(props) {
                     <div className="rb bg-07">
 
                         <NavLink to="/">
-                            <div className="rb logo-cube"></div>
+                            <div className="rb logo-cube">
+                                <img className="marg-center" src={logo} width={"180px"} alt="Clock-In"></img>
+                            </div>
                         </NavLink>
 
                         <div className="rb pad-1rem">

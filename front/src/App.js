@@ -39,11 +39,7 @@ function _App(props) {
                   <Route exact component={Login} path={"/login"} />
                   <Route exact component={editProfile} path={"/profile"} />
                   <Route exact component={Reports} path={"/reports"} />
-                  <Route
-                    exact
-                    component={Announcments}
-                    path={"/announcments"}
-                  />
+                  <Route exact component={Announcments} path={"/announcments"} />
                   <Route exact component={Messages} path={"/messages"} />
                   <Route exact component={Documents} path={"/documents"} />
                   <Route exact component={TimeOff} path={"/timeoff"} />
@@ -69,8 +65,8 @@ function _App(props) {
               {loginOrSignup ? (
                 <p>Dont have an account? Signup now!</p>
               ) : (
-                <p>Back to login page</p>
-              )}
+                  <p>Back to login page</p>
+                )}
             </div>
           </div>
         </div>
