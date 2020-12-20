@@ -66,6 +66,12 @@ export function login(userCreds) {
   };
 }
 
+export function setPageName(name) {
+  return dispatch => {
+    dispatch({ type: 'PAGE_NAME', name });
+  };
+}
+
 export function getUserById(userId) {
   return async dispatch => {
     try {

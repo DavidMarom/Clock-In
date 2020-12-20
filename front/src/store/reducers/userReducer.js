@@ -6,7 +6,8 @@ const initialState = {
     loggedInUser: localLoggedinUser ,
     cartItems: [],
     singleUser: '',
-    userCount: null
+    userCount: null,
+    pageName: null
 }
 
 export function userReducer(state = initialState, action = {}) {
@@ -24,6 +25,11 @@ export function userReducer(state = initialState, action = {}) {
                 ...state,
                 users: state.users.filter(user => user._id !== action.userId)
             };
+        case 'PAGE_NAME':
+                return {
+                    ...state,
+                    pageName: action.name
+                };
         case 'UPDATE_USER':
             return{
                 ...state,
