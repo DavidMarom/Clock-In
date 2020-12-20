@@ -6,6 +6,9 @@ import { logout } from '../store/actions/userActions';
 const logo = require('../assets/img/joe-logo.jpg')
 
 function _NavBar(props) {
+
+
+
     return (
         <div>
             <div className="outter-container nav-bar">
@@ -21,10 +24,9 @@ function _NavBar(props) {
 
                             <div className="ca">
                                 <div className="ra">
-                                    <h2>Page Title</h2>
+                                    <h2>{props.pageName}</h2>
                                 </div>
                             </div>
-
                             <div className="ca">
                                 <div className="ra">
                                     {/* <NavLink to="/page-01">Page-01</NavLink>
@@ -49,6 +51,7 @@ function _NavBar(props) {
 const mapStateToProps = state => {
     return {
         loggedInUser: state.user.loggedInUser,
+        pageName: state.user.pageName
     };
 };
 const mapDispatchToProps = {

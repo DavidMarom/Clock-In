@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadUsers, login, logout, signup, updateUser, getUserById } from '../store/actions/userActions';
+import { loadUsers, login, logout, signup, updateUser, getUserById,setPageName } from '../store/actions/userActions';
 
 
 const _profile = React.memo(props => {
@@ -15,6 +15,10 @@ const _profile = React.memo(props => {
             setLoggedUserDob(props.loggedInUser.dob);
         }
     }, [props.loggedInUser]);
+
+    useEffect(() => {
+        props.setPageName('Profile');
+    }, []);
 
     const doUpdate = async ev => {
         ev.preventDefault();
@@ -58,7 +62,13 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    login, logout, signup, loadUsers, updateUser, getUserById
+    login,
+    logout,
+    signup,
+    loadUsers,
+    updateUser,
+    getUserById,
+    setPageName
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(_profile);

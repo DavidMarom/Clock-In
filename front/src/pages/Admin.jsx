@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux";
 import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 
-import { loadUsers, countUsers } from "../store/actions/userActions";
+import { loadUsers, countUsers ,setPageName } from "../store/actions/userActions";
 // var test = 0;
 const _Admin = (props) => {
     const [currPage, setCurrPage] = useState(1);
@@ -29,6 +29,7 @@ const _Admin = (props) => {
     useEffect(() => {
         props.loadUsers('', currPage);
         props.countUsers();
+        props.setPageName('Employee List');
     }, []);
 
     const { users } = props;
@@ -36,8 +37,6 @@ const _Admin = (props) => {
     else {
         return (
             <div>
-                <h1>Employee List</h1>
-
                 <form onSubmit={doSearch}>
                     <input type="text" name="search" onChange={searchChange} placeholder="Search" ></input>
                     <button>Search</button>
@@ -66,7 +65,7 @@ const _Admin = (props) => {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => { 
     return {
         users: state.user.users,
         userCount: state.user.userCount
@@ -75,7 +74,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     loadUsers,
-    countUsers
+    countUsers,
+    setPageName
 };
 
 export const Admin = connect(mapStateToProps, mapDispatchToProps)(_Admin);
