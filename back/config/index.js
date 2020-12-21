@@ -4,4 +4,5 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   config = require('./dev')
 }
+
 module.exports = config

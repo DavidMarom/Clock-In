@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
-
-const uri = 'mongodb+srv://joeAdmin:DzErQ2jH98aiurOd@cluster0.jtvmy.mongodb.net/?retryWrites=true&w=majority';
+let dbPass = require("./pass");
+const uri = 'mongodb+srv://joeAdmin:' + dbPass.dbPass + '@cluster0.jtvmy.mongodb.net/?retryWrites=true&w=majority';
 
 module.exports = {
     getCollection

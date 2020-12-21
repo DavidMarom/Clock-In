@@ -5,16 +5,16 @@ import { connect } from 'react-redux';
 import { userService } from '../services/userService';
 
 const _Punch = (props) => {
-    var currentTime = new Date()
+    let currentTime = new Date()
     const currYear = currentTime.getFullYear();
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
 
     let sum = 0;
 
-
-    var { loggedInUser } = props;
+    let { loggedInUser } = props;
     console.log('Has today? ', userService.hasToday(loggedInUser));
+    console.log('Has Out Hours? ', userService.hasOutHour(loggedInUser));
 
     // if the current month doesn't appear in the DB, create it in the local "loggedInUser" object. no need to update DB - it will be updated once clock-in is clicked
     if (!loggedInUser.hours[currYear][currMonth]) {
