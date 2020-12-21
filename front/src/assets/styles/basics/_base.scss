@@ -20,6 +20,8 @@ body {
   color: $text-dark;
 }
 
+
+
 h1,
 h2,
 h3,
@@ -50,8 +52,22 @@ h6 {
 //     width: 100%;
 // }
 
+.small-text {
+  height: 17px;
+  font-family: FiraSans;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: left;
+  color: #8787ab;
+}
+
 p {
   margin: 0 0 1em;
+  
   // max-width: 40ch;
 }
 

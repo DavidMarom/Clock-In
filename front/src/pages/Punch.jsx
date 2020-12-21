@@ -26,6 +26,27 @@ const _Punch = (props) => {
 
     return (
         <div>
+
+            <div className="pillars-strip">
+                <div className="pillar">
+                    <p className="small-text">
+                        Today
+                    </p>
+                </div>
+                <div className="pillar">
+                    <p className="small-text">Total working hours</p>
+
+                </div>
+                <div className="pillar">
+                    <p className="small-text">Projects</p>
+
+                </div>
+                <div className="pillar">
+                    <p className="small-text">sales trends</p>
+
+                </div>
+            </div>
+
             <div className="table-wrapper">
                 <div className="table-head2">
                     <p className="tch">Day</p>
