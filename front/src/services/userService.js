@@ -69,8 +69,10 @@ function hasToday(user) {
 
 
 function hasOutHour(user) {
-    console.log(user.hours[currYear][currMonth]);
-    if (user.hours[currYear][currMonth][today].length > 1) { return true } else { return false }
+    if (hasToday(user)) {
+        console.log(user.hours[currYear][currMonth]);
+        if (user.hours[currYear][currMonth][today].length > 1) { return true } else { return false }
+    }
 }
 
 export const userService = {
