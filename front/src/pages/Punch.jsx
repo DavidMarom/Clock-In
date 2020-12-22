@@ -4,6 +4,7 @@ import { loadUsers, login, logout, signup, updateUser, getUserById } from '../st
 import { connect } from 'react-redux';
 import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
+import { Example } from '../cmps/Example';
 
 const _Punch = (props) => {
     let { loggedInUser } = props;
@@ -11,7 +12,6 @@ const _Punch = (props) => {
     const [refresh, setRefresh] = useState(0);
 
     useEffect(() => {
-        console.log(refresh);
     }
         , [refresh, props.loggedInUser]
     );
@@ -45,7 +45,7 @@ const _Punch = (props) => {
 
     return (
         <div>
-
+            <Example />
             <div className="pillars-strip">
                 <div className="pillar">
                     <p className="small-text">
@@ -85,10 +85,18 @@ const _Punch = (props) => {
 
                             <div key={idx} className="table2">
                                 <p className="tc">{day[0]}</p>
-                                <p className="tc">{moment.unix(day[1][0]).format('hh:mm')}</p>
-                                {(day[1].length > 1 ? <p className="tc">{moment.unix(day[1][1]).format('hh:mm')}</p> : <p className="tc">-</p>)}
+                                <p className="tc">{moment.unix(day[1][0]).format('HH:mm')}</p>
+                                {(day[1].length > 1 ? <p className="tc">{moment.unix(day[1][1]).format('HH:mm')}</p> : <p className="tc">-</p>)}
 
-                                {(day[1].length > 1 ? <p className="tc">{moment.unix((day[1][1] - day[1][0]) - 50400).format('hh:mm')}  </p> : <p className="tc">-</p>)}
+                                {(day[1].length > 1 ?
+                                    (
+                                        <p className="tc">
+                                            {Math.floor(((day[1][1] - day[1][0])) / 3600)}h⠀
+                                            {Math.round((((day[1][1] - day[1][0]) / 3600) % 1) * 60)}m
+                                        </p>
+                                    )
+
+                                    : <p className="tc">-</p>)}
                             </div>
                         )
                     }
