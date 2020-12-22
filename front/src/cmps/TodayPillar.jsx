@@ -11,26 +11,19 @@ const _TodayPillar = (props) => {
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
 
-    const doOut = async ev => {
-        ev.preventDefault();
+    const doInOut = async ev => {
         loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
         props.updateUser(loggedInUser);
         sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-    };
-
-    const doIn = async ev => {
-        ev.preventDefault();
-        loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
-        props.updateUser(loggedInUser);
         props.doRefresh();
     }
 
     return (
         <div>
             {  userService.hasInHour(loggedInUser) ?
-                (userService.hasOutHour(loggedInUser) ? <p>Have a nice evening</p> : <button onClick={doOut} >Clock-Out</button>)
+                (userService.hasOutHour(loggedInUser) ? <p>Have a nice evening</p> : <button onClick={doInOut} >Clock-Out</button>)
                 :
-                <button onClick={doIn} >Clock-In</button>
+                <button onClick={doInOut} >Clock-In</button>
             }
         </div>
     )

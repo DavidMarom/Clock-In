@@ -6,7 +6,7 @@ import { loadUsers, removeUser, login, logout, signup } from '../store/actions/u
 
 const _Signup = (props) => {
   const [msg, setMsg] = useState('');
-  const [signupCred, setSignupCred] = useState({ email: '', password: '' });
+  const [signupCred, setSignupCred] = useState({ email: '', password: ''});
 
   const signupHandleChange = ev => {
     const { name, value } = ev.target;

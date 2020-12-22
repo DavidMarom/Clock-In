@@ -11,10 +11,7 @@ const _Punch = (props) => {
 
     const [refresh, setRefresh] = useState(0);
 
-    useEffect(() => {
-    }
-        , [refresh, props.loggedInUser]
-    );
+    useEffect(() => { }, [refresh, props.loggedInUser]);
 
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
@@ -26,22 +23,38 @@ const _Punch = (props) => {
         setRefresh(refresh + 1);
     }
 
+    const doUpdate = async ev => {
+        props.updateUser(loggedInUser);
+        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
+    };
 
-    // if the current month doesn't appear in the DB, create it in the local "loggedInUser" object. no need to update DB - it will be updated once clock-in is clicked
-    if (!loggedInUser.hours[currYear][currMonth]) {
-        console.log('no such month');
-        loggedInUser.hours[currYear] = { ...loggedInUser.hours[currYear], [currMonth]: {} }
+    // if no hours
+    if (!loggedInUser.hours) {
+        loggedInUser = { ...loggedInUser, hours: {} };
+        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
+        doUpdate();
     }
 
-    // if user doesnt have a key of today's day - add it with an empty array
+    // if no year
+    if (!loggedInUser.hours[currYear]) {
+        loggedInUser.hours = { ...loggedInUser.hours, [currYear]: {} };
+        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
+        doUpdate();
+    }
+
+    // if no month
+    if (!loggedInUser.hours[currYear][currMonth]) {
+        loggedInUser.hours[currYear] = { ...loggedInUser.hours[currYear], [currMonth]: {} };
+        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
+        doUpdate();
+    }
+
+    // if no today
     if (!userService.hasToday(loggedInUser)) {
         loggedInUser.hours[currYear][currMonth] = { ...loggedInUser.hours[currYear][currMonth], [today]: [] }
     }
 
     let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
-
-
-
 
     return (
         <div>
@@ -106,7 +119,11 @@ const _Punch = (props) => {
                     <p className="tch"></p>
                     <p className="tch"></p>
                     <p className="tch"></p>
-                    <p className="tch">{moment.unix(sum - 50400).format('hh:mm')}</p>
+                    <p className="tch">
+                        {Math.floor(((sum)) / 3600)}h⠀
+                            {Math.round((((sum) / 3600) % 1) * 60)}m
+
+                    </p>
                 </div>
 
             </div>
