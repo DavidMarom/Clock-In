@@ -69,7 +69,13 @@ function hasToday(user) {
 
 function hasOutHour(user) {
     if (hasToday(user)) {
-        if (user.hours[currYear][currMonth][today].length > 1) { return true } else { return false }
+        if (user.hours[currYear][currMonth][today].length === 2) { return true } else { return false }
+        
+    } else return false
+}
+function hasInHour(user) {
+    if (hasToday(user)) {
+        if (user.hours[currYear][currMonth][today].length >= 1) { return true } else { return false }
         
     } else return false
 }
@@ -85,5 +91,6 @@ export const userService = {
     findIdxToMark,
     count,
     hasToday,
-    hasOutHour
+    hasOutHour,
+    hasInHour
 };

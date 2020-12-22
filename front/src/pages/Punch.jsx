@@ -6,24 +6,24 @@ import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
 
 const _Punch = (props) => {
+    let { loggedInUser } = props;
 
     const [refresh, setRefresh] = useState(0);
 
     useEffect(() => {
         console.log(refresh);
     }
-        , refresh
+        , [refresh, props.loggedInUser]
     );
 
-    let { loggedInUser } = props;
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
     let sum = 0;
 
-    const doRefresh= ()=>{
-        setRefresh(refresh+1);
+    const doRefresh = () => {
+        setRefresh(refresh + 1);
     }
 
 
@@ -39,7 +39,6 @@ const _Punch = (props) => {
     }
 
     let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
-    console.log(hours);
 
 
 

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { updateUser } from '../store/actions/userActions';
 import { connect } from 'react-redux';
 import { userService } from '../services/userService';
@@ -10,13 +10,22 @@ export const _TodayPillar = (props) => {
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
 
+    const [refresh, setRefresh] = useState(0);
 
-    const doOut = () => { console.log('************doOut'); }
+    useEffect(() => {
+        console.log(refresh);
+    }
+        , [refresh]
+    );
+
+    const doOut = () => {
+        loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
+        props.doRefresh();
+    }
 
     const doIn = () => {
-        loggedInUser.hours[currYear][currMonth][today].push(64364);
+        loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
         props.doRefresh();
-        console.log('gggggggggggg');
 
     }
 
@@ -24,10 +33,12 @@ export const _TodayPillar = (props) => {
     return (
         <div>
 
-            {  userService.hasOutHour(loggedInUser) ?
-                <button onClick={doOut} >Clock-Out</button>
+            {  userService.hasInHour(loggedInUser) ?
+                (userService.hasOutHour(loggedInUser) ? <p>Have a nice evening</p> : <button onClick={doOut} >Clock-Out</button>)
                 :
-                <button onClick={ doIn} >Clock-In</button>
+
+
+                <button onClick={doIn} >Clock-In</button>
             }
         </div>
     )
