@@ -63,16 +63,15 @@ const currMonth = currentTime.getMonth() + 1;
 
 
 function hasToday(user) {
-    console.log(user.hours);
     if (user.hours[currYear][currMonth][today]) { return true } else { return false };
 }
 
 
 function hasOutHour(user) {
     if (hasToday(user)) {
-        console.log(user.hours[currYear][currMonth]);
         if (user.hours[currYear][currMonth][today].length > 1) { return true } else { return false }
-    }
+        
+    } else return false
 }
 
 export const userService = {
