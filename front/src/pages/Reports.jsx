@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import { connect } from "react-redux";
+import { setPageName } from "../store/actions/userActions";
 
-const Reports = () => {
+const _Reports = (props) => {
+
+  useEffect(() => {
+    props.setPageName('Reports');
+}, []);
+
+
   return <h1>Reports</h1>;
 };
 
-export default Reports;
+
+const mapDispatchToProps = {
+  setPageName
+};
+
+export const Reports = connect(null, mapDispatchToProps)(_Reports);

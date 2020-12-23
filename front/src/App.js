@@ -7,11 +7,11 @@ import { Home } from "./pages/Home.jsx";
 import { Admin } from "./pages/Admin.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Signup } from "./pages/Signup.jsx";
-import Reports from "./pages/Reports.jsx";
-import Announcments from "./pages/Announcments.jsx";
-import Messages from "./pages/Messages.jsx";
-import Documents from "./pages/Documents.jsx";
-import TimeOff from "./pages/TimeOff.jsx";
+import { Reports } from "./pages/Reports.jsx";
+import { Announcments } from "./pages/Announcments.jsx";
+// import Messages from "./pages/Messages.jsx";
+import { Documents } from "./pages/Documents.jsx";
+import { TimeOff } from "./pages/TimeOff.jsx";
 import editProfile from "./pages/editProfile.jsx";
 import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
@@ -40,7 +40,7 @@ function _App(props) {
                   <Route exact component={editProfile} path={"/profile"} />
                   <Route exact component={Reports} path={"/reports"} />
                   <Route exact component={Announcments} path={"/announcments"} />
-                  <Route exact component={Messages} path={"/messages"} />
+                  {/* <Route exact component={Messages} path={"/messages"} /> */}
                   <Route exact component={Documents} path={"/documents"} />
                   <Route exact component={TimeOff} path={"/timeoff"} />
                 </Switch>

@@ -15,9 +15,9 @@ export const SideBar = () => {
       <NavLink className="nav-override-color" to="/clockin">
         <i className="fas fa-door-open"></i> Clock in/out
       </NavLink>
-      <NavLink className="nav-override-color" to="/messages">
+      {/* <NavLink className="nav-override-color" to="/messages">
         <i className="fas fa-envelope"></i> Messages
-      </NavLink>
+      </NavLink> */}
       <NavLink className="nav-override-color" to="/documents">
         <i className="fas fa-file-contract"></i> Documents
       </NavLink>

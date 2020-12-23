@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import { connect } from "react-redux";
+import { setPageName } from "../store/actions/userActions";
 
-const TimeOff = () => {
-  return <h1>Time Off</h1>;
+const _TimeOff = (props) => {
+
+  useEffect(() => {
+    props.setPageName('Request Time Off');
+  }, []);
+
+
+  return (
+    <div>
+
+      <p>So, you think you deserve some time off??</p>
+      <p>You slacker!</p>
+      <p>NO SOUP FOR YOU!!</p>
+    </div>
+  )
 };
 
-export default TimeOff;
+const mapDispatchToProps = {
+  setPageName
+};
+
+export const TimeOff = connect(null, mapDispatchToProps)(_TimeOff);

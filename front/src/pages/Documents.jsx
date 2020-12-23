@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { setPageName } from "../store/actions/userActions";
 
-const Documents = () => {
-  return <h1> Documents</h1>;
+const _Documents = (props) => {
+
+
+  useEffect(() => {
+    props.setPageName('Documents');
+  }, []);
+
+
+  return <h1> Document List:</h1>;
 };
 
-export default Documents;
+const mapDispatchToProps = {
+  setPageName
+};
+
+export const Documents = connect(null, mapDispatchToProps)(_Documents);

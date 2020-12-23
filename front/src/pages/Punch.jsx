@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
-import { loadUsers, login, logout, signup, updateUser, getUserById } from '../store/actions/userActions';
+import { loadUsers, login, logout, signup, updateUser, getUserById,setPageName } from '../store/actions/userActions';
 import { connect } from 'react-redux';
 import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
@@ -11,7 +11,10 @@ const _Punch = (props) => {
 
     const [refresh, setRefresh] = useState(0);
 
-    useEffect(() => { }, [refresh, props.loggedInUser]);
+    useEffect(() => {
+        props.setPageName('Clock in / out');
+
+     }, [refresh, props.loggedInUser]);
 
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
@@ -140,7 +143,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    login, logout, signup, loadUsers, updateUser, getUserById
+    setPageName, login, logout, signup, loadUsers, updateUser, getUserById
 };
 
 export const Punch = connect(mapStateToProps, mapDispatchToProps)(_Punch);
