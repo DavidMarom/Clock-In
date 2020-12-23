@@ -234,6 +234,18 @@ p {
 
 .relative {
   position: relative;
+  z-index: 3;
+}
+
+.purple-bg{
+  position: absolute;
+  top:-200px;
+  left: -500px;
+
+  background-color: #4400ff99;
+  width:100vw;
+  height: 100vh;
+
 }
 
 .login-btn {

@@ -4,15 +4,18 @@ import Playimg from "../assets/img/play_circle_filled_24px_outlined.png";
 
 function _PopUpWelcome(props) {
     return (
-        <div className="relative">
-            <div className="popup">
-                <img className="pic" alt="" />
-                <h2>Welcome Back {props.loggedInUser.name}</h2>
-                <img src={Playimg} className="play" alt="" />
-                <h1>8:30</h1>
-                <p>Start your working day!</p>
+        <div>
+            <div className="relative">
+            <div className="purple-bg"></div>
+                <div className="popup">
+                    <img className="pic" alt="" />
+                    <h2>Welcome Back {props.loggedInUser.name}</h2>
+                    <img src={Playimg} className="play" alt="" />
+                    <h1>{new Date().getHours()} : {new Date().getMinutes()}</h1>
+                    <p>Start your working day!</p>
 
-                <button onClick={props.toggle}>not now</button>
+                    <button onClick={props.toggle}>not now</button>
+                </div>
             </div>
         </div>
     );
