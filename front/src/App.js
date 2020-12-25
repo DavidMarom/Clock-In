@@ -1,6 +1,8 @@
+
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { loadUsers } from "./store/actions/userActions";
+
 
 import { Punch } from "./pages/Punch.jsx";
 import { Home } from "./pages/Home.jsx";
@@ -9,7 +11,6 @@ import { Login } from "./pages/Login.jsx";
 import { Signup } from "./pages/Signup.jsx";
 import { Reports } from "./pages/Reports.jsx";
 import { Announcments } from "./pages/Announcments.jsx";
-// import Messages from "./pages/Messages.jsx";
 import { Documents } from "./pages/Documents.jsx";
 import { TimeOff } from "./pages/TimeOff.jsx";
 import editProfile from "./pages/editProfile.jsx";
@@ -17,6 +18,15 @@ import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import NavBar from "./cmps/NavBar.jsx";
 import { SideBar } from "./cmps/SideBar.jsx";
+
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+am4core.useTheme(am4themes_animated);
+
+
+
+
 
 function _App(props) {
   const [loginOrSignup, setLoginOrSignup] = useState(true);
