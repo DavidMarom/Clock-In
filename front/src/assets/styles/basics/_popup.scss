@@ -1,13 +1,49 @@
-.popup {
+.popup2 {
+  padding: 80px;
   text-align: center;
   position: absolute;
-  width: 400px;
-  height: 500px;
+  width: 589px;
+  height: 589px;
   left: 300px;
   top: 100px;
   background: #f8eded;
   // box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.25);
   border-radius: 32px;
+
+  .skip-text {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #383874;
+    background-color: #00000000;
+    border:none;
+    text-decoration: underline;
+  }
+
+  .grey-text {
+    font-size: 24px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #8787ab;
+  }
+
+  .hour-popup {
+    font-family: FiraSans;
+    font-size: 64px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.15px;
+    color: #15d1c6;
+  }
 
   .play {
     width: 140px;
