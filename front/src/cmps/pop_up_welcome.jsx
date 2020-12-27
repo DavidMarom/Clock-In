@@ -56,19 +56,26 @@ function _PopUpWelcome(props) {
                 {(userService.hasOutHour(loggedInUser) ? null :
                     <div>
                         <div className="purple-bg"></div>
-
+                        <div className="pop-image"></div>
                         <div className="popup2 ca">
+                            <div className="rb">
+                                <div></div>
+                                <button className="close-x" onClick={props.toggle}>X</button>
+
+                            </div>
+
+
                             <h1>Welcome Back, {props.loggedInUser.name} !</h1>
                             {(userService.hasInHour(loggedInUser) ?
                                 <div className="grey-text">Leaving so soon?</div> :
                                 <div className="grey-text">start your working day</div>)}
-                            <div className="hour-popup">
-                                {new Date().getHours()} : {(new Date().getMinutes() < 10 ? 0 : null)}{new Date().getMinutes()}
+                            <div className="hour-popup"><b>
+                                {new Date().getHours()} : {(new Date().getMinutes() < 10 ? 0 : null)}{new Date().getMinutes()}</b>
                             </div>
 
-                            {(userService.hasInHour(loggedInUser) ? 
-                            <button onClick={doInOut} >Clock-Out</button> : 
-                            <button onClick={doInOut} >Clock-In</button>)}
+                            {(userService.hasInHour(loggedInUser) ?
+                                <button className="clock-btn tvalign" onClick={doInOut}><i className="far fa-play-circle fa-2x tvalign"></i> CLOCK OUT</button> :
+                                <button className="clock-btn tvalign" onClick={doInOut}><i className="far fa-play-circle fa-2x tvalign"></i> CLOCK IN</button>)}
 
                             <button className="skip-text" onClick={props.toggle}>Skip for now</button>
 
