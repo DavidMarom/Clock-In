@@ -4,6 +4,7 @@ import { loadUsers, login, logout, signup, updateUser, getUserById, setPageName 
 import { connect } from 'react-redux';
 import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
+import { TotalPillar } from '../cmps/TotalPillar';
 import { Example } from '../cmps/Example';
 
 const _Punch = (props) => {
@@ -71,7 +72,7 @@ const _Punch = (props) => {
                 </div>
                 <div className="pillar">
                     <p className="small-text">Total working hours</p>
-
+                    <TotalPillar />
                 </div>
                 <div className="pillar">
                     <p className="small-text">Projects</p>

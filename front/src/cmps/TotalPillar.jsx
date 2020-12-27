@@ -1,20 +1,36 @@
 import React, { useEffect, useState } from "react"
 
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+
 import { updateUser } from '../store/actions/userActions';
 import { connect } from 'react-redux';
 import { userService } from '../services/userService';
 
-const _TodayPillar = (props) => {
+const _TotalPillar = (props) => {
     let { loggedInUser } = props;
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
 
-
-
     useEffect(() => {
 
+        let chart = am4core.create("chartdiv", am4charts.PieChart);
+        chart.data = [{
+            "month": "Jan",
+            "hours": 50
+        }, {
+            "month": "Fab",
+            "hours": 40
+        }, {
+            "month": "March",
+            "hours": 30
+        }];
+        let pieSeries = chart.series.push(new am4charts.PieSeries());
+
+        pieSeries.dataFields.value = "hours";
+        pieSeries.dataFields.category = "month";
 
 
     }, []);
@@ -29,11 +45,8 @@ const _TodayPillar = (props) => {
 
     return (
         <div>
-            {  userService.hasInHour(loggedInUser) ?
-                (userService.hasOutHour(loggedInUser) ? <p>Have a nice evening</p> : <button onClick={doInOut} >Clock-Out</button>)
-                :
-                <button onClick={doInOut} >Clock-In</button>
-            }
+            
+            <div id="chartdiv" style={{ width: "90%", height: "100%" }}></div>
 
         </div>
     )
@@ -41,7 +54,6 @@ const _TodayPillar = (props) => {
 
 const mapStateToProps = state => {
     return {
-        users: state.user.users,
         loggedInUser: state.user.loggedInUser,
     };
 };
@@ -50,4 +62,4 @@ const mapDispatchToProps = {
     updateUser
 };
 
-export const TodayPillar = connect(mapStateToProps, mapDispatchToProps)(_TodayPillar);
+export const TotalPillar = connect(mapStateToProps, mapDispatchToProps)(_TotalPillar);
