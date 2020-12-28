@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { loadUsers } from "./store/actions/userActions";
 
-
 import { Punch } from "./pages/Punch.jsx";
 import { Home } from "./pages/Home.jsx";
 import { Admin } from "./pages/Admin.jsx";
@@ -25,9 +24,6 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 
 
-
-
-
 function _App(props) {
   const [loginOrSignup, setLoginOrSignup] = useState(true);
 
@@ -37,10 +33,12 @@ function _App(props) {
         <NavBar />
         <div className="outter-container">
           <div className="inner-container">
-            <div className="ra">
-              <div className="w256">
+            <div className="rb-top bg-deep-blue">
+              {/* <div className="cb w256 h100p"> */}
+              <div className="cb">
                 <SideBar />
               </div>
+
               <div className="main-container">
                 <Switch>
                   <Route exact component={Home} path={"/"} />

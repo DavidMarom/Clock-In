@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 
 import { updateUser } from '../store/actions/userActions';
 import { connect } from 'react-redux';
@@ -11,14 +11,7 @@ const _TodayPillar = (props) => {
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
 
-
-
-    useEffect(() => {
-
-
-
-    }, []);
-
+    useEffect(() => { }, []);
 
     const doInOut = async ev => {
         loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
@@ -34,7 +27,6 @@ const _TodayPillar = (props) => {
                 :
                 <button onClick={doInOut} >Clock-In</button>
             }
-
         </div>
     )
 }

@@ -29,6 +29,13 @@
     align-items: center;
     width: 100%;
 }
+.rb-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
 
 // Column Around
 .ca {
@@ -46,14 +53,22 @@
     align-items: left;
     padding: 1rem;
 }
+.cbl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    padding: 1rem;
+}
 
 // Column Between
 .cb {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* align-content: space-between; */
-    /* align-items: center; */
+    align-content: space-between;
+    align-items: center;
+    background-color: #dba1d2;
 }
 
 .card-grid {

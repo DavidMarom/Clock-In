@@ -9,6 +9,8 @@
 
 html {
   font-family: FiraSans;
+  overflow-y: scroll;
+
   // line-height: 1.6;
   // color: $clr2;
 }
@@ -89,6 +91,11 @@ p {
 
 .h330 {
   height: 330px;
+}
+.h100p{
+  height: 500px;
+  background-color: #ff0000;
+
 }
 
 /* WIDTH *********************/

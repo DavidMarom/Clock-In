@@ -10,7 +10,7 @@ export const SideBar = () => {
   // }
 
   return (
-    <div className="cal side-bar">
+    <div className="cbl side-bar">
       <p className="title">My Stuff</p>
       <NavLink className="nav-override-color" to="/clockin">
         <i className="fas fa-door-open"></i> Clock in/out
