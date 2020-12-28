@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { loadUsers } from "./store/actions/userActions";
+import { loadUsers, login } from "./store/actions/userActions";
 
 import { Punch } from "./pages/Punch.jsx";
 import { Home } from "./pages/Home.jsx";
@@ -63,22 +63,22 @@ function _App(props) {
       <div className="outter-container">
         <div className="inner-container">
           {loginOrSignup ? <Login /> : <Signup />}
-          <div
-            className="lnk-btn"
-            onClick={() => {
-              setLoginOrSignup(!loginOrSignup);
-            }}
-          >
-            <div className="ra w300 ">
-              {loginOrSignup ? (
-                <p>Dont have an account? Signup now!</p>
-              ) : (
-                  <p>Back to login page</p>
-                )}
+
+
+
+          <div className="cb">
+            <button className="login-btn2" onClick={() => props.login({ email: "demo@user.com", password: 'qwerty' })}>Login as a guest</button>
+            <div className="lnk-btn" onClick={() => { setLoginOrSignup(!loginOrSignup); }}>
+              {loginOrSignup ? (<p>Dont have an account? Signup now!</p>) : (<p>Back to login page</p>)}
             </div>
           </div>
+
+
+
         </div>
       </div>
+
+
     );
   }
 }
@@ -91,12 +91,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  loadUsers,
+  loadUsers, login
 };
 
-export const App = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(_App));
+export const App = connect(mapStateToProps, mapDispatchToProps)(withRouter(_App));
 
 // export default withRouter(_App);

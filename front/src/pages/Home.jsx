@@ -8,13 +8,20 @@ const _Home = (props) => {
     const [pop, setPop] = useState(true);
 
     useEffect(() => {
-        props.setPageName('Home');
+        props.setPageName('Welcome!');
     }, []);
 
     return (
         <div className="relative">
             {(pop ? <PopUpWelcome toggle={() => setPop(!pop)} /> : null)}
             <p>Clock-In is an open source employee-management system</p>
+
+        <div className="articles-row">
+            <div className="article_a"></div>
+            <div className="article_b"></div>
+
+        </div>
+
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { updateUser } from '../store/actions/userActions';
 import { connect } from "react-redux";
-import Playimg from "../assets/img/play_circle_filled_24px_outlined.png";
 import { userService } from '../services/userService';
 
 
@@ -74,7 +73,7 @@ function _PopUpWelcome(props) {
                             </div>
 
                             {(userService.hasInHour(loggedInUser) ?
-                                <button className="clock-btn tvalign" onClick={doInOut}><i className="far fa-play-circle fa-2x tvalign"></i> CLOCK OUT</button> :
+                                <button className="clock-btn tvalign" onClick={doInOut}><i className="far fa-stop-circle fa-2x tvalign"></i> CLOCK OUT</button> :
                                 <button className="clock-btn tvalign" onClick={doInOut}><i className="far fa-play-circle fa-2x tvalign"></i> CLOCK IN</button>)}
 
                             <button className="skip-text" onClick={props.toggle}>Skip for now</button>

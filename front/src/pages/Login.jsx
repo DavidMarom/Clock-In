@@ -16,9 +16,7 @@ const _Login = (props) => {
   const doLogin = async ev => {
     ev.preventDefault();
     const { email, password } = loginCred;
-    if (!email || !password) {
-      return setMsg('Please enter user/password');
-    }
+    if (!email || !password) { return setMsg('Please enter user/password'); }
     const userCreds = { email, password };
     props.login(userCreds);
     setLoginCred({ email: '', password: '' });
@@ -31,13 +29,15 @@ const _Login = (props) => {
       <br />
       <input className="login-input" type="password" name="password" value={loginCred.password} onChange={loginHandleChange} placeholder="Password" />
       <br />
-      <button className="login-btn">Login</button>
+      <div>
+        <button className="login-btn">Login</button><br/>
+      </div>
     </form>
   );
 
   const { loggedInUser } = props;
   return (
-    <div className="ca">
+    <div className="cb">
       <img className=" img-356p" src={frontlogo} alt="" />
       {/* <h1>Login</h1> */}
       <h2>{msg}</h2>
