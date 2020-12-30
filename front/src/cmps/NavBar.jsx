@@ -16,7 +16,7 @@ function _NavBar(props) {
 
                     <div className="rb bg-07">
 
-                        <NavLink to="/">
+                        <NavLink to="/home">
                             <div className="rb logo-cube">
                                 <img className="marg-center" src={logo} width={"180px"} alt="Clock-In"></img>
                             </div>
