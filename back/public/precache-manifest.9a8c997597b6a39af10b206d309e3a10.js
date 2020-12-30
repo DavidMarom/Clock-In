@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "31e25c7948c1b22f48133dbcd4d5a30d",
+    "revision": "1ce1236441fdf1321ad51ebe9dbc4b65",
     "url": "/index.html"
   },
   {
-    "revision": "b89177d01e4cc52bccf4",
-    "url": "/static/css/main.b16d0a40.chunk.css"
+    "revision": "d8050e6b894933fdd981",
+    "url": "/static/css/main.0dbf5bf0.chunk.css"
   },
   {
     "revision": "2ebecc07b60a993fd04f",
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/6.c82b8cf6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b89177d01e4cc52bccf4",
-    "url": "/static/js/main.b071c9de.chunk.js"
+    "revision": "d8050e6b894933fdd981",
+    "url": "/static/js/main.62807c4f.chunk.js"
   },
   {
     "revision": "f2d427c1db3a25da7ec1",
@@ -60,8 +60,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/VarelaRound-Regular.159cb67f.ttf"
   },
   {
-    "revision": "aab9a1dcecd9b2acc2e0e770a9068853",
-    "url": "/static/media/a.aab9a1dc.jpg"
+    "revision": "6a84e74aab06f7cdced59c02c35f702d",
+    "url": "/static/media/a.6a84e74a.jpg"
   },
   {
     "revision": "aaa57173fab7525fb6101c33f3e273f8",

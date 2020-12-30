@@ -24,4 +24,4 @@ const mapDispatchToProps = {
     onDec_a
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(_AddButton_a);
+export const AddButton_a =  connect(mapStateToProps, mapDispatchToProps)(_AddButton_a);

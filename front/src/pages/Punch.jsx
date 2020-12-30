@@ -1,3 +1,7 @@
+// ************************************
+// * THIS IS THE CLOCK-IN-OUT PAGE    *
+// ************************************
+
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { loadUsers, login, logout, signup, updateUser, getUserById, setPageName } from '../store/actions/userActions';

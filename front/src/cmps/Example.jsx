@@ -9,10 +9,20 @@ const _Example = (props) =>{
     )
 }
 
+
+
 const mapStateToProps = state => {
     return {
         loggedInUser: state.user.loggedInUser,
     };
 };
 
-export const Example = connect(mapStateToProps, null)(_Example);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onInc_b: () => dispatch({ type: 'INC_B' }),
+        onDec_b: () => dispatch({ type: 'DEC_B' })
+
+    }
+}
+export const Example = connect(mapStateToProps, mapDispatchToProps)(_Example);
