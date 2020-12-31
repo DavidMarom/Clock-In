@@ -23,8 +23,22 @@ const _TodayPillar = (props) => {
     return (
         <div>
             {  userService.hasInHour(loggedInUser) ?
-                (userService.hasOutHour(loggedInUser) ? <p>Have a nice evening</p> : <button onClick={doInOut} >Clock-Out</button>)
+                // IN-YES, OUT ?
+                userService.hasOutHour(loggedInUser) ?
+                    // IN-YES, OUT-YES
+                    <p>Have a nice evening</p> :
+
+                    // IN-YES, OUT-NO -- IN THE OFFICE
+                    <div className="cb h150">
+                        <div className="cb">
+                            <div className="pillar-head">Wed, Dec 16</div>
+                            <div className="pillar-sub-head">Clocked in: Today at 07:58</div>
+                        </div>
+                        <div className="pillar-turqize">2h 24m</div>
+                        <button onClick={doInOut} className="red-check-out"><i className="far fa-stop-circle fa-2x tvalign"></i> CLOCK OUT</button>
+                    </div>
                 :
+                // IN-NO, OUT-NO
                 <button onClick={doInOut} >Clock-In</button>
             }
         </div>
