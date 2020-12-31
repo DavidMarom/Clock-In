@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { connect } from "react-redux";
 import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
+import { useDispatch, useSelector } from "react-redux";
 
-import { loadUsers, countUsers ,setPageName } from "../store/actions/userActions";
-// var test = 0;
-const _Admin = (props) => {
+
+import { loadUsers, countUsers, setPageName } from "../store/actions/userActions";
+const _Admin = () => {
+    const userCount = useSelector((state) => state.user.userCount);
+    const users = useSelector((state) => state.user.users);
+
+
+    const dispatch = useDispatch();
+
     const [currPage, setCurrPage] = useState(1);
     const [search, setSearch] = useState('');
     var totalPages;
-    totalPages = Math.ceil(props.userCount / 4)
-    // test++;
+    totalPages = Math.ceil(userCount / 4)
 
     const searchChange = ev => {
         setSearch(ev.target.value);
@@ -17,22 +22,20 @@ const _Admin = (props) => {
 
     const doSearch = (ev) => {
         ev.preventDefault();
-
-        props.loadUsers(search);
+        dispatch(loadUsers(search));
     }
 
     useEffect(() => {
-        props.loadUsers('', currPage);
+        dispatch( loadUsers('', currPage));
     }, [currPage]);
 
 
     useEffect(() => {
-        props.loadUsers('', currPage);
-        props.countUsers();
-        props.setPageName('Employee List');
+        dispatch(loadUsers('', currPage));
+        dispatch(countUsers());
+        dispatch(setPageName('Employee List'));
     }, []);
 
-    const { users } = props;
     if (!users) { return <h1>loading</h1> }
     else {
         return (
@@ -48,34 +51,12 @@ const _Admin = (props) => {
                     <p>Role</p>
                     <p>email</p>
                 </div>
-                
-                <button onClick={() => {
-                    ((currPage > 1) && setCurrPage(currPage - 1) )
-                }}>Prev</button>
-
-                <button onClick={() => {
-                    ((currPage <= totalPages-1) && setCurrPage(currPage + 1) )
-                }}>Next</button>
-                
-
+                <button onClick={() => { ((currPage > 1) && setCurrPage(currPage - 1)) }}>Prev</button>
+                <button onClick={() => { ((currPage <= totalPages - 1) && setCurrPage(currPage + 1)) }}>Next</button>
                 {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
-                
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => { 
-    return {
-        users: state.user.users,
-        userCount: state.user.userCount
-    };
-};
-
-const mapDispatchToProps = {
-    loadUsers,
-    countUsers,
-    setPageName
-};
-
-export const Admin = connect(mapStateToProps, mapDispatchToProps)(_Admin);
+export const Admin = _Admin;
