@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const _Example = (props) =>{
     return (
         <div>
-            {console.log(props.loggedInUser)}
+            {/* {console.log(props.loggedInUser)} */}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -31,8 +31,6 @@ const _TotalPillar = (props) => {
 
         pieSeries.dataFields.value = "hours";
         pieSeries.dataFields.category = "month";
-
-
     }, []);
 
 
@@ -45,9 +43,7 @@ const _TotalPillar = (props) => {
 
     return (
         <div>
-            
             <div id="chartdiv" style={{ width: "90%", height: "100%" }}></div>
-
         </div>
     )
 }

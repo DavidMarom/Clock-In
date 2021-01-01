@@ -31,7 +31,7 @@ const _TodayPillar = (props) => {
                     // IN-YES, OUT-NO -- IN THE OFFICE
                     <div className="cb h150">
                         <div className="cb">
-                            <div className="pillar-head">Wed, Dec 16</div>
+                            <div className="pillar-head">{currentTime.toLocaleString("default", { weekday: "short" })}, {currentTime.toLocaleString("default", { month: "short" })} {today}</div>
                             <div className="pillar-sub-head">Clocked in: Today at 07:58</div>
                         </div>
                         <div className="pillar-turqize">2h 24m</div>
@@ -39,7 +39,16 @@ const _TodayPillar = (props) => {
                     </div>
                 :
                 // IN-NO, OUT-NO
-                <button onClick={doInOut} >Clock-In</button>
+
+                <div className="cb h150">
+                    <div className="cb">
+                        <div className="pillar-head">{currentTime.toLocaleString("default", { weekday: "short" })}, {currentTime.toLocaleString("default", { month: "short" })} {today}</div>
+                        <div className="pillar-sub-head">You have not clocked-in yet</div>
+                    </div>
+                    <div className="pillar-turqize">0h 0m</div>
+                    <button onClick={doInOut} className="green-check-in"><i className="far fa-play-circle fa-2x tvalign"></i> CLOCK IN</button>
+                </div>
+
             }
         </div>
     )
