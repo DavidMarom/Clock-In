@@ -6,6 +6,7 @@ import { PopUpWelcome } from '../cmps/pop_up_welcome';
 
 const _Home = (props) => {
     const [pop, setPop] = useState(true);
+    // const [firstLoad, setFirstLoad] = useState(true);
 
     useEffect(() => {
         props.setPageName('Welcome!');
@@ -13,7 +14,7 @@ const _Home = (props) => {
 
     return (
         <div className="relative">
-            {(pop ? <PopUpWelcome toggle={() => setPop(!pop)} /> : null)}
+            {(pop ? <PopUpWelcome toggle={() => setPop(false)} /> : null)}
             <p>Clock-In is an open source employee-management system</p>
 
         <div className="articles-row">

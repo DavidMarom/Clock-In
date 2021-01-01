@@ -15,7 +15,7 @@ import { TimeOff } from "./pages/TimeOff.jsx";
 import editProfile from "./pages/editProfile.jsx";
 import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
-import NavBar from "./cmps/NavBar.jsx";
+import { NavBar } from "./cmps/NavBar.jsx";
 import { SideBar } from "./cmps/SideBar.jsx";
 
 import * as am4core from "@amcharts/amcharts4/core";
@@ -34,7 +34,6 @@ function _App(props) {
         <div className="outter-container">
           <div className="inner-container">
             <div className="rb-top bg-deep-blue">
-              {/* <div className="cb w256 h100p"> */}
               <div className="cb">
                 <SideBar />
               </div>
@@ -48,7 +47,6 @@ function _App(props) {
                   <Route exact component={editProfile} path={"/profile"} />
                   <Route exact component={Reports} path={"/reports"} />
                   <Route exact component={Announcments} path={"/announcments"} />
-                  {/* <Route exact component={Messages} path={"/messages"} /> */}
                   <Route exact component={Documents} path={"/documents"} />
                   <Route exact component={TimeOff} path={"/timeoff"} />
                 </Switch>

@@ -17,21 +17,18 @@ function _PopUpWelcome(props) {
     if (!loggedInUser.hours) {
         loggedInUser = { ...loggedInUser, hours: {} };
         sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-        // doUpdate();
     }
 
     // if no year
     if (!loggedInUser.hours[currYear]) {
         loggedInUser.hours = { ...loggedInUser.hours, [currYear]: {} };
         sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-        // doUpdate();
     }
 
     // if no month
     if (!loggedInUser.hours[currYear][currMonth]) {
         loggedInUser.hours[currYear] = { ...loggedInUser.hours[currYear], [currMonth]: {} };
         sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-        // doUpdate();
     }
 
     // if no today
@@ -44,7 +41,6 @@ function _PopUpWelcome(props) {
         loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
         props.updateUser(loggedInUser);
         sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-        // props.doRefresh();
         props.toggle();
     }
 

@@ -6,9 +6,6 @@ import { logout } from '../store/actions/userActions';
 const logo = require('../assets/img/logo.png')
 
 function _NavBar(props) {
-
-
-
     return (
         <div>
             <div className="outter-container nav-bar">
@@ -16,7 +13,7 @@ function _NavBar(props) {
 
                     <div className="rb bg-07">
 
-                        <NavLink to="/home">
+                        <NavLink to="/">
                             <div className="rb logo-cube">
                                 <img className="marg-center" src={logo} width={"180px"} alt="Clock-In"></img>
                             </div>
@@ -31,9 +28,7 @@ function _NavBar(props) {
                             </div>
                             <div className="ca">
                                 <div className="ra">
-                                    {/* <NavLink to="/page-01">Page-01</NavLink>
-                                <NavLink to="/page-02">Page-02</NavLink> */}
-                                    {/* <NavLink to="/login">login</NavLink> */}
+                                    
                                     <button className="logout-btn" onClick={props.logout}>Logout</button>
                                 </div>
 
@@ -60,4 +55,4 @@ const mapDispatchToProps = {
     logout
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(_NavBar);
+export const NavBar = connect(mapStateToProps, mapDispatchToProps)(_NavBar);
