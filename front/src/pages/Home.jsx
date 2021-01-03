@@ -1,33 +1,38 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from "react-redux";
-import { setPageName } from "../store/actions/userActions";
+import { showPopup, setPageName } from "../store/actions/userActions";
 
 import { PopUpWelcome } from '../cmps/pop_up_welcome';
 
 const _Home = (props) => {
-    const [pop, setPop] = useState(true);
-
     useEffect(() => {
         props.setPageName('Welcome!');
     }, []);
 
+
     return (
         <div className="relative">
-            {(pop ? <PopUpWelcome toggle={() => setPop(!pop)} /> : null)}
+            {(props.popup ? <PopUpWelcome toggle={() => props.showPopup(false)} /> : null)}
             <p>Clock-In is an open source employee-management system</p>
 
-        <div className="articles-row">
-            <div className="article_a"></div>
-            <div className="article_b"></div>
-
-        </div>
-
+            <div className="articles-row">
+                <div className="article_a"></div>
+                <div className="article_b"></div>
+            </div>
         </div>
     )
 }
 
+
+const mapStateToProps = state => {
+    return {
+        popup: state.user.popup
+        };
+};
+
 const mapDispatchToProps = {
+    showPopup,
     setPageName
 };
 
-export const Home = connect(null, mapDispatchToProps)(_Home);
+export const Home = connect(mapStateToProps, mapDispatchToProps)(_Home);

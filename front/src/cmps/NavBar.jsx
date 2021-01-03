@@ -7,6 +7,7 @@ import TopBar from "../cmps/TopBar";
 const logo = require("../assets/img/logo.png");
 
 function _NavBar(props) {
+<<<<<<< HEAD
   return (
     <div>
       <div className="outter-container nav-bar">
@@ -35,6 +36,41 @@ function _NavBar(props) {
                   <button className="logout-btn" onClick={props.logout}>
                     Logout
                   </button>
+=======
+    return (
+        <div>
+            <div className="outter-container nav-bar">
+                <div className="inner-container">
+
+                    <div className="rb bg-07">
+
+                        <NavLink to="/">
+                            <div className="rb logo-cube">
+                                <img className="marg-center" src={logo} width={"180px"} alt="Clock-In"></img>
+                            </div>
+                        </NavLink>
+
+                        <div className="rb pad-1rem">
+
+                            <div className="ca">
+                                <div className="ra">
+                                    <h2>{props.pageName}</h2>
+                                </div>
+                            </div>
+                            <div className="ca">
+                                <div className="ra">
+                                    
+                                    <button className="logout-btn" onClick={props.logout}>Logout</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+>>>>>>> 76b079f52eb87026cfef7eda061fcdbcea6ec9aa
                 </div>
               </div>
             </div>
@@ -55,4 +91,8 @@ const mapDispatchToProps = {
   logout,
 };
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, mapDispatchToProps)(_NavBar);
+=======
+export const NavBar = connect(mapStateToProps, mapDispatchToProps)(_NavBar);
+>>>>>>> 76b079f52eb87026cfef7eda061fcdbcea6ec9aa
