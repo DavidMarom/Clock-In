@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { loadUsers, login } from "./store/actions/userActions";
@@ -23,7 +22,6 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 
-
 function _App(props) {
   const [loginOrSignup, setLoginOrSignup] = useState(true);
 
@@ -47,7 +45,11 @@ function _App(props) {
                   <Route exact component={Login} path={"/login"} />
                   <Route exact component={editProfile} path={"/profile"} />
                   <Route exact component={Reports} path={"/reports"} />
-                  <Route exact component={Announcments} path={"/announcments"} />
+                  <Route
+                    exact
+                    component={Announcments}
+                    path={"/announcments"}
+                  />
                   {/* <Route exact component={Messages} path={"/messages"} /> */}
                   <Route exact component={Documents} path={"/documents"} />
                   <Route exact component={TimeOff} path={"/timeoff"} />
@@ -64,21 +66,30 @@ function _App(props) {
         <div className="inner-container">
           {loginOrSignup ? <Login /> : <Signup />}
 
-
-
           <div className="cb">
-            <button className="login-btn2" onClick={() => props.login({ email: "demo@user.com", password: 'qwerty' })}>Login as a guest</button>
-            <div className="lnk-btn" onClick={() => { setLoginOrSignup(!loginOrSignup); }}>
-              {loginOrSignup ? (<p>Dont have an account? Signup now!</p>) : (<p>Back to login page</p>)}
+            <button
+              className="login-btn2"
+              onClick={() =>
+                props.login({ email: "demo@user.com", password: "qwerty" })
+              }
+            >
+              Login as a guest
+            </button>
+            <div
+              className="lnk-btn"
+              onClick={() => {
+                setLoginOrSignup(!loginOrSignup);
+              }}
+            >
+              {loginOrSignup ? (
+                <p>Dont have an account? Signup now!</p>
+              ) : (
+                <p>Back to login page</p>
+              )}
             </div>
           </div>
-
-
-
         </div>
       </div>
-
-
     );
   }
 }
@@ -91,9 +102,13 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  loadUsers, login
+  loadUsers,
+  login,
 };
 
-export const App = connect(mapStateToProps, mapDispatchToProps)(withRouter(_App));
+export const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(_App));
 
 // export default withRouter(_App);
