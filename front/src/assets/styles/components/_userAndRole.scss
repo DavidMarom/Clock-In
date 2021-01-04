@@ -1,7 +1,7 @@
 .userandrole {
-  height: 128px;
-  margin: 0 0 10px;
-  padding: 32px 30px 32px 63px;
+  // height: 128px;
+  // margin: 0 0 10px;
+  // padding: 32px 30px 32px 63px;
   background-color: #4768ee;
 }
 
@@ -16,9 +16,9 @@
 }
 
 .search {
-  width: 422px;
-  height: 40px;
-  margin: -44px 50px 20px 160px;
+  min-width: 422px;
+  min-height: 40px;
+  // margin: -44px 50px 20px 160px;
   padding: 8px 272px 8px 20px;
   border-radius: 100px;
   border: solid 2px #dbdff1;

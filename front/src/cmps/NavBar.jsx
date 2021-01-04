@@ -28,12 +28,11 @@ function _NavBar(props) {
                   <h2>{props.pageName}</h2>
                 </div>
               </div>
-              <div className="ca">
-                <UserAndRole />
+              <div className="ra">
+                
+              <UserAndRole />
                 <div className="ra">
-                  <button className="logout-btn" onClick={props.logout}>
-                    Logout
-                  </button>
+                  <button className="logout-btn" onClick={props.logout}>Logout</button>
                 </div>
               </div>
             </div>
