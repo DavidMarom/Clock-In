@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/userActions";
-import UserAndRole from "./UserAndRole";
+import {UserAndRole} from "./UserAndRole";
 const logo = require("../assets/img/logo.png");
 
 function _NavBar(props) {
