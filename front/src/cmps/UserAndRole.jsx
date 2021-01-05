@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 
 const _UserAndRole = (props) => {
   return (
-    <div className="userandrole ra">
-      <div className="search"></div>
-      <h2 className="username">{props.loggedInUser.name}</h2>
-      <h2>{props.loggedInUser.role}</h2>
+    <div className="userandrole cbl3">
+      {/* <div className="search"></div> */}
+      <div className="username">{props.loggedInUser.name}</div>
+      <div className="role">{props.loggedInUser.role}</div>
     </div>
   )
 }

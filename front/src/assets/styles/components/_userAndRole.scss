@@ -1,8 +1,7 @@
 .userandrole {
-  // height: 128px;
-  // margin: 0 0 10px;
-  // padding: 32px 30px 32px 63px;
-  background-color: #4768ee;
+
+  width:200px;
+  
 }
 
 .text {
@@ -23,17 +22,29 @@
   border-radius: 100px;
   border: solid 2px #dbdff1;
 }
+
 .username {
-  width: 86px;
-  height: 17px;
-  margin: 14px 14px 20px 21px;
+  
   font-family: FiraSans;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: 0.25px;
   text-align: right;
-  color: #080505;
+  color: #080056;
+}
+
+.role{
+  
+  font-family: FiraSans;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: right;
+  color: #8787ab;
 }

@@ -29,13 +29,15 @@ function _App(props) {
   if (props.loggedInUser) {
     return (
       <div className="App">
-        <NavBar />
+
+        <div className="outter-container nav-bar"><div className="inner-container">
+            <NavBar />
+          </div></div>
+
         <div className="outter-container">
           <div className="inner-container">
             <div className="rb-top bg-deep-blue">
-              <div className="cb">
-                <SideBar />
-              </div>
+              <div className="cb"><SideBar /></div>
 
               <div className="main-container">
                 <Switch>
@@ -83,8 +85,8 @@ function _App(props) {
               {loginOrSignup ? (
                 <p>Dont have an account? Signup now!</p>
               ) : (
-                <p>Back to login page</p>
-              )}
+                  <p>Back to login page</p>
+                )}
             </div>
           </div>
         </div>
