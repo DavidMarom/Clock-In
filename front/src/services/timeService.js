@@ -1,4 +1,4 @@
-
+// Returns: [YYYY, MM]
 function prevMonth(array) {
     const currYear = array[0];
     const currMonth = array[1];
@@ -14,6 +14,7 @@ function prevMonth(array) {
     return prevMonth;
 }
 
+// Returns: [[YYYY, MM], [YYYY, MM], [YYYY, MM]]
 function getLast3Months() {
     let last3 = [];
 
@@ -28,7 +29,27 @@ function getLast3Months() {
     return last3;
 }
 
+// Returns: [hh, mm]
+function sumHours(user, targetMonth) {
+
+    // if there is no such year
+    if (!user.hours[targetMonth[0]]) return 0;
+
+    // if there is no such month
+    if (!user.hours[targetMonth[0]][targetMonth[1]]) return 0;
+
+    let hours = Object.entries(user.hours[targetMonth[0]][targetMonth[1]]);
+    let sum = 0;
+    hours.map(
+        day => {
+            if (day[1].length > 1) { sum += (day[1][1] - day[1][0]); }
+        }
+    )
+    return [Math.floor(sum / 3600), Math.round(((sum / 3600) % 1) * 60)];
+}
+
 export const timeService = {
     getLast3Months,
-    prevMonth
+    prevMonth,
+    sumHours
 }

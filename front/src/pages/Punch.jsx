@@ -17,16 +17,21 @@ const _Punch = (props) => {
 
     const [refresh, setRefresh] = useState(0);
 
-    useEffect(() => {
-        props.setPageName('Clock in / out');
-        console.log(timeService.getLast3Months());
-    }, [refresh, props.loggedInUser]);
-
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
     let sum = 0;
+
+    useEffect(() => {
+        props.setPageName('Clock in / out');
+        // console.log(timeService.getLast3Months());
+        console.log(timeService.sumHours(loggedInUser, [2021,1]));
+
+
+    }, [refresh, props.loggedInUser]);
+
+
 
     const doRefresh = () => {
         setRefresh(refresh + 1);
