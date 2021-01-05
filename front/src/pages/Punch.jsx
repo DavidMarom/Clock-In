@@ -10,6 +10,7 @@ import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
 import { TotalPillar } from '../cmps/TotalPillar';
 import { Example } from '../cmps/Example';
+import { timeService } from '../services/timeService';
 
 const _Punch = (props) => {
     let { loggedInUser } = props;
@@ -18,7 +19,7 @@ const _Punch = (props) => {
 
     useEffect(() => {
         props.setPageName('Clock in / out');
-
+        console.log(timeService.getLast3Months());
     }, [refresh, props.loggedInUser]);
 
     let currentTime = new Date()
