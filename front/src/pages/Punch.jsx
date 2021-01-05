@@ -10,22 +10,28 @@ import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
 import { TotalPillar } from '../cmps/TotalPillar';
 import { Example } from '../cmps/Example';
+import { timeService } from '../services/timeService';
 
 const _Punch = (props) => {
     let { loggedInUser } = props;
 
     const [refresh, setRefresh] = useState(0);
 
-    useEffect(() => {
-        props.setPageName('Clock in / out');
-
-    }, [refresh, props.loggedInUser]);
-
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
     const currMonth = currentTime.getMonth() + 1;
     const today = currentTime.getDate();
     let sum = 0;
+
+    useEffect(() => {
+        props.setPageName('Clock in / out');
+        // console.log(timeService.getLast3Months());
+        console.log(timeService.sumHours(loggedInUser, [2021,1]));
+
+
+    }, [refresh, props.loggedInUser]);
+
+
 
     const doRefresh = () => {
         setRefresh(refresh + 1);
