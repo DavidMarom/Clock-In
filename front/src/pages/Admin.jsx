@@ -26,7 +26,7 @@ const _Admin = () => {
     }
 
     useEffect(() => {
-        dispatch( loadUsers('', currPage));
+        dispatch(loadUsers('', currPage));
     }, [currPage]);
 
 
@@ -40,20 +40,21 @@ const _Admin = () => {
     else {
         return (
             <div>
+                <div className="table-head">
+                <p></p>
                 <form onSubmit={doSearch}>
                     <input type="text" name="search" onChange={searchChange} placeholder="Search" ></input>
                     <button>Search</button>
                 </form>
-
-                <div className="table-head">
-
-                    <p>Name</p>
-                    <p>Role</p>
-                    <p>email</p>
                 </div>
+
+
+
+                <div className="table-head"><p></p><p>Name</p><p>Role</p><p>email</p></div>
+                {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
+
                 <button onClick={() => { ((currPage > 1) && setCurrPage(currPage - 1)) }}>Prev</button>
                 <button onClick={() => { ((currPage <= totalPages - 1) && setCurrPage(currPage + 1)) }}>Next</button>
-                {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}
             </div>
         )
     }

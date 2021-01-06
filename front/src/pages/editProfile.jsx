@@ -64,9 +64,6 @@ const _profile = React.memo(props => {
             {loggedInUser && (
                 <div>
                     <h2>Signed in as: {loggedInUser.email} </h2>
-
-
-
                     <div className="center-cropped">
                     {(loggedInUser.img ? <img src={loggedInUser.img[0]}></img> : null )}
                     </div>
