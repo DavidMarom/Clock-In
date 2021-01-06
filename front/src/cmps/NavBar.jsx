@@ -23,8 +23,20 @@ function _NavBar(props) {
           <div className="rar">
 
             <UserAndRole />
+
+
+            <div className="w100 pad-1rem">
+              <div className="center-cropped">
+                {(props.loggedInUser.img ? <img src={props.loggedInUser.img[0]}></img> : null )}
+                
+                
+                </div>
+            </div>
+
             <button className="logout-btn w200" onClick={props.logout}>Logout</button>
           </div>
+
+
         </div>
       </div>
     </div>

@@ -155,6 +155,34 @@ p {
   max-height: 75px;
 }
 
+.center-cropped {
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.center-cropped img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.img-50 {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  .img-holder {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+  }
+}
+
 .img-100p {
   width: 534px;
   height: 328px;
