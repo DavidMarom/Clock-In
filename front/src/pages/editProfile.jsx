@@ -9,6 +9,7 @@ const _profile = React.memo(props => {
     const [loggedUserRole, setLoggedUserRole] = useState('');
     const [loggedUserDob, setLoggedUserDob] = useState('');
     const [loggedUserImg, setLoggedUserImg] = useState('');
+    const [loggedUserEmail, setLoggedUserEmail] = useState('');
 
     useEffect(() => {
         if (props.loggedInUser) {
@@ -16,6 +17,7 @@ const _profile = React.memo(props => {
             setLoggedUserRole(props.loggedInUser.role);
             setLoggedUserDob(props.loggedInUser.dob);
             setLoggedUserImg(props.loggedInUser.img);
+            setLoggedUserEmail(props.loggedInUser.email);
         }
     }, [props.loggedInUser]);
 
@@ -36,6 +38,7 @@ const _profile = React.memo(props => {
         newUser.role = loggedUserRole;
         newUser.dob = loggedUserDob;
         newUser.img = loggedUserImg;
+        newUser.email = loggedUserEmail;
         props.updateUser(newUser);
 
         sessionStorage.setItem('user', JSON.stringify(newUser))
@@ -48,6 +51,7 @@ const _profile = React.memo(props => {
             <input name="name" type="text" value={loggedUserName} onChange={event => { setLoggedUserName(event.target.value) }} placeholder="Name" /><br />
             <input name="role" type="text" value={loggedUserRole} onChange={event => { setLoggedUserRole(event.target.value) }} placeholder="Role" /><br />
             <input name="dob" type="date" value={loggedUserDob} onChange={event => { setLoggedUserDob(event.target.value) }} placeholder="Date of Birth" /><br />
+            <input name="email" type="email" value={loggedUserEmail} onChange={event => { setLoggedUserEmail(event.target.value) }} placeholder="Email" /><br />
             <input type="file" multiple onChange={uploadFile} />
 
             <button>Save</button>
