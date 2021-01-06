@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/userActions";
 import { UserAndRole } from "./UserAndRole";
 const logo = require("../assets/img/logo.png");
+let tmp = 'https://robohash.org/honey?set=set' + ((Math.floor(Math.random() * Math.floor(8))) + 1);
 
 function _NavBar(props) {
   return (
@@ -27,7 +28,7 @@ function _NavBar(props) {
 
             <div className="w100 pad-1rem">
               <div className="center-cropped">
-                {(props.loggedInUser.img ? <img src={props.loggedInUser.img[0]}></img> : null )}
+                {(props.loggedInUser.img ? <img src={props.loggedInUser.img[0]}></img> : <img src={tmp} ></img> )}
                 
                 
                 </div>
