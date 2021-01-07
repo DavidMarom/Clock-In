@@ -107,6 +107,10 @@ p {
   width: 100px;
 }
 
+.w195 {
+  width: 195px;
+}
+
 .w200 {
   width: 200px;
 }
@@ -162,8 +166,20 @@ p {
   overflow: hidden;
   border-radius: 50px;
 }
+.center-cropped-195 {
+  width: 195px;
+  height: 195px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 200px;
+}
 
 .center-cropped img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.center-cropped-195 img {
   height: 100%;
   width: 100%;
   object-fit: cover;

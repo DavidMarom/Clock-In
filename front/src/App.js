@@ -11,7 +11,7 @@ import { Reports } from "./pages/Reports.jsx";
 import { Announcments } from "./pages/Announcments.jsx";
 import { Documents } from "./pages/Documents.jsx";
 import { TimeOff } from "./pages/TimeOff.jsx";
-import editProfile from "./pages/editProfile.jsx";
+import { Profile } from "./pages/editProfile.jsx";
 import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import { NavBar } from "./cmps/NavBar.jsx";
@@ -45,7 +45,7 @@ function _App(props) {
                   <Route exact component={Punch} path={"/clockin"} />
                   <Route exact component={Admin} path={"/employees"} />
                   <Route exact component={Login} path={"/login"} />
-                  <Route exact component={editProfile} path={"/profile"} />
+                  <Route exact component={Profile} path={"/profile"} />
                   <Route exact component={Reports} path={"/reports"} />
                   <Route
                     exact
