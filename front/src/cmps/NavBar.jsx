@@ -17,7 +17,7 @@ function _NavBar(props) {
           </div>
         </NavLink>
 
-        <div className="rb pad-1rem">
+        <div className="rb pad-2rem-l">
           <div className="ca">
             <div className="ral w200"><h2>{props.pageName}</h2></div>
           </div>
