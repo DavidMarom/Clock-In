@@ -26,7 +26,7 @@ const _Punch = (props) => {
     useEffect(() => {
         props.setPageName('Clock in / out');
         // console.log(timeService.getLast3Months());
-        console.log(timeService.sumHours(loggedInUser, [2021,1]));
+        console.log(timeService.sumHours(loggedInUser, [2021, 1]));
 
 
     }, [refresh, props.loggedInUser]);
@@ -135,7 +135,7 @@ const _Punch = (props) => {
                     <p className="tch"></p>
                     <p className="tch">
                         {Math.floor(((sum)) / 3600)}h⠀
-                            {Math.round((((sum) / 3600) % 1) * 60)}m
+                        {Math.round((((sum) / 3600) % 1) * 60)}m
 
                     </p>
                 </div>
