@@ -7,8 +7,6 @@ import { loadUsers, countUsers, setPageName } from "../store/actions/userActions
 const _Admin = () => {
     const userCount = useSelector((state) => state.user.userCount);
     const users = useSelector((state) => state.user.users);
-
-
     const dispatch = useDispatch();
 
     const [currPage, setCurrPage] = useState(1);
@@ -29,7 +27,6 @@ const _Admin = () => {
         dispatch(loadUsers('', currPage));
     }, [currPage]);
 
-
     useEffect(() => {
         dispatch(loadUsers('', currPage));
         dispatch(countUsers());
@@ -41,14 +38,12 @@ const _Admin = () => {
         return (
             <div>
                 <div className="table-head">
-                <p></p>
-                <form onSubmit={doSearch}>
-                    <input type="text" name="search" onChange={searchChange} placeholder="Search" ></input>
-                    <button>Search</button>
-                </form>
+                    <p></p>
+                    <form onSubmit={doSearch}>
+                        <input type="text" name="search" onChange={searchChange} placeholder="Search" ></input>
+                        <button>Search</button>
+                    </form>
                 </div>
-
-
 
                 <div className="table-head"><p></p><p>Name</p><p>Role</p><p>email</p></div>
                 {users.map(user => <EmpDetailsStrip key={user._id} user={user} />)}

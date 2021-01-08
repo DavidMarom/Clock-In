@@ -52,7 +52,9 @@ const _Profile = () => {
             <input name="name" type="text" value={loggedUserName} onChange={event => { setLoggedUserName(event.target.value) }} placeholder="Name" /><br />
             <input name="role" type="text" value={loggedUserRole} onChange={event => { setLoggedUserRole(event.target.value) }} placeholder="Role" /><br />
             <input name="dob" type="date" value={loggedUserDob} onChange={event => { setLoggedUserDob(event.target.value) }} placeholder="Date of Birth" /><br />
-            <input name="email" type="email" value={loggedUserEmail} onChange={event => { setLoggedUserEmail(event.target.value) }} placeholder="Email" /><br />
+            {((loggedInUser.email === 'demo@user.com') ? <p>Cant change email for demo user</p> :
+                <div><input name="email" type="email" value={loggedUserEmail} onChange={event => { setLoggedUserEmail(event.target.value) }} placeholder="Email" /><br /></div>)}
+
             <input type="file" multiple onChange={uploadFile} />
 
             <button>Save</button>
@@ -80,7 +82,7 @@ const _Profile = () => {
                 </div>
 
                 <div className="profile-right">
-                    
+
                     {form}
                 </div>
             </div>
