@@ -27,11 +27,7 @@ const _Punch = (props) => {
         props.setPageName('Clock in / out');
         // console.log(timeService.getLast3Months());
         console.log(timeService.sumHours(loggedInUser, [2021, 1]));
-
-
     }, [refresh, props.loggedInUser]);
-
-
 
     const doRefresh = () => {
         setRefresh(refresh + 1);
