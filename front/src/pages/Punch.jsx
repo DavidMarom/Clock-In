@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
 import { TotalPillar } from '../cmps/TotalPillar';
+import { TotalPillar2 } from '../cmps/TotalPillar2';
 import { Example } from '../cmps/Example';
 import { timeService } from '../services/timeService';
 
@@ -23,10 +24,14 @@ const _Punch = (props) => {
     const today = currentTime.getDate();
     let sum = 0;
 
+    const last3Months = timeService.getLast3Months();
+    const a = timeService.sumHours(loggedInUser, last3Months[0]);
+    const b = timeService.sumHours(loggedInUser, last3Months[1]);
+    const c = timeService.sumHours(loggedInUser, last3Months[2]);
+
     useEffect(() => {
         props.setPageName('Clock in / out');
-        // console.log(timeService.getLast3Months());
-        console.log(timeService.sumHours(loggedInUser, [2021, 1]));
+
     }, [refresh, props.loggedInUser]);
 
     const doRefresh = () => {
@@ -78,16 +83,16 @@ const _Punch = (props) => {
                 </div>
                 <div className="pillar">
                     <p className="small-text">Total working hours</p>
-                    <TotalPillar />
+                    <TotalPillar2 h1={a} h2={b} h3={c} last3Months={last3Months} />
                 </div>
-                <div className="pillar">
-                    <p className="small-text">Projects</p>
 
-                </div>
                 <div className="pillar">
-                    <p className="small-text">sales trends</p>
-
+                    <p className="small-text">Total working hours</p>
+                    <TotalPillar h1={a} h2={b} h3={c} />
                 </div>
+
+
+                {/* <div className="pillar"><p className="small-text">sales trends</p></div> */}
             </div>
 
             <div className="table-wrapper">
