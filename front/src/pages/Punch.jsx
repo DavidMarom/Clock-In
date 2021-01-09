@@ -29,10 +29,15 @@ const _Punch = (props) => {
     const b = timeService.sumHours(loggedInUser, last3Months[1]);
     const c = timeService.sumHours(loggedInUser, last3Months[2]);
 
-    useEffect(() => {
-        props.setPageName('Clock in / out');
 
+    useEffect(() => {
+
+        props.setPageName('Clock in / out');
     }, [refresh, props.loggedInUser]);
+
+
+    var totalThisMonth = timeService.sumHours(loggedInUser, [currYear, currMonth]);
+
 
     const doRefresh = () => {
         setRefresh(refresh + 1);
@@ -71,6 +76,7 @@ const _Punch = (props) => {
 
     let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
 
+
     return (
         <div>
             <Example />
@@ -83,7 +89,7 @@ const _Punch = (props) => {
                 </div>
                 <div className="pillar">
                     <p className="small-text">Total working hours</p>
-                    <TotalPillar2 h1={a} h2={b} h3={c} last3Months={last3Months} />
+                    <TotalPillar2 h1={a} h2={b} h3={c} last3Months={last3Months} monthTotalHours={totalThisMonth[0]} monthTotalMinutes={totalThisMonth[1]} />
                 </div>
 
                 <div className="pillar">

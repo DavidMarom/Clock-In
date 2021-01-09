@@ -7,9 +7,11 @@ import { timeService } from '../services/timeService';
 
 export const TotalPillar2 = (props) => {
 
+    
+
     useEffect(() => {
         am4core.useTheme(am4themes_animated);
-        // Themes end
+
 
         let chart = am4core.create("chartdiv2", am4charts.XYChart);
         chart.padding(10, 40, 20, 0);
@@ -38,6 +40,13 @@ export const TotalPillar2 = (props) => {
         labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.')}";
         labelBullet.locationX = 1;
 
+        chart.colors.list = [
+            am4core.color("#5c46f9"),
+            am4core.color("#ff4c61"),
+            am4core.color("#ffad4a")
+        ];
+        
+
         series.columns.template.adapter.add("fill", function (fill, target) {
             return chart.colors.getIndex(target.dataItem.index);
         });
@@ -47,28 +56,27 @@ export const TotalPillar2 = (props) => {
             {
                 "month_name": timeService.numToMonth(props.last3Months[0][1]),
                 "MAU": props.h1[0],
-                "fill": am4core.color("#ffd100")
             },
             {
                 "month_name": timeService.numToMonth(props.last3Months[1][1]),
                 "MAU": props.h2[0],
-                "fill": am4core.color("#93da49")
 
             },
             {
                 "month_name": timeService.numToMonth(props.last3Months[2][1]),
                 "MAU": props.h3[0],
-                "fill": am4core.color("#ffd100")
 
             }
         ]
+
+        
 
     }, []);
 
 
     return (
         <div>
-            <div className="pillar-head">00:00</div>
+            <div className="pillar-head">{props.monthTotalHours}:{props.monthTotalMinutes}</div>
             <div id="chartdiv2" style={{ width: "320px", height: "150px" }}></div>
         </div>
     )
