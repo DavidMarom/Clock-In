@@ -20,17 +20,6 @@ function update(user) {
     return httpService.put(`user/update2`, user)
 }
 
-export const guestUser = {
-    _id: 'guest',
-    email: "guestMode@gmail.com",
-    password: "$2b$10$39cdn7dy8waF39X3GJGNBOt5TbXXAnyVOFPX9QZyu5PS7ojW3zh5S",
-    fullName: "Guest Mode",
-    imgUrl: [
-        'https://res.cloudinary.com/dygtul5wx/image/upload/v1600549811/sprint%204/users/guest-user_z4inbq.jpg'
-    ],
-    status: "active"
-}
-
 async function login(userCred) {
     const user = await httpService.post('auth/login', userCred)
     return _handleLogin(user)

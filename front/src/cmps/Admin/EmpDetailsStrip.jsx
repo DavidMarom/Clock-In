@@ -7,7 +7,7 @@ export function EmpDetailsStrip(props) {
     return (
         <div className="table">
             <div className="tc">
-                <div className="center-cropped">{(aaa.img ? <img src={aaa.img[0]} alt="" ></img> : <img src={tmp} ></img>)}</div>
+                <div className="center-cropped">{(aaa.img ? <img src={aaa.img[0]} alt="" ></img> : <img src={tmp} alt="" ></img>)}</div>
             </div>
             <p className="tc">{aaa.name}</p>
             <p className="tc">{aaa.role}</p>
