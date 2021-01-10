@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { loadUsers, login } from "./store/actions/userActions";
 
+
 import { Punch } from "./pages/Punch.jsx";
 import { Home } from "./pages/Home.jsx";
 import { Admin } from "./pages/Admin.jsx";
@@ -16,7 +17,6 @@ import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import { NavBar } from "./cmps/NavBar.jsx";
 import { SideBar } from "./cmps/SideBar.jsx";
-
 
 import * as am4core from "@amcharts/amcharts4/core";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -46,11 +46,7 @@ function _App(props) {
                   <Route exact component={Login} path={"/login"} />
                   <Route exact component={Profile} path={"/profile"} />
                   <Route exact component={Reports} path={"/reports"} />
-                  <Route
-                    exact
-                    component={Announcments}
-                    path={"/announcments"}
-                  />
+                  <Route exact component={Announcments} path={"/announcments"} />
                   <Route exact component={Documents} path={"/documents"} />
                   <Route exact component={TimeOff} path={"/timeoff"} />
                 </Switch>

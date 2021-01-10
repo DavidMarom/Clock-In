@@ -1,39 +1,19 @@
 .article_a {
-    padding: 30px;
-    color: #000000;
-    width: 42%;
-    height: 300px;
-    border-radius: 35px;
-    background-image: url(../../img/a.jpg);
+    padding: 0px;
+    width: 48%;
+    height: 258px;
+    border-radius: 30px;
+    background-color: #ada3fc;
+    background-image: url(../../img/a.png);
 }
 
 .article_b {
-    padding: 70px;
-    color: #000000;
-    width: 55%;
-    height: 300px;
+    padding: 0px;
+    width: 48%;
+    height: 258px;
     border-radius: 30px;
-    background-color: rgb(247, 231, 214);
-    background-image: url(../../img/b.jpg);
-}
-
-.article_c {
-    padding: 50px;
-    color: #ffffff;
-    width: 55%;
-    height: 300px;
-    border-radius: 30px;
-    background-color: rgb(214, 247, 217);
-    background-image: url(../../img/c.jpg);
-}
-
-.article_d {
-    padding: 50px;
-    color: #ffffff;
-    width: 42%;
-    height: 300px;
-    border-radius: 35px;
-    background-image: url(../../img/d.jpg);
+    background-color: #b3f0ff;
+    background-image: url(../../img/b.png);
 }
 
 .articles-row {
@@ -52,44 +32,20 @@
     }
 
     .article_a {
-        padding: 50px;
-        color: #ffffff;
+        padding: 0px;
         width: 100%;
-        height: 300px;
-        border-radius: 35px;
-        background-image: url(../../img/a.jpg);
+        height: 258px;
+        border-radius: 30px;
+        background-image: url(../../img/a.png);
         margin-bottom: 30px;
     }
 
     .article_b {
-        padding: 50px;
-        color: #ffffff;
+        padding: 0px;
         width: 100%;
-        height: 300px;
+        height: 258px;
         border-radius: 30px;
-        background-color: rgb(247, 231, 214);
-        background-image: url(../../img/b.jpg);
-        margin-bottom: 30px;
-    }
-
-    .article_c {
-        padding: 50px;
-        color: #ffffff;
-        width: 100%;
-        height: 300px;
-        border-radius: 30px;
-        background-color: rgb(214, 247, 217);
-        background-image: url(../../img/c.jpg);
-        margin-bottom: 30px;
-    }
-
-    .article_d {
-        padding: 50px;
-        color: #ffffff;
-        width: 100%;
-        height: 300px;
-        border-radius: 35px;
-        background-image: url(../../img/d.jpg);
+        background-image: url(../../img/b.png);
         margin-bottom: 30px;
     }
 }
