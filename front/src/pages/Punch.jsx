@@ -43,37 +43,6 @@ const _Punch = (props) => {
         setRefresh(refresh + 1);
     }
 
-    const doUpdate = async ev => {
-        props.updateUser(loggedInUser);
-        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-    };
-
-    // if no hours
-    if (!loggedInUser.hours) {
-        loggedInUser = { ...loggedInUser, hours: {} };
-        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-        doUpdate();
-    }
-
-    // if no year
-    if (!loggedInUser.hours[currYear]) {
-        loggedInUser.hours = { ...loggedInUser.hours, [currYear]: {} };
-        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-        doUpdate();
-    }
-
-    // if no month
-    if (!loggedInUser.hours[currYear][currMonth]) {
-        loggedInUser.hours[currYear] = { ...loggedInUser.hours[currYear], [currMonth]: {} };
-        sessionStorage.setItem('user', JSON.stringify(loggedInUser))
-        doUpdate();
-    }
-
-    // if no today
-    if (!userService.hasToday(loggedInUser)) {
-        loggedInUser.hours[currYear][currMonth] = { ...loggedInUser.hours[currYear][currMonth], [today]: [] }
-    }
-
     let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
 
 

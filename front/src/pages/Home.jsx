@@ -2,13 +2,12 @@ import React, { useEffect } from 'react'
 import { connect } from "react-redux";
 import { showPopup, setPageName } from "../store/actions/userActions";
 
-import { PopUpWelcome } from '../cmps/pop_up_welcome';
+import { PopUpWelcome } from '../cmps/PopUpWelcome';
 
 const _Home = (props) => {
     useEffect(() => {
         props.setPageName('Welcome!');
     }, []);
-
 
     return (
         <div className="relative">
@@ -22,7 +21,6 @@ const _Home = (props) => {
         </div>
     )
 }
-
 
 const mapStateToProps = state => {
     return {
