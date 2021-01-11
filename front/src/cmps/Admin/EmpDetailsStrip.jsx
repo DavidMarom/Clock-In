@@ -3,7 +3,7 @@ import React from 'react'
 export function EmpDetailsStrip(props) {
     const aaa = props.user;
     if (!aaa) { return <h1>loading</h1> }
-    let tmp = 'https://robohash.org/honey?set=set' + ((Math.floor(Math.random() * Math.floor(8))) + 1);
+    let tmp = 'https://res.cloudinary.com/dojmo7vcc/image/upload/v1610371061/clock/profile_wgiuu9.png';
     return (
         <div className="table">
             <div className="tc">

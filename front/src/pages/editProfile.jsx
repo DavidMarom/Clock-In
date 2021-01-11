@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser, setPageName } from '../store/actions/userActions';
-import { uploadImg } from '../services/imgUploadService.js'
-let tmp = 'https://robohash.org/honey?set=set' + ((Math.floor(Math.random() * Math.floor(8))) + 1);
+import { uploadImg } from '../services/imgUploadService.js';
+let tmp = 'https://res.cloudinary.com/dojmo7vcc/image/upload/v1610371061/clock/profile_wgiuu9.png';
 
 
 const _Profile = () => {

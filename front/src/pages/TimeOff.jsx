@@ -12,9 +12,7 @@ const _TimeOff = (props) => {
   return (
     <div>
 
-      <p>So, you think you deserve some time off??</p>
-      <p>You slacker!</p>
-      <p>NO SOUP FOR YOU!!</p>
+      <p>This feature will be available soon...</p>
     </div>
   )
 };
