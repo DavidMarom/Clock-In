@@ -24,15 +24,14 @@ const _Admin = () => {
         dispatch(loadUsers(search));
     }
 
-    useEffect(() => { dispatch(loadUsers('', currPage)) });
+    useEffect(() => { dispatch(loadUsers('', currPage)) },[]);
 
     useEffect(() => {
         dispatch(loadUsers('', currPage));
         dispatch(countUsers());
         dispatch(setPageName('Employee List'));
     }
-    ,[dispatch,currPage]
-    );
+    ,[currPage]);
 
     if (!users) { return <h1>loading</h1> }
     else {
