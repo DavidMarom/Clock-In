@@ -12,7 +12,7 @@ import { Reports } from "./pages/Reports.jsx";
 import { Announcments } from "./pages/Announcments.jsx";
 import { Documents } from "./pages/Documents.jsx";
 import { TimeOff } from "./pages/TimeOff.jsx";
-import { Profile } from "./pages/editProfile.jsx";
+import { Profile } from "./pages/EditProfile.jsx";
 import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import { NavBar } from "./cmps/NavBar.jsx";

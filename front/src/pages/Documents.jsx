@@ -20,8 +20,7 @@ const _Documents = () => {
 
   return (
     <div>
-      <h1> Document List:</h1>
-      This is a temporary page to test the redux hooks
+      <h1>Documents: </h1>
       <CounterA />
       <AddButton_a />
     </div>
