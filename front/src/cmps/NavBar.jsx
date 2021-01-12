@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/userActions";
 import { UserAndRole } from "./UserAndRole";
 const logo = require("../assets/img/logo.png");
-let tmp = 'https://robohash.org/honey?set=set' + ((Math.floor(Math.random() * Math.floor(8))) + 1);
+let tmp = 'https://res.cloudinary.com/dojmo7vcc/image/upload/v1610371061/clock/profile_wgiuu9.png';
 
 function _NavBar(props) {
   return (
@@ -22,15 +22,10 @@ function _NavBar(props) {
             <div className="ral w200"><h2>{props.pageName}</h2></div>
           </div>
           <div className="rar">
-
             <UserAndRole />
-
-
             <div className="w100 pad-1rem">
               <div className="center-cropped">
                 {(props.loggedInUser.img ? <img src={props.loggedInUser.img[0]}></img> : <img src={tmp} ></img> )}
-                
-                
                 </div>
             </div>
 
@@ -51,7 +46,7 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = {
-  logout,
+  logout
 };
 
 export const NavBar = connect(mapStateToProps, mapDispatchToProps)(_NavBar);
