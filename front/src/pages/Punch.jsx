@@ -73,7 +73,7 @@ const _Punch = (props) => {
                     <p className="tch">Total</p>
                 </div>
 
-                {hours.forEach((day, idx) => {
+                {hours.map((day, idx) => {
                     if (day[1].length > 1) {
                         sum += (day[1][1] - day[1][0]);
                     }
