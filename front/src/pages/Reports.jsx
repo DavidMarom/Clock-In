@@ -6,7 +6,7 @@ const _Reports = (props) => {
 
   useEffect(() => {
     props.setPageName('Reports');
-}, []);
+});
 
 
   return <h1>Reports</h1>;

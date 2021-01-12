@@ -27,7 +27,7 @@ const _Profile = () => {
 
     useEffect(() => {
         dispatch(setPageName("Profile"));
-    }, []);
+    }, [dispatch]);
 
     const uploadFile = async (ev) => {
         const recivedImgUrls = await uploadImg(ev)
@@ -67,7 +67,7 @@ const _Profile = () => {
                 <div className="profile-left cb">
                     <div className="w195">
                         <div className="center-cropped-195">
-                            {(loggedInUser.img ? <img src={loggedInUser.img[0]}></img> : <img src={tmp} ></img>)}
+                            {(loggedInUser.img ? <img src={loggedInUser.img[0]} alt=""></img> : <img src={tmp}  alt=""></img>)}
                         </div>
 
                         <div className="side-bar-title">

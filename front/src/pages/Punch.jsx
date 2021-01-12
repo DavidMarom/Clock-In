@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { loadUsers, login, logout, signup, updateUser, getUserById, setPageName } from '../store/actions/userActions';
 import { connect } from 'react-redux';
-import { userService } from '../services/userService';
 import { TodayPillar } from '../cmps/TodayPillar';
 import { TotalPillar } from '../cmps/TotalPillar';
 import { TotalPillar2 } from '../cmps/TotalPillar2';
@@ -14,14 +13,14 @@ import { Example } from '../cmps/Example';
 import { timeService } from '../services/timeService';
 
 const _Punch = (props) => {
-    let { loggedInUser } = props;
+    let { loggedInUser , setPageName} = props;
 
     const [refresh, setRefresh] = useState(0);
 
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
     const currMonth = currentTime.getMonth() + 1;
-    const today = currentTime.getDate();
+    // const today = currentTime.getDate();
     let sum = 0;
 
     const last3Months = timeService.getLast3Months();
@@ -32,19 +31,16 @@ const _Punch = (props) => {
 
     useEffect(() => {
 
-        props.setPageName('Clock in / out');
-    }, [refresh, props.loggedInUser]);
+        setPageName('Clock in / out');
+    });
 
 
     var totalThisMonth = timeService.sumHours(loggedInUser, [currYear, currMonth]);
 
 
-    const doRefresh = () => {
-        setRefresh(refresh + 1);
-    }
+    const doRefresh = () => { setRefresh(refresh + 1); }
 
     let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
-
 
     return (
         <div>
@@ -67,7 +63,6 @@ const _Punch = (props) => {
                 </div>
 
 
-                {/* <div className="pillar"><p className="small-text">sales trends</p></div> */}
             </div>
 
             <div className="table-wrapper">
@@ -78,7 +73,7 @@ const _Punch = (props) => {
                     <p className="tch">Total</p>
                 </div>
 
-                {hours.map((day, idx) => {
+                {hours.forEach((day, idx) => {
                     if (day[1].length > 1) {
                         sum += (day[1][1] - day[1][0]);
                     }

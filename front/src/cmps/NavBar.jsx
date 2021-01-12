@@ -12,9 +12,16 @@ function _NavBar(props) {
 
       <div className="rb bg-07">
         <NavLink to="/">
-          <div className="rb logo-cube">
+          {/* <div className="rb logo-cube">
             <img className="marg-center" src={logo} width={"180px"} alt="Clock-In"></img>
+          </div> */}
+
+          <div className="logo-cube">
+            <div className="center-cropped2">
+              <img src={logo} alt=""></img>
+            </div>
           </div>
+
         </NavLink>
 
         <div className="rb pad-2rem-l">
@@ -25,8 +32,8 @@ function _NavBar(props) {
             <UserAndRole />
             <div className="w100 pad-1rem">
               <div className="center-cropped">
-                {(props.loggedInUser.img ? <img src={props.loggedInUser.img[0]}></img> : <img src={tmp} ></img> )}
-                </div>
+                {(props.loggedInUser.img ? <img src={props.loggedInUser.img[0]} alt=""></img> : <img src={tmp} alt="" ></img>)}
+              </div>
             </div>
 
             <button className="logout-btn w200" onClick={props.logout}>Logout</button>

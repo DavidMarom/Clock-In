@@ -133,5 +133,11 @@
   // font-size: 14px;
 }
 
-.bars {
+.abs {
+  position: absolute;
+  top:0px
+}
+
+.rel {
+  position: relative;
 }

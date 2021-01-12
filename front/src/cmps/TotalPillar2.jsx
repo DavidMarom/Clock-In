@@ -6,12 +6,8 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import { timeService } from '../services/timeService';
 
 export const TotalPillar2 = (props) => {
-
-    
-
     useEffect(() => {
         am4core.useTheme(am4themes_animated);
-
 
         let chart = am4core.create("chartdiv2", am4charts.XYChart);
         chart.padding(10, 40, 20, 0);
@@ -45,7 +41,6 @@ export const TotalPillar2 = (props) => {
             am4core.color("#ff4c61"),
             am4core.color("#ffad4a")
         ];
-        
 
         series.columns.template.adapter.add("fill", function (fill, target) {
             return chart.colors.getIndex(target.dataItem.index);
@@ -60,18 +55,16 @@ export const TotalPillar2 = (props) => {
             {
                 "month_name": timeService.numToMonth(props.last3Months[1][1]),
                 "MAU": props.h2[0],
-
             },
             {
                 "month_name": timeService.numToMonth(props.last3Months[2][1]),
                 "MAU": props.h3[0],
-
             }
         ]
 
-        
 
-    }, []);
+
+    });
 
 
     return (

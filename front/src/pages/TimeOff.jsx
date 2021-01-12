@@ -6,7 +6,7 @@ const _TimeOff = (props) => {
 
   useEffect(() => {
     props.setPageName('Request Time Off');
-  }, []);
+  });
 
 
   return (

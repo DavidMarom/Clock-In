@@ -40,7 +40,7 @@ function sumHours(user, targetMonth) {
 
     let hours = Object.entries(user.hours[targetMonth[0]][targetMonth[1]]);
     let sum = 0;
-    hours.map(
+    hours.forEach(
         day => {
             if (day[1].length > 1) { sum += (day[1][1] - day[1][0]); }
         }

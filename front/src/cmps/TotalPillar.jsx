@@ -20,11 +20,9 @@ const _TotalPillar = (props) => {
             "hours": props.h3[0]
         }];
         let pieSeries = chart.series.push(new am4charts.PieSeries());
-
         pieSeries.dataFields.value = "hours";
         pieSeries.dataFields.category = "month";
-    }, []);
-
+    }, [props.h1,props.h2,props.h3]);
 
     return (
         <div>
@@ -39,8 +37,4 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = {
-
-};
-
-export const TotalPillar = connect(mapStateToProps, mapDispatchToProps)(_TotalPillar);
+export const TotalPillar = connect(mapStateToProps, null)(_TotalPillar);
