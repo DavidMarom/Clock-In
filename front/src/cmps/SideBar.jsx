@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 
-export const _SideBar = (props) => {
+const _SideBar = (props) => {
 
   return (
     <div className="cbl2 side-bar">
@@ -39,6 +39,10 @@ export const _SideBar = (props) => {
 
       <div className={(props.pageName === 'Announcments' ? "active-cell" : "inactive-cell")}>
         <NavLink to="/announcments"><i className="fas fa-bullhorn"></i> Announcements</NavLink>
+      </div>
+
+      <div className={(props.pageName === 'Settings' ? "active-cell" : "inactive-cell")}>
+        <NavLink to="/settings"><i className="fas fa-cog"></i> Settings</NavLink>
       </div>
     </div>
   );

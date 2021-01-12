@@ -1,25 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setPageName } from "../store/actions/userActions";
+const docs_img = require("../assets/img/docs.jpg");
 
-const _Documents = () => {
+export const Documents = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
-    // HOOK:
-    // opt 1
-    // dispatch({type:'PAGE_NAME',name:'Documents'})
-    // opt 2
+    // Hook option 2: dispatch({type:'PAGE_NAME',name:'Documents'})
     dispatch(setPageName("Documents"));
   });
 
   return (
     <div>
       <h1>Documents: </h1>
-      
+      <img src={docs_img}></img>
     </div>
   );
 };
-
-export const Documents = _Documents;
