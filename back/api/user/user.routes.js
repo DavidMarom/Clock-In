@@ -5,6 +5,7 @@ const router = express.Router()
 
 // middleware that is specific to this router
 // router.use(requireAuth)
+console.log('in user routes');
 
 router.get('/', getAllUsers)
 router.get('/count', countUsers)

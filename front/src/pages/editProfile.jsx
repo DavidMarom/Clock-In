@@ -5,7 +5,7 @@ import { uploadImg } from '../services/imgUploadService.js';
 let tmp = 'https://res.cloudinary.com/dojmo7vcc/image/upload/v1610371061/clock/profile_wgiuu9.png';
 
 
-const _Profile = () => {
+export const Profile = () => {
     const dispatch = useDispatch();
     const loggedInUser = useSelector((state) => state.user.loggedInUser);
 
@@ -89,5 +89,3 @@ const _Profile = () => {
         </div>
     )
 };
-
-export const Profile = _Profile;

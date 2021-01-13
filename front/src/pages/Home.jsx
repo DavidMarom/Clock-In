@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react'
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { showPopup, setPageName } from "../store/actions/userActions";
 import { AnnStrip } from "../cmps/AnnStrip";
 import { PopUpWelcome } from '../cmps/PopUpWelcome';
 
-const _Home = (props) => {
-    useEffect(() => {
-        props.setPageName('Welcome!');
-    });
+export const Home = () => {
+    const dispatch = useDispatch();
+    const popup = useSelector((state) => state.user.popup);
+
+    useEffect(() => { dispatch(setPageName('Welcom!')); });
 
     return (
         <div className="relative">
-            {(props.popup ? <PopUpWelcome toggle={() => props.showPopup(false)} /> : null)}
+
+            {(popup ? <PopUpWelcome toggle={() => dispatch(showPopup(false))} /> : null)}
             <p>Clock-In is an open source employee-management system</p>
             <div className="articles-row">
                 <div className="article_a"></div>
@@ -30,16 +32,3 @@ const _Home = (props) => {
         </div>
     )
 }
-
-const mapStateToProps = state => {
-    return {
-        popup: state.user.popup
-        };
-};
-
-const mapDispatchToProps = {
-    showPopup,
-    setPageName
-};
-
-export const Home = connect(mapStateToProps, mapDispatchToProps)(_Home);

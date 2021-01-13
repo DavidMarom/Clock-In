@@ -1,19 +1,13 @@
 import React, { useEffect } from 'react'
-import { connect } from "react-redux";
 import { setPageName } from "../store/actions/userActions";
+import { useDispatch } from "react-redux";
 
-const _Announcments = ( props ) => {
+export const Announcments = (props) => {
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    props.setPageName('Announcments');
-});
-
+    dispatch(setPageName('Announcments'));
+  });
 
   return <h1>Announcments</h1>;
 };
-
-const mapDispatchToProps = {
-  setPageName
-};
-
-export const Announcments = connect(null, mapDispatchToProps)(_Announcments);

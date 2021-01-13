@@ -1,11 +1,11 @@
-// ADMIN PAGE
+// Employees PAGE
 
 import React, { useEffect, useState } from 'react'
 import { EmpDetailsStrip } from '../cmps/Admin/EmpDetailsStrip';
 import { useDispatch, useSelector } from "react-redux";
 
 import { loadUsers, countUsers, setPageName } from "../store/actions/userActions";
-const _Admin = () => {
+export const Admin = () => {
     const userCount = useSelector((state) => state.user.userCount);
     const users = useSelector((state) => state.user.users);
     const dispatch = useDispatch();
@@ -54,5 +54,3 @@ const _Admin = () => {
         )
     }
 }
-
-export const Admin = _Admin;

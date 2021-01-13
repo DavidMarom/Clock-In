@@ -4,8 +4,6 @@ if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 const initialState = {
     users: [],
     loggedInUser: localLoggedinUser,
-    cartItems: [],
-    singleUser: '',
     userCount: null,
     pageName: null,
     popup: true
@@ -44,6 +42,3 @@ export function userReducer(state = initialState, action = {}) {
             return state
     }
 }
-
-
-

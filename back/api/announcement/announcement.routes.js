@@ -3,6 +3,7 @@ const {requireAuth, requireAdmin} = require('../../middlewares/requireAuth.middl
 const {getAllAnnouncements, countAnnouncements, updateAnnouncement, getAnnouncements, getAnnouncement, updateAnnouncement,deleteAnnouncement} = require('./user.controller')
 const router = express.Router()
 
+console.log('in announcements routes');
 router.get('/', getAllAnnouncements)
 router.get('/count', countAnnouncements)
 router.put('/update2', updateAnnouncement)
