@@ -14,7 +14,7 @@ export const Documents = () => {
   return (
     <div>
       <h1>Documents: </h1>
-      <img src={docs_img}></img>
+      <img src={docs_img} alt=""></img>
     </div>
   );
 };

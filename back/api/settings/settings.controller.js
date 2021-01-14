@@ -1,12 +1,21 @@
 const settingsService = require('./settings.service')
 
 async function getSettings(req, res) {
-    console.log('settings controller');
 
     const settings = await settingsService.query(req.query)
     res.send(settings)
 }
 
+
+async function updateSet(req, res) {
+    console.log(req.body);
+    const set  = await settingsService.update2(req.body)
+    res.send(set)
+}
+
+
+
 module.exports = {
-    getSettings
+    getSettings,
+    updateSet
 }

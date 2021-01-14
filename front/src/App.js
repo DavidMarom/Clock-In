@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { loadUsers, login } from "./store/actions/userActions";
-
+import { login } from "./store/actions/userActions";
+import { loadSettings } from './store/actions/settingsActions';
+import { useDispatch, useSelector } from "react-redux";
 
 import { Punch } from "./pages/Punch.jsx";
 import { Home } from "./pages/Home.jsx";
@@ -24,22 +25,21 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 am4core.options.autoDispose = true;
 
-function _App(props) {
+function _App() {
+  const dispatch = useDispatch();
+  useEffect(() => { dispatch(loadSettings()); }, []);
+  const loggedInUser = useSelector((state) => state.user.loggedInUser);
+  const settings = useSelector((state) => state.settingsReducer.settings);
   const [loginOrSignup, setLoginOrSignup] = useState(true);
 
-  if (props.loggedInUser) {
+  if (loggedInUser) {
     return (
       <div className="App">
-
-        <div className="outter-container nav-bar"><div className="inner-container">
-            <NavBar />
-          </div></div>
-
+        <div className="outter-container nav-bar"><div className="inner-container"><NavBar /></div></div>
         <div className="outter-container">
           <div className="inner-container">
             <div className="rb-top bg-deep-blue">
               <div className="cb"><SideBar /></div>
-
               <div className="main-container">
                 <Switch>
                   <Route exact component={Home} path={"/"} />
@@ -66,25 +66,11 @@ function _App(props) {
           {loginOrSignup ? <Login /> : <Signup />}
 
           <div className="cb">
-            <button
-              className="login-btn2"
-              onClick={() =>
-                props.login({ email: "demo@user.com", password: "qwerty" })
-              }
-            >
+            <button className="login-btn2" onClick={() => dispatch(login({ email: "demo@user.com", password: "qwerty" }))}>
               Login as a guest
             </button>
-            <div
-              className="lnk-btn"
-              onClick={() => {
-                setLoginOrSignup(!loginOrSignup);
-              }}
-            >
-              {loginOrSignup ? (
-                <p>Dont have an account? Signup now!</p>
-              ) : (
-                  <p>Back to login page</p>
-                )}
+            <div className="lnk-btn" onClick={() => { setLoginOrSignup(!loginOrSignup); }}>
+              {loginOrSignup ? (<p>Dont have an account? Signup now!</p>) : (<p>Back to login page</p>)}
             </div>
           </div>
         </div>
@@ -93,21 +79,4 @@ function _App(props) {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    users: state.user.users,
-    loggedInUser: state.user.loggedInUser,
-  };
-};
-
-const mapDispatchToProps = {
-  loadUsers,
-  login,
-};
-
-export const App = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(_App));
-
-// export default withRouter(_App);
+export const App = connect(null, null)(withRouter(_App));
