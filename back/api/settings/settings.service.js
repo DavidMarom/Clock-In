@@ -18,7 +18,9 @@ async function query() {
 
 
 async function update2(set) {
-    const collection = await dbService.getCollection('settings')
+    const collection = await dbService.getCollection('settings');
+    set._id = ObjectId(set._id);
+
     try {
         await collection.updateOne({ _id: set._id }, { $set: set })
         console.log('back service',set );
@@ -28,3 +30,4 @@ async function update2(set) {
         throw err;
     }
 }
+

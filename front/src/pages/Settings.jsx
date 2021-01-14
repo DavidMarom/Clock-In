@@ -6,24 +6,30 @@ import { uploadImg } from '../services/imgUploadService.js';
 
 export const Settings = () => {
     const dispatch = useDispatch();
-    const settings = useSelector((state) => state.settingsReducer.settings);
+    var settings = useSelector((state) => state.settingsReducer.settings);
     const [compLogo, setCompLogo] = useState('');
 
-    useEffect(() => {
-        
-        }
-    , [compLogo]);
+    // useEffect(() => {
+    //     console.log('useeffect settings:', settings);
+
+    //     if (settings2) {
+    //         setCompLogo(settings.img);
+    //     }
+    // }, [settings]);
+
+    useEffect(() => { console.log('useEffect on settings page: ', settings); }, [compLogo]);
 
     const uploadFile = async (ev) => {
         const recivedImgUrls = await uploadImg(ev)
-        const final = recivedImgUrls[0];
-        setCompLogo(final);
+        setCompLogo(recivedImgUrls);
+        console.log('comp logo: ',compLogo);
     }
 
     const doUpdate = async ev => {
         ev.preventDefault();
-        var newSet = settings;
+        var newSet = settings[0];
         newSet.img = compLogo;
+        console.log('**********',newSet);
         dispatch(updateSettings(newSet));
     };
 

@@ -16,6 +16,7 @@ export const Profile = () => {
     const [loggedUserEmail, setLoggedUserEmail] = useState('');
 
     useEffect(() => {
+        console.log(loggedInUser);
         if (loggedInUser) {
             setLoggedUserName(loggedInUser.name);
             setLoggedUserRole(loggedInUser.role);
@@ -37,6 +38,8 @@ export const Profile = () => {
     const doUpdate = async ev => {
         ev.preventDefault();
         var newUser = loggedInUser;
+        console.log('do update on profile page:', loggedInUser);
+
         newUser.name = loggedUserName;
         newUser.role = loggedUserRole;
         newUser.dob = loggedUserDob;

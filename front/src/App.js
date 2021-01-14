@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "./store/actions/userActions";
-import { loadSettings } from './store/actions/settingsActions';
+// import { loadSettings } from './store/actions/settingsActions';
 import { useDispatch, useSelector } from "react-redux";
 
 import { Punch } from "./pages/Punch.jsx";
@@ -27,9 +27,7 @@ am4core.options.autoDispose = true;
 
 function _App() {
   const dispatch = useDispatch();
-  useEffect(() => { dispatch(loadSettings()); }, []);
   const loggedInUser = useSelector((state) => state.user.loggedInUser);
-  const settings = useSelector((state) => state.settingsReducer.settings);
   const [loginOrSignup, setLoginOrSignup] = useState(true);
 
   if (loggedInUser) {
