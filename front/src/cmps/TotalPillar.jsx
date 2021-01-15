@@ -3,9 +3,7 @@ import React, { useEffect } from "react"
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
-import { connect } from 'react-redux';
-
-const _TotalPillar = (props) => {
+export const TotalPillar = (props) => {
 
     useEffect(() => {
         let chart = am4core.create("chartdiv", am4charts.PieChart);
@@ -30,11 +28,3 @@ const _TotalPillar = (props) => {
         </div>
     )
 }
-
-const mapStateToProps = state => {
-    return {
-        loggedInUser: state.user.loggedInUser,
-    };
-};
-
-export const TotalPillar = connect(mapStateToProps, null)(_TotalPillar);

@@ -1,5 +1,16 @@
 import httpService from './httpService'
 
-function getAnnouncements(filter, currPage) {
-    return httpService.get(`announcements/${filter}?page=${currPage}`);
+async function getAnnouncements()  {
+    try {
+        
+        const res = await httpService.get(`announcement/`);
+        return res;
+    } catch (err) {
+        console.log(err);
+    }
 }
+
+export const announcementsService = {
+    getAnnouncements
+};
+

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-/* Imports */
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -61,15 +60,11 @@ export const TotalPillar2 = (props) => {
                 "MAU": props.h3[0],
             }
         ]
-
-
-
     });
-
 
     return (
         <div>
-            <div className="pillar-head">{props.monthTotalHours}:{props.monthTotalMinutes}</div>
+            <div className="pillar-head">{props.monthTotalHours}: {props.monthTotalMinutes < 10 ? 0 : null}{props.monthTotalMinutes}</div>
             <div id="chartdiv2" style={{ width: "320px", height: "150px" }}></div>
         </div>
     )

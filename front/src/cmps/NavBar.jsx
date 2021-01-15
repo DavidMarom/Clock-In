@@ -19,7 +19,7 @@ function _NavBar(props) {
         <NavLink to="/">
           <div className="logo-cube">
             <div className="center-cropped2">
-              <img src={settings[0].img[0]} alt=""></img>
+              {settings ? <img src={settings[0].img[0]} alt=""></img> : null}
             </div>
           </div>
         </NavLink>

@@ -32,11 +32,13 @@ if (process.env.NODE_ENV === 'production') {
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
 const settingsRoutes = require('./api/settings/settings.routes')
+const announcementsRoutes = require('./api/announcement/announcement.routes')
 
 //routes
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/settings', settingsRoutes)
+app.use('/api/announcement', announcementsRoutes)
 
 // connectSockets(io)
 

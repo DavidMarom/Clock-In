@@ -1,8 +1,6 @@
 const initialState = {
-    settings: [{
-        img: ["https://res.cloudinary.com/dojmo7vcc/image/upload/v1610644266/clock/dag2gxscebwtsve9807g.png"]
-
-    }]
+    // settings: [{ img: ["https://res.cloudinary.com/dojmo7vcc/image/upload/v1610644266/clock/dag2gxscebwtsve9807g.png"] }]
+    settings: null
 };
 
 export function settingsReducer(state = initialState, action = {}) {

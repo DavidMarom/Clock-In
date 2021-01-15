@@ -4,12 +4,15 @@ import thunk from 'redux-thunk'
 import { userReducer } from '../store/reducers/userReducer';
 import { settingsReducer } from '../store/reducers/settingsReducer';
 import systemReducer from './reducers/systemReducer';
+import { annReducer } from './reducers/annReducer';
 
 
 const rootReducer = combineReducers({
     user: userReducer,
     system: systemReducer,
-    settingsReducer
+    settingsReducer,
+    annReducer
+
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
