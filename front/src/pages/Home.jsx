@@ -14,7 +14,7 @@ export const Home = () => {
         <div className="relative">
 
             {(popup ? <PopUpWelcome toggle={() => dispatch(showPopup(false))} /> : null)}
-            <p>Clock-In is a amodern employee-management system you can use in your organization. For more information <a href="https://clockin.website/" target="_blank" rel="noopener noreferrer">visit the Clock-In webiste.</a></p>
+            <p>Clock-In is a modern employee-management system you can use in your organization. For more information <a href="https://clockin.website/" target="_blank" rel="noopener noreferrer">visit the Clock-In webiste.</a></p>
             <div className="articles-row">
                 <div className="article_a"></div>
                 <div className="article_b"></div>
