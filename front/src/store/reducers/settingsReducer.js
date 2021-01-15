@@ -1,6 +1,6 @@
 const initialState = {
     settings: [{
-        img: ["https://res.cloudinary.com/dojmo7vcc/image/upload/v1610620237/clock/xubaf7vzrtlcgd54kohi.png"]
+        img: ["https://res.cloudinary.com/dojmo7vcc/image/upload/v1610644266/clock/dag2gxscebwtsve9807g.png"]
 
     }]
 };

@@ -13,7 +13,11 @@ export function loadSettings() {
 
 export function updateSettings(set) {
     return async dispatch => {
-        const _set = await settingsService.update(set);
-        dispatch({ type: 'UPDATE_SET', _set })
-    };
+        try {
+            const _set = await settingsService.update(set);
+            dispatch({ type: 'UPDATE_SET', _set })
+        } catch (err) {
+            console.log('SettingsActions: err in updateSettings', err);
+        }
+    }
 }

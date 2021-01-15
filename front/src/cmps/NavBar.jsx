@@ -7,14 +7,10 @@ import { logout } from "../store/actions/userActions";
 import { UserAndRole } from "./UserAndRole";
 let tmp = 'https://res.cloudinary.com/dojmo7vcc/image/upload/v1610371061/clock/profile_wgiuu9.png';
 
-var aaa = 0;
-
 function _NavBar(props) {
-  aaa++;
   const dispatch = useDispatch();
   useEffect(() => { dispatch(loadSettings()) }, []);
   var settings = useSelector((state) => state.settingsReducer.settings);
-  // console.log('*NavBar: ',aaa, settings[0].img[0]);
 
 
   return (

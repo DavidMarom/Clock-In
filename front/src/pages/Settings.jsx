@@ -9,14 +9,7 @@ export const Settings = () => {
     var settings = useSelector((state) => state.settingsReducer.settings);
     const [compLogo, setCompLogo] = useState('');
 
-    // useEffect(() => {
-    //     console.log('useeffect settings:', settings);
-
-    //     if (settings2) {
-    //         setCompLogo(settings.img);
-    //     }
-    // }, [settings]);
-
+    
     useEffect(() => { console.log('useEffect on settings page: ', settings); }, [compLogo]);
 
     const uploadFile = async (ev) => {
@@ -29,7 +22,6 @@ export const Settings = () => {
         ev.preventDefault();
         var newSet = settings[0];
         newSet.img = compLogo;
-        console.log('**********',newSet);
         dispatch(updateSettings(newSet));
     };
 

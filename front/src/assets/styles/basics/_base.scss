@@ -49,9 +49,6 @@ h6 {
   letter-spacing: 0.15px;
 }
 
-// img {
-//     width: 100%;
-// }
 
 .small-text {
   height: 17px;
@@ -68,8 +65,9 @@ h6 {
 
 p {
   margin: 0 0 1em;
-
-  // max-width: 40ch;
+  a {
+    color: #000000;
+  }
 }
 
 /* HIGHT *********************/
@@ -258,7 +256,7 @@ p {
   margin-bottom: 1px;
 }
 
-/* SOME OTHER SHIT *********************/
+/* MISC *********************/
 
 .oh {
   overflow: hidden;
