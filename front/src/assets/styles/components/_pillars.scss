@@ -33,6 +33,40 @@
     color: #383874;
 }
 
+.pillar-head-dark {
+    font-family: FiraSans-Medium;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.3rem;
+    letter-spacing: 0.1px;
+    text-align: left;
+    color: #383874;
+}
+
+.ann-small-text {
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #8787ab;
+    margin: 6px 0 15px 0px;
+}
+
+.ann-icon{
+    color:#15d1c6;
+    font-size: 18px;
+}
+
+.ann-icon2{
+    color:#ffad4a;
+    font-size: 18px;
+}
+
 .pillar-sub-head {
     font-size: 12px;
     font-weight: normal;
@@ -41,6 +75,7 @@
     line-height: normal;
     letter-spacing: normal;
     text-align: left;
+    // color: #be30ab;
     color: #8787ab;
 }
 
