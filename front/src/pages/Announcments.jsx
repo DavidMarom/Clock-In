@@ -12,12 +12,12 @@ export const Announcments = (props) => {
 
 
   useEffect(() => {
-    dispatch(setPageName('Announcments'));
+    dispatch(setPageName('Announcements'));
   });
 
   return (
     <div>
-      <h1>Announcments</h1>
+      <h1>Announcements</h1>
       <p>{ann[0].title}</p>
     </div>
   );
