@@ -13,7 +13,7 @@ import { Example } from '../cmps/Example';
 import { timeService } from '../services/timeService';
 
 const _Punch = (props) => {
-    let { loggedInUser , setPageName} = props;
+    let { loggedInUser, setPageName } = props;
 
     const [refresh, setRefresh] = useState(0);
 
@@ -28,15 +28,9 @@ const _Punch = (props) => {
     const b = timeService.sumHours(loggedInUser, last3Months[1]);
     const c = timeService.sumHours(loggedInUser, last3Months[2]);
 
-
-    useEffect(() => {
-
-        setPageName('Clock in / out');
-    });
-
+    useEffect(() => { setPageName('Clock in / out'); });
 
     var totalThisMonth = timeService.sumHours(loggedInUser, [currYear, currMonth]);
-
 
     const doRefresh = () => { setRefresh(refresh + 1); }
 
@@ -61,7 +55,6 @@ const _Punch = (props) => {
                     <p className="small-text">Total working hours</p>
                     <TotalPillar h1={a} h2={b} h3={c} />
                 </div>
-
 
             </div>
 
