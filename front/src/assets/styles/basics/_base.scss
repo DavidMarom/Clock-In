@@ -67,6 +67,7 @@ p {
   margin: 0 0 1em;
   a {
     color: #000000;
+    text-decoration: underline;
   }
 }
 
@@ -189,6 +190,7 @@ p {
   width: 100%;
   object-fit: cover;
 }
+
 .center-cropped-195 img {
   height: 100%;
   width: 100%;
@@ -252,8 +254,16 @@ p {
   margin-right: 20px;
 }
 
+.mrg-r-10 {
+  margin-right: 10px;
+}
+
 .mrg-v-1 {
   margin-bottom: 1px;
+}
+
+.mrg-v-13 {
+  margin-bottom: 13px;
 }
 
 /* MISC *********************/
@@ -344,9 +354,11 @@ a.visited {
   width: 100%;
   height: 100%;
 }
+
 .tvalign {
   vertical-align: middle;
 }
+
 .pop-image {
   position: fixed;
   top: 0;

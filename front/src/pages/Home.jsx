@@ -28,7 +28,7 @@ export const Home = () => {
             <div className="articles-row">
                 <div className="ann_container">
                     <p className="small-text">Announcements</p>
-                    <div className="pillar-head">What's happenning?</div>
+                    <div className="pillar-head mrg-v-13">What's happenning?</div>
 
                     {
                         (allAnnouncements ?
