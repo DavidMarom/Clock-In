@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser, setPageName } from '../store/actions/userActions';
-// import { loading , doneLoading } from '../store/actions/systemActions';
 import { uploadImg } from '../services/imgUploadService.js';
 let tmp = 'https://res.cloudinary.com/dojmo7vcc/image/upload/v1610371061/clock/profile_wgiuu9.png';
+const loading = require("../assets/img/loading3.gif");
+
+
 
 export const Profile = () => {
     const dispatch = useDispatch();
     const loggedInUser = useSelector((state) => state.user.loggedInUser);
-    // const loading = useSelector((state) => state.system.isLoading);
     const [loggedUserName, setLoggedUserName] = useState('');
     const [loggedUserRole, setLoggedUserRole] = useState('');
     const [loggedUserDob, setLoggedUserDob] = useState('');
@@ -61,7 +62,7 @@ export const Profile = () => {
             <input name="dob" type="date" value={loggedUserDob} onChange={event => { setLoggedUserDob(event.target.value) }} placeholder="Date of Birth" /><br />
             {((loggedInUser.email === 'demo@user.com') ? <p>Cant change email for demo user</p> :
                 <div><input name="email" type="email" value={loggedUserEmail} onChange={event => { setLoggedUserEmail(event.target.value) }} placeholder="Email" /><br /></div>)}
-            { isLoading ? <p>Uploading, please wait</p> :
+            { isLoading ? <img src={loading} alt=""></img> :
                 <div>
 
                     <input type="file" multiple onChange={uploadFile} />

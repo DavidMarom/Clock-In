@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "./store/actions/userActions";
-// import { loadSettings } from './store/actions/settingsActions';
 import { useDispatch, useSelector } from "react-redux";
 
 import { Punch } from "./pages/Punch.jsx";

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPageName } from '../store/actions/userActions';
 import { updateSettings } from '../store/actions/settingsActions';
 import { uploadImg } from '../services/imgUploadService.js';
+const loading = require("../assets/img/loading3.gif");
 
 export const Settings = () => {
     const dispatch = useDispatch();
@@ -33,7 +34,7 @@ export const Settings = () => {
     let form = (
         <form onSubmit={doUpdate}>
 
-            { isLoading ? <p>Uploading, please wait</p> :
+            { isLoading ? <img src={loading} alt=""></img> :
                 <div>
                     <input type="file" multiple onChange={uploadFile} />
                     <button>Save</button>
