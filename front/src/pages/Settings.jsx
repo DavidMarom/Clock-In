@@ -8,14 +8,19 @@ export const Settings = () => {
     const dispatch = useDispatch();
     var settings = useSelector((state) => state.settingsReducer.settings);
     const [compLogo, setCompLogo] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
-    
+
     useEffect(() => { console.log('useEffect on settings page: ', settings); }, [compLogo]);
 
     const uploadFile = async (ev) => {
+        setIsLoading(true);
+
         const recivedImgUrls = await uploadImg(ev)
         setCompLogo(recivedImgUrls);
-        console.log('comp logo: ',compLogo);
+        console.log('comp logo: ', compLogo);
+        setIsLoading(false);
+
     }
 
     const doUpdate = async ev => {
@@ -27,8 +32,13 @@ export const Settings = () => {
 
     let form = (
         <form onSubmit={doUpdate}>
-            <input type="file" multiple onChange={uploadFile} />
-            <button>Save</button>
+
+            { isLoading ? <p>Uploading, please wait</p> :
+                <div>
+                    <input type="file" multiple onChange={uploadFile} />
+                    <button>Save</button>
+                </div>
+            }
         </form>
     )
 
