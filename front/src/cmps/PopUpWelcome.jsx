@@ -1,11 +1,12 @@
 import React from "react";
 import { updateUser } from '../store/actions/userActions';
-import { connect } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { userService } from '../services/userService';
 
 
-function _PopUpWelcome(props) {
-    let { loggedInUser } = props;
+const PopUpWelcome = (props) => {
+    const dispatch = useDispatch()
+    const loggedInUser = useSelector(state => state.user.loggedInUser)
 
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
@@ -14,7 +15,7 @@ function _PopUpWelcome(props) {
 
     const doInOut = async ev => {
         loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
-        props.updateUser(loggedInUser);
+        dispatch(updateUser(loggedInUser))
         sessionStorage.setItem('user', JSON.stringify(loggedInUser))
         props.toggle();
     }
@@ -33,7 +34,7 @@ function _PopUpWelcome(props) {
                                 <button className="close-x" onClick={props.toggle}>X</button>
                             </div>
 
-                            <h1>Welcome Back, {props.loggedInUser.name} !</h1>
+                            <h1>Welcome Back, {loggedInUser.name} !</h1>
                             {(userService.hasInHour(loggedInUser) ?
                                 <div className="grey-text">Leaving so soon?</div> :
                                 <div className="grey-text">start your working day</div>)}
@@ -55,14 +56,4 @@ function _PopUpWelcome(props) {
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        loggedInUser: state.user.loggedInUser,
-    };
-};
-
-const mapDispatchToProps = {
-    updateUser
-};
-
-export const PopUpWelcome = connect(mapStateToProps, mapDispatchToProps)(_PopUpWelcome);
+export default PopUpWelcome

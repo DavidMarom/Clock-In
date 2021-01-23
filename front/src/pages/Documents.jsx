@@ -15,6 +15,10 @@ export const Documents = () => {
     <div>
       <h1>Documents: </h1>
       <img src={docs_img} alt=""></img>
+      <div className="table-wrapper">
+       test test
+        
+      </div>
     </div>
   );
 };

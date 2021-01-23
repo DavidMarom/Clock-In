@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { showPopup, setPageName } from "../store/actions/userActions";
 import { AnnStrip } from "../cmps/AnnStrip";
 import { loadAnn } from '../store/actions/annActions';
-import { PopUpWelcome } from '../cmps/PopUpWelcome';
+import  PopUpWelcome  from '../cmps/PopUpWelcome';
 
 export const Home = () => {
     const dispatch = useDispatch();

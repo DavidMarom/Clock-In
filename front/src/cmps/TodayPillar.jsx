@@ -2,11 +2,13 @@ import React, { useEffect } from "react"
 
 import moment from 'moment'
 import { updateUser } from '../store/actions/userActions';
-import { connect } from 'react-redux';
+import { useDispatch,useSelector } from "react-redux";
 import { userService } from '../services/userService';
 
 const _TodayPillar = (props) => {
-    let { loggedInUser } = props;
+    const dispatch = useDispatch()
+    const loggedInUser = useSelector(state => state.user.loggedInUser)
+
     let currentTime = new Date()
     const currYear = currentTime.getFullYear();
     const currMonth = currentTime.getMonth() + 1;
@@ -16,7 +18,7 @@ const _TodayPillar = (props) => {
 
     const doInOut = async ev => {
         loggedInUser.hours[currYear][currMonth][today].push(Math.round(Date.now() / 1000));
-        props.updateUser(loggedInUser);
+        dispatch(updateUser(loggedInUser))
         sessionStorage.setItem('user', JSON.stringify(loggedInUser))
         props.doRefresh();
     }
@@ -63,14 +65,6 @@ const _TodayPillar = (props) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        loggedInUser: state.user.loggedInUser,
-    };
-};
 
-const mapDispatchToProps = {
-    updateUser
-};
 
-export const TodayPillar = connect(mapStateToProps, mapDispatchToProps)(_TodayPillar);
+export const TodayPillar = (_TodayPillar);
