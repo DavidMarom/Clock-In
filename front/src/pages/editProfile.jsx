@@ -5,8 +5,6 @@ import { uploadImg } from '../services/imgUploadService.js';
 let tmp = 'https://res.cloudinary.com/dojmo7vcc/image/upload/v1610371061/clock/profile_wgiuu9.png';
 const loading = require("../assets/img/loading3.gif");
 
-
-
 export const Profile = () => {
     const dispatch = useDispatch();
     const loggedInUser = useSelector((state) => state.user.loggedInUser);
@@ -15,7 +13,6 @@ export const Profile = () => {
     const [loggedUserDob, setLoggedUserDob] = useState('');
     const [loggedUserImg, setLoggedUserImg] = useState('');
     const [loggedUserEmail, setLoggedUserEmail] = useState('');
-
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
