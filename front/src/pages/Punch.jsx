@@ -4,121 +4,121 @@
 
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
-import { loadUsers, login, logout, signup, updateUser, getUserById, setPageName } from '../store/actions/userActions';
-import { connect } from 'react-redux';
-import { TodayPillar } from '../cmps/TodayPillar';
-import { TotalPillar } from '../cmps/TotalPillar';
-import { TotalPillar2 } from '../cmps/TotalPillar2';
-import { Example } from '../cmps/Example';
-import { timeService } from '../services/timeService';
+import { setPageName } from '../store/actions/userActions'
+import { useSelector, useDispatch } from 'react-redux'
+import { TodayPillar } from '../cmps/TodayPillar'
+import { TotalPillar } from '../cmps/TotalPillar'
+import { TotalPillar2 } from '../cmps/TotalPillar2'
+import { Example } from '../cmps/Example'
+import { timeService } from '../services/timeService'
 
-const _Punch = (props) => {
-    let { loggedInUser, setPageName } = props;
+const _Punch = () => {
+  const dispatch = useDispatch()
 
-    const [refresh, setRefresh] = useState(0);
+  const loggedInUser = useSelector((state) => state.user.loggedInUser)
+  // const users = useSelector(state => state.user.users)
+  // const isLoading = useSelector(state => state.system.isLoading)
 
-    let currentTime = new Date()
-    const currYear = currentTime.getFullYear();
-    const currMonth = currentTime.getMonth() + 1;
-    // const today = currentTime.getDate();
-    let sum = 0;
+  const [refresh, setRefresh] = useState(0)
 
-    const last3Months = timeService.getLast3Months();
-    const a = timeService.sumHours(loggedInUser, last3Months[0]);
-    const b = timeService.sumHours(loggedInUser, last3Months[1]);
-    const c = timeService.sumHours(loggedInUser, last3Months[2]);
+  let currentTime = new Date()
+  const currYear = currentTime.getFullYear()
+  const currMonth = currentTime.getMonth() + 1
+  // const today = currentTime.getDate();
+  let sum = 0
 
-    useEffect(() => { setPageName('Clock in / out'); });
+  const last3Months = timeService.getLast3Months()
+  const a = timeService.sumHours(loggedInUser, last3Months[0])
+  const b = timeService.sumHours(loggedInUser, last3Months[1])
+  const c = timeService.sumHours(loggedInUser, last3Months[2])
 
-    var totalThisMonth = timeService.sumHours(loggedInUser, [currYear, currMonth]);
+  useEffect(() => {
+    dispatch(setPageName('Clock in / out'))
+  })
 
-    const doRefresh = () => { setRefresh(refresh + 1); }
+  var totalThisMonth = timeService.sumHours(loggedInUser, [currYear, currMonth])
 
-    let hours = Object.entries(loggedInUser.hours[currYear][currMonth]);
+  const doRefresh = () => {
+    setRefresh(refresh + 1)
+  }
 
-    return (
-        <div>
-            <Example />
-            <div className="pillars-strip">
-                <div className="pillar">
-                    <p className="small-text">
-                        Today
-                    </p>
-                    <TodayPillar doRefresh={doRefresh} />
-                </div>
-                <div className="pillar">
-                    <p className="small-text">Total working hours</p>
-                    <TotalPillar2 h1={a} h2={b} h3={c} last3Months={last3Months} monthTotalHours={totalThisMonth[0]} monthTotalMinutes={totalThisMonth[1]} />
-                </div>
+  let hours = Object.entries(loggedInUser.hours[currYear][currMonth])
 
-                <div className="pillar">
-                    <p className="small-text">Total working hours</p>
-                    <TotalPillar h1={a} h2={b} h3={c} />
-                </div>
+  return (
+    <div>
+      <Example />
+      <div className="pillars-strip">
+        <div className="pillar">
+          <p className="small-text">Today</p>
+          <TodayPillar doRefresh={doRefresh} />
+        </div>
+        <div className="pillar">
+          <p className="small-text">Total working hours</p>
+          <TotalPillar2
+            h1={a}
+            h2={b}
+            h3={c}
+            last3Months={last3Months}
+            monthTotalHours={totalThisMonth[0]}
+            monthTotalMinutes={totalThisMonth[1]}
+          />
+        </div>
 
-            </div>
+        <div className="pillar">
+          <p className="small-text">Total working hours</p>
+          <TotalPillar h1={a} h2={b} h3={c} />
+        </div>
+      </div>
 
-            <div className="table-wrapper">
-                <div className="table-head2">
-                    <p className="tch">Day</p>
-                    <p className="tch">In</p>
-                    <p className="tch">Out</p>
-                    <p className="tch">Total</p>
-                </div>
+      <div className="table-wrapper">
+        <div className="table-head2">
+          <p className="tch">Day</p>
+          <p className="tch">In</p>
+          <p className="tch">Out</p>
+          <p className="tch">Total</p>
+        </div>
 
-                {hours.map((day, idx) => {
-                    if (day[1].length > 1) {
-                        sum += (day[1][1] - day[1][0]);
-                    }
+        {hours.map((day, idx) => {
+          if (day[1].length > 1) {
+            sum += day[1][1] - day[1][0]
+          }
 
-                    if (day[1].length > 0) {
-                        return (
+          if (day[1].length > 0) {
+            return (
+              <div key={idx} className="table2">
+                <p className="tc">{day[0]}</p>
+                <p className="tc">{moment.unix(day[1][0]).format('HH:mm')}</p>
+                {day[1].length > 1 ? (
+                  <p className="tc">{moment.unix(day[1][1]).format('HH:mm')}</p>
+                ) : (
+                  <p className="tc">-</p>
+                )}
 
-                            <div key={idx} className="table2">
-                                <p className="tc">{day[0]}</p>
-                                <p className="tc">{moment.unix(day[1][0]).format('HH:mm')}</p>
-                                {(day[1].length > 1 ? <p className="tc">{moment.unix(day[1][1]).format('HH:mm')}</p> : <p className="tc">-</p>)}
+                {day[1].length > 1 ? (
+                  <p className="tc">
+                    {Math.floor((day[1][1] - day[1][0]) / 3600)}h⠀
+                    {Math.round((((day[1][1] - day[1][0]) / 3600) % 1) * 60)}m
+                  </p>
+                ) : (
+                  <p className="tc">-</p>
+                )}
+              </div>
+            )
+          }
+        })}
 
-                                {(day[1].length > 1 ?
-                                    (
-                                        <p className="tc">
-                                            {Math.floor(((day[1][1] - day[1][0])) / 3600)}h⠀
-                                            {Math.round((((day[1][1] - day[1][0]) / 3600) % 1) * 60)}m
-                                        </p>
-                                    )
-
-                                    : <p className="tc">-</p>)}
-                            </div>
-                        )
-                    }
-                })}
-
-                <div className="table-head2">
-                    <p className="tch"></p>
-                    <p className="tch"></p>
-                    <p className="tch"></p>
-                    <p className="tch">
-                        {Math.floor(((sum)) / 3600)}h⠀
-                        {Math.round((((sum) / 3600) % 1) * 60)}m
-
-                    </p>
-                </div>
-
-            </div>
-        </div >
-    )
+        <div className="table-head2">
+          <p className="tch"></p>
+          <p className="tch"></p>
+          <p className="tch"></p>
+          <p className="tch">
+            {Math.floor(sum / 3600)}h⠀
+            {Math.round(((sum / 3600) % 1) * 60)}m
+          </p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
-const mapStateToProps = state => {
-    return {
-        users: state.user.users,
-        loggedInUser: state.user.loggedInUser,
-        isLoading: state.system.isLoading
-    };
-};
-
-const mapDispatchToProps = {
-    setPageName, login, logout, signup, loadUsers, updateUser, getUserById
-};
-
-export const Punch = connect(mapStateToProps, mapDispatchToProps)(_Punch);
+export const Punch = _Punch
