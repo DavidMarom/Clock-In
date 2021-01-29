@@ -27,11 +27,11 @@ async function getAllAnnouncements(req, res) {
 //     res.end()
 // }
 
-// async function updateAnnouncement(req, res) {
-//     const announcements = req.body;
-//     await announcementService.update(announcements)
-//     res.send(announcements)
-// }
+async function addAnnouncement(req, res) {
+    const announcements = req.body;
+    await announcementService.add(announcements)
+    res.send(announcements)
+}
 
 // async function updateAnnouncement2(req, res) {
 //     const announcements = req.body;
@@ -40,5 +40,6 @@ async function getAllAnnouncements(req, res) {
 // }
 
 module.exports = {
-    getAllAnnouncements
+    getAllAnnouncements,
+    addAnnouncement
 }

@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 export const Announcments = (props) => {
   const [formTitle, setFormTitle] = useState('');
   const [formSubTitle, setFormSubTitle] = useState('');
-  const [formEventType, setFormEventType] = useState('');
+  const [formEventType, setFormEventType] = useState('meeting');
+  const [formDate, setFormDate] = useState('');
 
   const dispatch = useDispatch()
   useEffect(() => { dispatch(loadAnn()) }, [])
@@ -19,6 +20,7 @@ export const Announcments = (props) => {
     console.log(formTitle);
     console.log(formSubTitle);
     console.log(formEventType);
+    console.log(formDate);
     // dispatch(updateUser(newUser));
   };
 
@@ -34,6 +36,12 @@ export const Announcments = (props) => {
         <option value="meeting">Meeting</option>
         <option value="birthday">Birthday</option>
       </select>
+      <br />
+
+      <input name="date" type="date" onChange={event => { setFormDate(event.target.value) }} /><br />
+
+
+
       <button>Add Announcement</button>
 
     </form>
