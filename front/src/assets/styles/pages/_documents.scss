@@ -1,0 +1,64 @@
+.Timesheet {
+  width: 400px;
+  height: 24px;
+  font-family: FiraSans;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+  color: #383874;
+}
+
+.upload-btn {
+  border-radius: 100px;
+  color: #5c46f9;
+  margin: 16px 16px 32px 6px;
+  padding: 5px 35px 8px 20px;
+  border: solid 2px #5c46f9;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+
+  .fa-upload {
+    padding: 8px 8px;
+    font-size: 1.1rem;
+  }
+}
+.folder-btn {
+  width: 100px;
+  padding: 12px 30px;
+  margin: 16px 16px 32px 6px;
+  border-radius: 100px;
+  border: solid 2px #5c46f9;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  
+  .fa-folder-plus {
+      // padding: 5px 1px;
+      margin: 1px 1px;
+      color: #5c46f9;
+      font-size: 1.2rem;
+    }
+}
+
+.tickets {
+  height: 65px;
+  margin: 32px 0px 0 0;
+  padding: 24px 0 0;
+
+  .ticket-name {
+    font-family: FiraSans;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    color: #383874;
+  }
+}
+
+.hr {
+  border: 0;
+  height: 1px;
+  background-color: #e5e5f0;
+//   margin: 0 auto;
+}
