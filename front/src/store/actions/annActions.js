@@ -11,10 +11,10 @@ export function loadAnn() {
     };
 }
 
-// export function updateSettings(set) {
+// export function addAnn(ann) {
 //     return async dispatch => {
 //         try {
-//             const _set = await settingsService.update(set);
+//             const _set = await settingsService.addAnn(set);
 //             dispatch({ type: 'UPDATE_SET', _set })
 //         } catch (err) {
 //             console.log('SettingsActions: err in updateSettings', err);
