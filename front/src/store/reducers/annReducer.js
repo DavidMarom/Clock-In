@@ -8,8 +8,8 @@ export function annReducer(state = initialState, action = {}) {
         case 'LOAD_ANN':
             return { ann: action.allAnn };
 
-        // case 'UPDATE_SET':
-        //     return { settings: [action._set] };
+        // case 'UPDATE_ANN':
+        //     return { ...state, ann: state.ann.push(action.) };
 
         default:
             return state
