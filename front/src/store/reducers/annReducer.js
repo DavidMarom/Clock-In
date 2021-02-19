@@ -1,6 +1,5 @@
 const initialState = {
-    ann: [{
-    }]
+    ann: []
 };
 
 export function annReducer(state = initialState, action = {}) {
@@ -8,8 +7,10 @@ export function annReducer(state = initialState, action = {}) {
         case 'LOAD_ANN':
             return { ann: action.allAnn };
 
-        // case 'UPDATE_ANN':
-        //     return { ...state, ann: state.ann.push(action.) };
+        case 'ADD_ANN':
+            // return { ...state, ann: state.ann.push(action._ann) };
+            return { ...state, ann: state.ann.map(ann => (action._ann._id === ann._id) ? action._ann : ann) }
+
 
         default:
             return state

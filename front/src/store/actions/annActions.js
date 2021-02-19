@@ -11,13 +11,14 @@ export function loadAnn() {
     };
 }
 
-// export function addAnn(ann) {
-//     return async dispatch => {
-//         try {
-//             const _set = await settingsService.addAnn(set);
-//             dispatch({ type: 'UPDATE_SET', _set })
-//         } catch (err) {
-//             console.log('SettingsActions: err in updateSettings', err);
-//         }
-//     }
-// }
+export function addAnn(ann) {
+    console.log('In annActions.js (store actions)', ann);
+    return async dispatch => {
+        try {
+            const _ann = await announcementsService.addAnn(ann);
+            dispatch({ type: 'ADD_ANN', _ann })
+        } catch (err) {
+            console.log('SettingsActions: err in updateSettings', err);
+        }
+    }
+}

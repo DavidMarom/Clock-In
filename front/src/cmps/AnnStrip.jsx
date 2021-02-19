@@ -16,8 +16,8 @@ export const AnnStrip = (props) => {
 
                 <div className="ann-small-text">
 
-                    {props.ann.type == 'meeting' ? <i className="far fa-calendar-alt mrg-r-10 ann-icon"></i> : null}
-                    {props.ann.type == 'birthday' ? <i className="fas fa-birthday-cake mrg-r-10 ann-icon2"></i> : null}
+                    {props.ann.type === 'meeting' ? <i className="far fa-calendar-alt mrg-r-10 ann-icon"></i> : null}
+                    {props.ann.type === 'birthday' ? <i className="fas fa-birthday-cake mrg-r-10 ann-icon2"></i> : null}
 
                     {day.getDate()} {timeService.numToMonth(day.getMonth() + 1)}, {day.getFullYear()}
                 </div>

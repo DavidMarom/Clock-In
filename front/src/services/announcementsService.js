@@ -10,9 +10,9 @@ async function getAnnouncements() {
     }
 }
 
-async function addAnn() {
+async function addAnn(req) {
     try {
-        const res = await httpService.put(`announcement/`);
+        const res = await httpService.put(`announcement/add`,req);
         return res;
     } catch (err) {
         console.log(err);
