@@ -12,7 +12,6 @@ export function loadAnn() {
 }
 
 export function addAnn(ann) {
-    console.log('In annActions.js (store actions)', ann);
     return async dispatch => {
         try {
             const _ann = await announcementsService.addAnn(ann);
