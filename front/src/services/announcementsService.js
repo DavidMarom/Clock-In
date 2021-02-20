@@ -19,10 +19,14 @@ async function addAnn(req) {
     }
 }
 
+function remove(annId) {
+    return httpService.delete(`announcement/${annId}`)
+}
 
 
 export const announcementsService = {
     getAnnouncements,
-    addAnn
+    addAnn,
+    remove
 };
 

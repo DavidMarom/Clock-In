@@ -22,10 +22,10 @@ async function getAllAnnouncements(req, res) {
 //     res.send(announcements)
 // }
 
-// async function deleteAnnouncement(req, res) {
-//     await announcementService.remove(req.params.id)
-//     res.end()
-// }
+async function deleteAnnouncement(req, res) {
+    await announcementService.remove(req.params.id)
+    res.end()
+}
 
 async function addAnnouncement(req, res) {
     const announcements = req.body;
@@ -41,5 +41,6 @@ async function addAnnouncement(req, res) {
 
 module.exports = {
     getAllAnnouncements,
-    addAnnouncement
+    addAnnouncement,
+    deleteAnnouncement
 }

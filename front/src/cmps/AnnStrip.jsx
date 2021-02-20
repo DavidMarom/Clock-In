@@ -1,11 +1,18 @@
 import React from 'react'
 import { timeService } from '../services/timeService';
+import { removeAnn } from '../store/actions/annActions';
+
+import { useDispatch, useSelector } from 'react-redux'
+
 
 export const AnnStrip = (props) => {
+    const dispatch = useDispatch()
 
     const day = new Date(props.ann.date)
 
-    const delAnn = () =>{
+    const delAnn = () => {
+        dispatch(removeAnn(props.ann._id));
+
 
     }
 
@@ -17,7 +24,7 @@ export const AnnStrip = (props) => {
                 <div className="pillar-head-dark">
                     <a href={props.ann.link} target="_blank">{props.ann.title}</a>
                 </div>
-                <div className="pillar-head-dark trash-btn" onClick={delAnn(props.ann)}>
+                <div className="pillar-head-dark trash-btn" onClick={() => delAnn(props.ann)}>
                     <i className="fas fa-trash-alt"></i>
                 </div>
             </div>

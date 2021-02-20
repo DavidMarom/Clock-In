@@ -13,6 +13,10 @@ export function annReducer(state = initialState, action = {}) {
             // return { ...state, ann: state.ann.map(ann => (action._ann._id === ann._id) ? action._ann : ann) }
             return { ...state, ann: [...state.ann, state.ann.map(ann => (action._ann._id === ann._id) ? action._ann : ann)] }
 
+        case 'REMOVE_ANN':
+            return  { ...state, ann: state.ann.filter(ann => ann._id !== action.annId) };
+
+
 
         default:
             return state

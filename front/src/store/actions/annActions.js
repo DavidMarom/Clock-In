@@ -21,3 +21,15 @@ export function addAnn(ann) {
         }
     }
 }
+
+
+export function removeAnn(annId) {
+    return async dispatch => {
+        try {
+            await announcementsService.remove(annId);
+            dispatch({ type: 'REMOVE_ANN', annId });
+        } catch (err) {
+            console.log('AnnActions: err in removeAnn', err);
+        }
+    };
+}

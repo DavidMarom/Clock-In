@@ -2,7 +2,7 @@ const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
-    query3, add
+    query3, add, remove
 }
 
 // async function query(filterBy) {
@@ -139,6 +139,18 @@ async function add(ann) {
         throw err;
     }
 }
+
+
+async function remove(annId) {
+    const collection = await dbService.getCollection('announcements')
+    try {
+        await collection.deleteOne({ "_id": ObjectId(annId) })
+    } catch (err) {
+        console.log(`ERROR: cannot remove announcement ${annId}`)
+        throw err;
+    }
+}
+
 
 // function _buildCriteria(filterBy) {
 //     const criteria = {};

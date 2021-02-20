@@ -1,6 +1,6 @@
 const express = require('express')
 const { requireAuth, requireAdmin } = require('../../middlewares/requireAuth.middleware')
-const { getAllAnnouncements, addAnnouncement } = require('./announcement.controller')
+const { getAllAnnouncements, addAnnouncement, deleteAnnouncement } = require('./announcement.controller')
 const router = express.Router()
 
 router.get('/', getAllAnnouncements)
@@ -9,6 +9,6 @@ router.get('/', getAllAnnouncements)
 // router.get('/:filter', getAnnouncements)
 // router.get('/:id', getAnnouncement)
 router.put('/add', addAnnouncement)
-// router.delete('/:id', requireAdmin, deleteAnnouncement)
+router.delete('/:id', deleteAnnouncement)
 
 module.exports = router
