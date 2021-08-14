@@ -5,8 +5,6 @@
 # Clock-In
 - A modern employee management system
 
-[Public website: https://clockin.website/](https://clockin.website/)
-
 # Run Locally:
 - run `npm i` in both back and front folders
 - put the pass.js in the correct folder (will be provided by Slack)
